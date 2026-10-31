@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NPPAD Digital Twin — Twin Console</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="mission" id="hdr"></header>
+<div class="wrap">
+
+  <div class="grid g21">
+    <div class="panel">
+      <h2>PLANT TWIN — LIVE PLAYBACK OF A RECORDED TEST TRANSIENT</h2>
+      <p class="dim small">The twin mirrors a genuine NPPAD test run from the study's held out
+      test split. Playback is the recorded plant data; the twin state tracks it sample by
+      sample. When playback passes the end of the first diagnosis window, the onboard
+      model's computed diagnosis for this exact run appears in the event panel.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;margin:10px 0">
+        <div><label class="lbl">TEST RUN</label><select id="runSel"></select></div>
+        <div><label class="lbl">CHANNEL</label><select id="chSel"></select></div>
+        <div><label class="lbl">PLAYBACK</label>
+          <button id="playBtn" class="primary">▶ PLAY</button>
+          <button id="resetBtn">RESET</button></div>
+        <div style="flex:1;min-width:180px"><label class="lbl">SCRUB</label>
+          <input type="range" id="scrub" min="0" max="100" value="0"></div>
+      </div>
+      <canvas class="chart" id="chart" width="760" height="300"></canvas>
+      <div class="lights" style="margin-top:10px">
+        <span class="light"><span class="dot"></span>TWIN SYNC</span>
+        <span class="light"><span class="dot cyan"></span>SENSOR STREAM</span>
+        <span class="light"><span class="dot amber"></span>GROUND LINK DELAYED</span>
+        <span class="light"><span class="dot"></span>EDGE MODEL NOMINAL</span>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>DIAGNOSIS EVENT</h3>
+      <div id="diagBox">
+        <p class="dim small">No diagnosis yet. The first window closes 60 s after onset
+        (t = 160 s). The edge model decides on board, at the point of capture.
+        Ground is not consulted.</p>
+      </div>
+      <h3 style="margin-top:16px">MISSION RULE</h3>
+      <p class="small dim">A ground round trip over an interplanetary link takes minutes
+      to tens of minutes. An accident transient does not wait. The diagnosis therefore
+      has to happen where the data is born: on the edge processor riding with the plant.</p>
+    </div>
+  </div>
+
+  <div class="grid g2">
+    <div class="panel">
+      <h3>TELEMETRY — PHYSICAL PLANT vs TWIN STATE</h3>
+      <table class="tel"><thead><tr>
+        <th>CHANNEL</th><th style="text-align:right">PHYSICAL</th>
+        <th style="text-align:right">TWIN</th><th style="text-align:right">DELTA</th><th>STATE</th>
+      </tr></thead><tbody id="telBody"></tbody></table>
+      <p class="dim small" id="telTime"></p>
+    </div>
+
+    <div class="panel">
+      <h3>FLIGHT MODEL HEALTH — NPPAD-EDGE PAYLOAD</h3>
+      <div id="health"></div>
+      <p class="dim small">Measured with the pure NumPy edge runtime on a single core
+      under a spacecraft style budget. Full benchmark record ships with the
+      NPPAD-Edge project.</p>
+    </div>
+  </div>
+
+  <div class="grid g2">
+    <div class="panel">
+      <h3>WHY THE TWIN RIDES ALONG</h3>
+      <p>Engineers use digital twin technology to simulate and verify behaviour before
+      committing commands to a real system. This twin does the same job for a reactor
+      in deep space: it replays genuine accident transients against the flight
+      diagnosis model, so the model's behaviour on LOCA, steam generator tube rupture
+      and the rest of the accident set is known before the hardware ever flies.</p>
+      <p>The twin and the flight console share one model and one set of computed
+      results. What the twin shows is what the spacecraft would decide.</p>
+    </div>
+    <div class="panel">
+      <h3>THE LINK BUDGET PROBLEM</h3>
+      <p class="small dim">Drag the distance. Light time is physics, not engineering:
+      no radio closes this gap. Compare the ground round trip with the onboard
+      decision time of the edge model.</p>
+      <label class="lbl">DISTANCE TO EARTH (AU)</label>
+      <input type="range" id="au" min="0.4" max="2.6" step="0.1" value="1.5">
+      <div id="linkOut"></div>
+    </div>
+  </div>
+
+  <footer id="ftr"></footer>
+</div>
+<script src="js/common.js"></script>
+<script src="js/twin.js"></script>
+</body>
+</html>

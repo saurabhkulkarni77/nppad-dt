@@ -1,0 +1,215 @@
+{
+ "classes": [
+  "LOCA",
+  "LOCAC",
+  "SLBIC",
+  "SLBOC",
+  "SGATR",
+  "SGBTR",
+  "RW",
+  "RI",
+  "FLB",
+  "MD",
+  "LR",
+  "LLB"
+ ],
+ "layout": {
+  "pre_log_idx": {
+   "offset": 0,
+   "shape": [
+    12
+   ],
+   "dtype": "int32"
+  },
+  "pre_log_s": {
+   "offset": 48,
+   "shape": [
+    12
+   ],
+   "dtype": "float32"
+  },
+  "pre_mu": {
+   "offset": 96,
+   "shape": [
+    88
+   ],
+   "dtype": "float32"
+  },
+  "pre_sd": {
+   "offset": 448,
+   "shape": [
+    88
+   ],
+   "dtype": "float32"
+  },
+  "mr_indices": {
+   "offset": 800,
+   "shape": [
+    84,
+    3
+   ],
+   "dtype": "int32"
+  },
+  "mr0_nchan": {
+   "offset": 1808,
+   "shape": [
+    84
+   ],
+   "dtype": "int32"
+  },
+  "mr0_chan": {
+   "offset": 2144,
+   "shape": [
+    281
+   ],
+   "dtype": "int32"
+  },
+  "mr0_dil": {
+   "offset": 3268,
+   "shape": [
+    1
+   ],
+   "dtype": "int32"
+  },
+  "mr0_nfpd": {
+   "offset": 3272,
+   "shape": [
+    1
+   ],
+   "dtype": "int32"
+  },
+  "mr0_bias": {
+   "offset": 3276,
+   "shape": [
+    6216
+   ],
+   "dtype": "float32"
+  },
+  "mr1_nchan": {
+   "offset": 28140,
+   "shape": [
+    84
+   ],
+   "dtype": "int32"
+  },
+  "mr1_chan": {
+   "offset": 28476,
+   "shape": [
+    275
+   ],
+   "dtype": "int32"
+  },
+  "mr1_dil": {
+   "offset": 29576,
+   "shape": [
+    1
+   ],
+   "dtype": "int32"
+  },
+  "mr1_nfpd": {
+   "offset": 29580,
+   "shape": [
+    1
+   ],
+   "dtype": "int32"
+  },
+  "mr1_bias": {
+   "offset": 29584,
+   "shape": [
+    6216
+   ],
+   "dtype": "float32"
+  },
+  "hy_W": {
+   "offset": 54448,
+   "shape": [
+    1,
+    2,
+    256,
+    9
+   ],
+   "dtype": "float32"
+  },
+  "hy_idx": {
+   "offset": 72880,
+   "shape": [
+    1,
+    2,
+    32,
+    8
+   ],
+   "dtype": "int32"
+  },
+  "hy_dil": {
+   "offset": 74928,
+   "shape": [
+    1
+   ],
+   "dtype": "int32"
+  },
+  "hy_pad": {
+   "offset": 74932,
+   "shape": [
+    1
+   ],
+   "dtype": "int32"
+  },
+  "feat_mu": {
+   "offset": 74936,
+   "shape": [
+    49728
+   ],
+   "dtype": "float32"
+  },
+  "feat_sd": {
+   "offset": 273848,
+   "shape": [
+    49728
+   ],
+   "dtype": "float32"
+  },
+  "hy_mu": {
+   "offset": 472760,
+   "shape": [
+    1024
+   ],
+   "dtype": "float32"
+  },
+  "hy_sigma": {
+   "offset": 476856,
+   "shape": [
+    1024
+   ],
+   "dtype": "float32"
+  },
+  "head_coef": {
+   "offset": 480952,
+   "shape": [
+    50752,
+    12
+   ],
+   "dtype": "float32"
+  },
+  "head_intercept": {
+   "offset": 2917048,
+   "shape": [
+    12
+   ],
+   "dtype": "float32"
+  }
+ },
+ "constants": {
+  "channels": 88,
+  "steps": 6,
+  "padTo": 12,
+  "clip": 10.0,
+  "t0_s": 100.0,
+  "W_s": 60,
+  "dt_s": 10.0,
+  "hydraGroups": 64,
+  "hydraKernels": 8,
+  "mrFeatures": 49728,
+  "hyFeatures": 1024
+ },
+ "provenance": "Exported from NPPAD-Edge bundle primary_w60.npz (study fitted MultiRocket+HYDRA + ridge head)."
+}

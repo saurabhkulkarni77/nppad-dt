@@ -1,0 +1,539 @@
+{
+ "classes": [
+  "LOCA",
+  "LOCAC",
+  "SLBIC",
+  "SLBOC",
+  "SGATR",
+  "SGBTR",
+  "RW",
+  "RI",
+  "FLB",
+  "MD",
+  "LR",
+  "LLB"
+ ],
+ "splits": {
+  "train": 725,
+  "validation": 242,
+  "test": 244
+ },
+ "channels": {
+  "total": 96,
+  "realistic": 88,
+  "oracleExcluded": [
+   "WLR",
+   "HLW",
+   "WBK",
+   "MBK",
+   "EBK",
+   "WTRA",
+   "WTRB",
+   "WFLB"
+  ]
+ },
+ "windows_s": [
+  30,
+  60,
+  120,
+  300,
+  600
+ ],
+ "grid_t0_100_realistic": {
+  "LogReg": {
+   "30": {
+    "macroF1": 0.894789,
+    "accuracy": 0.895833
+   },
+   "60": {
+    "macroF1": 0.860611,
+    "accuracy": 0.875
+   },
+   "120": {
+    "macroF1": 0.857427,
+    "accuracy": 0.875
+   },
+   "300": {
+    "macroF1": 0.851065,
+    "accuracy": 0.870833
+   },
+   "600": {
+    "macroF1": 0.853633,
+    "accuracy": 0.875
+   }
+  },
+  "LogReg+": {
+   "30": {
+    "macroF1": 0.971539,
+    "accuracy": 0.970833
+   },
+   "60": {
+    "macroF1": 0.967512,
+    "accuracy": 0.966667
+   },
+   "120": {
+    "macroF1": 0.967741,
+    "accuracy": 0.966667
+   },
+   "300": {
+    "macroF1": 0.957686,
+    "accuracy": 0.958333
+   },
+   "600": {
+    "macroF1": 0.959282,
+    "accuracy": 0.958333
+   }
+  },
+  "Random Forest": {
+   "30": {
+    "macroF1": 0.959704,
+    "accuracy": 0.958333
+   },
+   "60": {
+    "macroF1": 0.963573,
+    "accuracy": 0.9625
+   },
+   "120": {
+    "macroF1": 0.959691,
+    "accuracy": 0.958333
+   },
+   "300": {
+    "macroF1": 0.951157,
+    "accuracy": 0.95
+   },
+   "600": {
+    "macroF1": 0.966391,
+    "accuracy": 0.966667
+   }
+  },
+  "CNN": {
+   "30": {
+    "macroF1": 0.9716,
+    "accuracy": null
+   },
+   "60": {
+    "macroF1": 0.9677,
+    "accuracy": null
+   },
+   "120": {
+    "macroF1": 0.9679,
+    "accuracy": null
+   },
+   "300": {
+    "macroF1": 0.9666,
+    "accuracy": null
+   },
+   "600": {
+    "macroF1": 0.93,
+    "accuracy": null
+   }
+  },
+  "GRU": {
+   "30": {
+    "macroF1": 0.9634,
+    "accuracy": null
+   },
+   "60": {
+    "macroF1": 0.9635,
+    "accuracy": null
+   },
+   "120": {
+    "macroF1": 0.9707,
+    "accuracy": null
+   },
+   "300": {
+    "macroF1": 0.8585,
+    "accuracy": null
+   },
+   "600": {
+    "macroF1": 0.7584,
+    "accuracy": null
+   }
+  },
+  "MultiRocket+HYDRA": {
+   "30": {
+    "macroF1": 0.987767,
+    "accuracy": 0.9875
+   },
+   "60": {
+    "macroF1": 0.983799,
+    "accuracy": 0.983333
+   },
+   "120": {
+    "macroF1": 0.987587,
+    "accuracy": 0.9875
+   },
+   "300": {
+    "macroF1": 0.987097,
+    "accuracy": 0.9875
+   },
+   "600": {
+    "macroF1": 0.987094,
+    "accuracy": 0.9875
+   }
+  },
+  "Rocket": {
+   "30": {
+    "macroF1": 0.967592,
+    "accuracy": 0.966667
+   },
+   "60": {
+    "macroF1": 0.971368,
+    "accuracy": 0.970833
+   },
+   "120": {
+    "macroF1": 0.991862,
+    "accuracy": 0.991667
+   },
+   "300": {
+    "macroF1": 0.978531,
+    "accuracy": 0.979167
+   },
+   "600": {
+    "macroF1": 0.978656,
+    "accuracy": 0.979167
+   }
+  },
+  "MiniRocket": {
+   "30": {
+    "macroF1": 0.991756,
+    "accuracy": 0.991667
+   },
+   "60": {
+    "macroF1": 0.975037,
+    "accuracy": 0.975
+   },
+   "120": {
+    "macroF1": 0.987589,
+    "accuracy": 0.9875
+   },
+   "300": {
+    "macroF1": 0.978707,
+    "accuracy": 0.979167
+   },
+   "600": {
+    "macroF1": 0.978656,
+    "accuracy": 0.979167
+   }
+  }
+ },
+ "edge": {
+  "benchmarks": {
+   "W60": {
+    "primary": {
+     "macro_F1": 0.9837988396553342,
+     "accuracy": 0.9833333333333333,
+     "latency_ms_mean": 78.71440839998438,
+     "latency_ms_p95": 139.46635115062233,
+     "latency_ms_max": 287.3248890000468,
+     "n_windows": 240
+    },
+    "fallback": {
+     "macro_F1": 0.9569539033431322,
+     "accuracy": 0.9541666666666667,
+     "latency_ms_mean": 0.13480649583546742,
+     "latency_ms_p95": 0.08377994977308822,
+     "latency_ms_max": 2.345951999814133,
+     "n_windows": 240
+    },
+    "peak_rss_mb": 446.43359375
+   },
+   "W120": {
+    "primary": {
+     "macro_F1": 0.9875867184432131,
+     "accuracy": 0.9875,
+     "latency_ms_mean": 84.20573438749746,
+     "latency_ms_p95": 158.69797974942227,
+     "latency_ms_max": 339.2311880006673,
+     "n_windows": 240
+    },
+    "fallback": {
+     "macro_F1": 0.9528152095034418,
+     "accuracy": 0.95,
+     "latency_ms_mean": 0.15326422915601748,
+     "latency_ms_p95": 0.21637104919136266,
+     "latency_ms_max": 3.18888799938577,
+     "n_windows": 240
+    },
+    "peak_rss_mb": 454.8046875
+   },
+   "payload_only_peak_rss_mb": 72.92,
+   "bundle_total_bytes": 1981039
+  },
+  "modelCardMetrics": {
+   "W60": {
+    "W": 60,
+    "n_windows": {
+     "train": 715,
+     "val": 238,
+     "test": 240
+    },
+    "features": {
+     "multirocket": 49728,
+     "hydra": 1024
+    },
+    "numpy_vs_aeon_max_abs_diff": {
+     "multirocket": 0.00000762939453125,
+     "hydra": 0.0000019073486328125
+    },
+    "head": {
+     "selected": "ridge_a0.1",
+     "val_macro_F1": 0.996011396011396,
+     "test_macro_F1_float32": 0.9837988396553342,
+     "candidate_val_scores": {
+      "logreg_C0.003": 0.9796318180464523,
+      "logreg_C0.01": 0.9878735762882105,
+      "logreg_C0.03": 0.9878735762882105,
+      "logreg_C0.1": 0.9878735762882105,
+      "logreg_C0.3": 0.9878735762882105,
+      "ridge_a0.1": 0.996011396011396,
+      "ridge_a1.0": 0.996011396011396,
+      "ridge_a10.0": 0.9920428487501658,
+      "ridge_a100.0": 0.9920428487501658,
+      "ridge_a1000.0": 0.9920428487501658,
+      "ridge_a10000.0": 0.9796318180464523
+     }
+    },
+    "fallback": {
+     "selected": "C=1.0",
+     "val_macro_F1": 0.9680031540777724,
+     "test_macro_F1": 0.9569539033431322,
+     "candidate_val_scores": {
+      "logreg_C0.001": 0.6733977648896176,
+      "logreg_C0.003": 0.7525191818084109,
+      "logreg_C0.01": 0.8413399994282348,
+      "logreg_C0.03": 0.9288174302123314,
+      "logreg_C0.1": 0.9534926144064979,
+      "logreg_C0.3": 0.9640231102041116,
+      "logreg_C1.0": 0.9680031540777724
+     }
+    },
+    "reference_study_macro_F1": 0.9838,
+    "reference_logregplus_macro_F1": 0.9675,
+    "seconds": 273.7,
+    "edge_bundle_test_macro_F1": 0.9837988396553342
+   },
+   "W120": {
+    "W": 120,
+    "n_windows": {
+     "train": 715,
+     "val": 238,
+     "test": 240
+    },
+    "features": {
+     "multirocket": 49728,
+     "hydra": 1024
+    },
+    "numpy_vs_aeon_max_abs_diff": {
+     "multirocket": 0.00000762939453125,
+     "hydra": 0.000003814697265625
+    },
+    "head": {
+     "selected": "ridge_a0.1",
+     "val_macro_F1": 0.9958307275380447,
+     "test_macro_F1_float32": 0.9875867184432131,
+     "candidate_val_scores": {
+      "logreg_C0.003": 0.9833229101521784,
+      "logreg_C0.01": 0.9874921826141337,
+      "logreg_C0.03": 0.9916666666666667,
+      "logreg_C0.1": 0.9916666666666667,
+      "logreg_C0.3": 0.9916666666666667,
+      "ridge_a0.1": 0.9958307275380447,
+      "ridge_a1.0": 0.9958307275380447,
+      "ridge_a10.0": 0.9958307275380447,
+      "ridge_a100.0": 0.9958307275380447,
+      "ridge_a1000.0": 0.9958307275380447,
+      "ridge_a10000.0": 0.9791379637335992
+     }
+    },
+    "fallback": {
+     "selected": "C=1.0",
+     "val_macro_F1": 0.9676092027350608,
+     "test_macro_F1": 0.9528152095034418,
+     "candidate_val_scores": {
+      "logreg_C0.001": 0.632081166911869,
+      "logreg_C0.003": 0.7869421460097348,
+      "logreg_C0.01": 0.9147152538970006,
+      "logreg_C0.03": 0.9352499126995854,
+      "logreg_C0.1": 0.9554639887786585,
+      "logreg_C0.3": 0.9638182076591931,
+      "logreg_C1.0": 0.9676092027350608
+     }
+    },
+    "reference_study_macro_F1": 0.9876,
+    "reference_logregplus_macro_F1": 0.9677,
+    "seconds": 237.6,
+    "edge_bundle_test_macro_F1": 0.9875867184432131
+   }
+  },
+  "bundleBytes": 1981039
+ },
+ "jsVerification": {
+  "scenariosChecked": 16,
+  "argmaxAgreement": 16,
+  "maxProbaDiff": 0.00253,
+  "detail": [
+   {
+    "id": "test-LOCA-1.csv",
+    "js": "FLB",
+    "ref": "FLB",
+    "ok": true,
+    "jsConf": 0.1561,
+    "refConf": 0.1561,
+    "maxDp": 0,
+    "nodeMs": 117
+   },
+   {
+    "id": "test-LOCAC-1.csv",
+    "js": "LOCAC",
+    "ref": "LOCAC",
+    "ok": true,
+    "jsConf": 0.2056,
+    "refConf": 0.2056,
+    "maxDp": 0,
+    "nodeMs": 26
+   },
+   {
+    "id": "test-SLBIC-1.csv",
+    "js": "SLBIC",
+    "ref": "SLBIC",
+    "ok": true,
+    "jsConf": 0.3619,
+    "refConf": 0.3615,
+    "maxDp": 0.00253,
+    "nodeMs": 35
+   },
+   {
+    "id": "test-SLBOC-1.csv",
+    "js": "SLBOC",
+    "ref": "SLBOC",
+    "ok": true,
+    "jsConf": 0.2388,
+    "refConf": 0.2389,
+    "maxDp": 0.00019,
+    "nodeMs": 13
+   },
+   {
+    "id": "test-SGATR-1.csv",
+    "js": "SGATR",
+    "ref": "SGATR",
+    "ok": true,
+    "jsConf": 0.192,
+    "refConf": 0.192,
+    "maxDp": 0,
+    "nodeMs": 7
+   },
+   {
+    "id": "test-SGBTR-1.csv",
+    "js": "SGATR",
+    "ref": "SGATR",
+    "ok": true,
+    "jsConf": 0.1373,
+    "refConf": 0.1373,
+    "maxDp": 0,
+    "nodeMs": 4
+   },
+   {
+    "id": "test-RW-1.csv",
+    "js": "RW",
+    "ref": "RW",
+    "ok": true,
+    "jsConf": 0.1593,
+    "refConf": 0.1593,
+    "maxDp": 0,
+    "nodeMs": 7
+   },
+   {
+    "id": "test-RI--10.csv",
+    "js": "RI",
+    "ref": "RI",
+    "ok": true,
+    "jsConf": 0.3678,
+    "refConf": 0.3678,
+    "maxDp": 0,
+    "nodeMs": 4
+   },
+   {
+    "id": "test-FLB-1.csv",
+    "js": "FLB",
+    "ref": "FLB",
+    "ok": true,
+    "jsConf": 0.1725,
+    "refConf": 0.1724,
+    "maxDp": 0.00018,
+    "nodeMs": 4
+   },
+   {
+    "id": "test-MD-1.csv",
+    "js": "MD",
+    "ref": "MD",
+    "ok": true,
+    "jsConf": 0.4016,
+    "refConf": 0.4018,
+    "maxDp": 0.0002,
+    "nodeMs": 5
+   },
+   {
+    "id": "test-LR-1.csv",
+    "js": "SGBTR",
+    "ref": "SGBTR",
+    "ok": true,
+    "jsConf": 0.2415,
+    "refConf": 0.2415,
+    "maxDp": 0.00001,
+    "nodeMs": 4
+   },
+   {
+    "id": "test-LLB-1.csv",
+    "js": "LLB",
+    "ref": "LLB",
+    "ok": true,
+    "jsConf": 0.2985,
+    "refConf": 0.2985,
+    "maxDp": 0,
+    "nodeMs": 20
+   },
+   {
+    "id": "test-LOCA-21.csv",
+    "js": "LOCA",
+    "ref": "LOCA",
+    "ok": true,
+    "jsConf": 0.374,
+    "refConf": 0.374,
+    "maxDp": 0,
+    "nodeMs": 9
+   },
+   {
+    "id": "test-LOCAC-21.csv",
+    "js": "LOCAC",
+    "ref": "LOCAC",
+    "ok": true,
+    "jsConf": 0.3881,
+    "refConf": 0.3881,
+    "maxDp": 0,
+    "nodeMs": 10
+   },
+   {
+    "id": "normal-op",
+    "js": "LR",
+    "ref": "LR",
+    "ok": true,
+    "jsConf": 0.3147,
+    "refConf": 0.3147,
+    "maxDp": 0,
+    "nodeMs": 15
+   },
+   {
+    "id": "pre-onset",
+    "js": "MD",
+    "ref": "MD",
+    "ok": true,
+    "jsConf": 0.2825,
+    "refConf": 0.2825,
+    "maxDp": 0,
+    "nodeMs": 5
+   }
+  ],
+  "note": "Browser port (js/edge.js) vs the pure NumPy NPPAD-Edge runtime, checked at build time by tools/verify_js.cjs."
+ }
+}
