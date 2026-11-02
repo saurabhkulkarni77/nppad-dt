@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NPPAD Digital Twin — Space App Mission Console</title>
+<title>NPPAD Digital Twin: Space App Mission Console</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,8 +11,8 @@
 <div class="wrap">
 
   <div class="note blue" style="margin-top:14px">
-    <b>WHAT IS LIVE HERE, STATED PLAINLY.</b> The primary flight model —
-    MultiRocket+HYDRA with the ridge head — runs <b>live in your browser</b> when you
+    <b>WHAT IS LIVE HERE, STATED PLAINLY.</b> The primary flight model,
+    MultiRocket+HYDRA with the ridge head, runs <b>live in your browser</b> when you
     press RUN DIAGNOSIS. It is a JavaScript port of the NPPAD-Edge pure NumPy runtime,
     driven by the same exported flight parameters, and it was verified at build time
     against the NumPy runtime on every scenario on this page (agreement shown in the
@@ -23,7 +23,7 @@
 
   <div class="grid g21">
     <div class="panel">
-      <h2>MISSION CONSOLE — ONBOARD DIAGNOSIS</h2>
+      <h2>MISSION CONSOLE: ONBOARD DIAGNOSIS</h2>
       <div class="lights" style="margin-bottom:12px">
         <span class="light"><span class="dot" id="dotModel"></span><span id="modelState">MODEL LOADING</span></span>
         <span class="light"><span class="dot cyan"></span>PROCESSING: ONBOARD EDGE</span>
@@ -31,7 +31,7 @@
         <span class="light"><span class="dot"></span>MODE: PRIMARY</span>
       </div>
       <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end">
-        <div style="flex:1;min-width:260px"><label class="lbl">SCENARIO — GENUINE STUDY WINDOWS</label>
+        <div style="flex:1;min-width:260px"><label class="lbl">SCENARIO: GENUINE STUDY WINDOWS</label>
           <select id="scenSel" style="width:100%"></select></div>
         <div><label class="lbl">LINK TEST</label>
           <button id="linkBtn" class="warn">SIMULATE LINK LOSS</button></div>
@@ -51,7 +51,7 @@
     <div class="panel">
       <h3>ALL EIGHT MODELS ON THIS WINDOW</h3>
       <div id="studyBox"><p class="dim small">Recorded study predictions load with the scenario.</p></div>
-      <h3 style="margin-top:16px">EVENT LOG — DOWNLINK SIMULATION</h3>
+      <h3 style="margin-top:16px">EVENT LOG: DOWNLINK SIMULATION</h3>
       <p class="dim small">Only classification events are downlinked. Raw windows never leave the processor.</p>
       <div id="eventLog" style="font-family:var(--mono);font-size:11.5px;color:var(--dim);max-height:220px;overflow:auto"></div>
     </div>
