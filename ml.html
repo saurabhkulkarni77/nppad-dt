@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NPPAD Digital Twin — How ML Takes Place</title>
+<title>NPPAD Digital Twin: How ML Takes Place</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,7 +11,7 @@
 <div class="wrap">
 
   <div class="panel" style="margin-top:14px">
-    <h2>HOW ML TAKES PLACE — ON BOARD, AT THE POINT OF CAPTURE</h2>
+    <h2>HOW ML TAKES PLACE: ON BOARD, AT THE POINT OF CAPTURE</h2>
     <p>There is no cloud at the end of an interplanetary link, and no operator fast
     enough to matter. So the machine learning does not happen on the ground and it does
     not happen later. It happens on a small edge processor riding with the reactor, on
@@ -41,7 +41,7 @@
 
   <div class="grid g2">
     <div class="panel">
-      <h3>WHY IT FITS SPACE — THE MARS LESSON, APPLIED TO A REACTOR</h3>
+      <h3>WHY IT FITS SPACE: THE MARS LESSON, APPLIED TO A REACTOR</h3>
       <p><b>No ground round trip.</b> The Mars Society's account of autonomous rovers
       starts from a hard fact: signals take minutes to cross interplanetary distance,
       with round trips from six to more than forty minutes. A control loop that waits
@@ -49,7 +49,7 @@
       under a second of compute per window.</p>
       <p><b>Bandwidth is precious.</b> Early Mars radios moved less than 256 bits per
       second and needed an orbiter as a relay. The payload therefore downlinks only
-      classification events — timestamp, class, confidence, mode — and keeps raw
+      classification events (timestamp, class, confidence, mode) and keeps raw
       sensor windows on the device. The useful result travels; the bulk data does not.</p>
       <p><b>Autonomy is the requirement, not the upgrade.</b> Rovers became autonomous
       because distance forced it. A reactor on a deep space vehicle is in the same
@@ -63,7 +63,7 @@
     </div>
 
     <div class="panel">
-      <h3>STUDY RESULTS — MACRO F1 BY WINDOW, ALL EIGHT MODELS</h3>
+      <h3>STUDY RESULTS: MACRO F1 BY WINDOW, ALL EIGHT MODELS</h3>
       <canvas class="chart" id="gridChart" width="520" height="300"></canvas>
       <div id="gridLegend" class="small dim" style="margin-top:8px"></div>
       <p class="dim small">Held out test split, onset aligned at t0 = 100 s, realistic
@@ -72,9 +72,17 @@
     </div>
   </div>
 
+  <div class="panel">
+    <h3>WHAT THE STUDY FOUND</h3>
+    <div id="findings"></div>
+    <p class="dim small">Every figure in this panel is computed by tools/generate_data.py
+    from the study's combined results file and the executed run's own extracted results.
+    Nothing in this panel is typed in by hand.</p>
+  </div>
+
   <div class="grid g2">
     <div class="panel">
-      <h3>EDGE PAYLOAD — MEASURED BENCHMARKS</h3>
+      <h3>EDGE PAYLOAD: MEASURED BENCHMARKS</h3>
       <div id="bench"></div>
       <p class="dim small">Measured with the pure NumPy runtime of the NPPAD-Edge
       project on one core under a 512 MB budget. The edge bundle reproduces the study
@@ -82,7 +90,7 @@
       faithful reimplementations, verified feature by feature against the originals.</p>
     </div>
     <div class="panel">
-      <h3>GRACEFUL DEGRADATION — SAFE MODE</h3>
+      <h3>GRACEFUL DEGRADATION: SAFE MODE</h3>
       <p>If the memory checker finds corrupted weights, or the latency budget is
       breached repeatedly, the payload does not stop diagnosing. It switches to a
       compact fallback: logistic regression on per channel summary features, a model
