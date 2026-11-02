@@ -61,7 +61,11 @@ function showScenario() {
       <th style="text-align:right">CONF</th><th>vs TRUE ${cur.label}</th></tr></thead>
       <tbody>${rows}</tbody></table>
       <p class="dim small">Recorded from the study's executed run for this exact window.
-      Playback, not a live run. The flight model's live browser result appears on the left.</p>`;
+      Playback, not a live run. The flight model's live browser result appears on the left.</p>
+      <p class="dim small">${(scen.studyPredsMissing || []).length ?
+        scen.studyPredsMissing.join(" and ") + " are not in this table. The study saved their " +
+        "results only as totals over the whole test split, never as a prediction for each " +
+        "window, so no recorded prediction exists to play back for this window." : ""}</p>`;
   } else {
     $("studyBox").innerHTML = `<p class="dim small">This scenario is outside the study's
       test protocol, so there are no recorded study predictions for it. Only the live
@@ -91,22 +95,22 @@ function runDiagnosis() {
   let verdict;
   if (cur.kind === "test") {
     verdict = r.pred === cur.label
-      ? `<span style="color:var(--green)">CORRECT — matches true class ${cur.label}</span>`
-      : `<span style="color:var(--red)">MISSED — true class is ${cur.label}</span>`;
+      ? `<span style="color:var(--green)">CORRECT. Matches true class ${cur.label}</span>`
+      : `<span style="color:var(--red)">MISSED. True class is ${cur.label}</span>`;
   } else {
-    verdict = `<span style="color:var(--amber)">OUT OF SET — no true class exists in the trained set for this window</span>`;
+    verdict = `<span style="color:var(--amber)">OUT OF SET. No true class exists in the trained set for this window</span>`;
   }
   $("resultBox").innerHTML = `
     <div class="big">${r.pred} <small>DIAGNOSIS · CONFIDENCE ${fmt(r.conf, 3)}</small></div>
     <div class="bar" style="margin:8px 0"><i style="width:${(r.conf * 100).toFixed(1)}%"></i></div>
     <div class="kv"><span class="k">VERDICT</span><span class="v">${verdict}</span></div>
     <div class="kv"><span class="k">RUNNER UP CLASSES</span>
-      <span class="v">${top3.slice(1).map(([c, p]) => `${c} ${fmt(p, 3)}`).join(" · ") || "—"}</span></div>
+      <span class="v">${top3.slice(1).map(([c, p]) => `${c} ${fmt(p, 3)}`).join(" · ") || "none"}</span></div>
     <div class="kv"><span class="k">INFERENCE LATENCY (MEASURED HERE)</span><span class="v">${ms.toFixed(1)} MS</span></div>
     <div class="kv"><span class="k">NUMPY FLIGHT RUNTIME REFERENCE</span>
       <span class="v">${ref.pred} · conf ${fmt(ref.conf, 3)} · ${match ? "BROWSER PORT MATCHES" : "DIFFERS"}</span></div>
     <div class="kv"><span class="k">GROUND CONSULTED</span>
-      <span class="v">${linkDown ? "NO — LINK DOWN, DIAGNOSIS UNAFFECTED" : "NO — DECIDED ON BOARD"}</span></div>`;
+      <span class="v">${linkDown ? "NO. LINK DOWN, DIAGNOSIS UNAFFECTED" : "NO. DECIDED ON BOARD"}</span></div>`;
   logEvent({ t: met(), cls: r.pred, conf: +r.conf.toFixed(3),
              mode: "primary", link: linkDown ? "down" : "delayed" });
 }
