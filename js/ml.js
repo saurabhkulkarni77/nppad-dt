@@ -40,9 +40,38 @@ function drawGrid(results) {
     `<span style="color:${COLORS[mi % COLORS.length]}">■</span> ${m}`).join(" &nbsp; ");
 }
 
+function drawFindings(f) {
+  const el = $("findings");
+  if (!el || !f) return;
+  el.innerHTML = `
+    <p><b>Windows that start too early.</b> When windows start at t0 = 20 s, before the
+    plant has responded, the best macro F1 any of the eight models reaches is
+    ${fmt(f.ceiling.bestMacroF1, 3)} (W = 30 or 60 s, either variable set). The accident
+    signal is not in the data yet, and no model can find it.</p>
+    <p><b>Onset aligned windows.</b> Aligned to onset at t0 = 100 s, MultiRocket+HYDRA
+    scores between ${fmt(f.onset.multiRocketHydraMin, 3)} and
+    ${fmt(f.onset.multiRocketHydraMax, 3)} macro F1 at every window length. The best
+    single score in the whole grid is ${f.onset.bestSingle.model} at
+    W = ${f.onset.bestSingle.W} s, with ${fmt(f.onset.bestSingle.macroF1, 3)}.</p>
+    <p><b>Cost of dropping the oracle variables.</b> The flight set leaves out the 8
+    oracle leak variables, which no real sensor suite would see. At t0 = 100 s and
+    W = 60 s that costs at most ${fmt(f.oracleCost.maxDrop, 3)} macro F1 for any model.
+    The 88 realistic channels carry nearly all of the signal.</p>
+    <p><b>Ramp accidents.</b> Accidents that arrive as slow ramps are the hard case in
+    this study. The best macro F1 on ramp accidents is ${fmt(f.ramps.bestMacroF1, 3)}
+    (${f.ramps.model}, W = ${f.ramps.W} s), far below the onset aligned scores.</p>
+    <p><b>Accidents outside the trained set.</b> Detecting an accident class the models
+    never trained on works only at the longest window. The best AUROC is
+    ${fmt(f.unknown.bestAuroc, 3)} at W = ${f.unknown.W} s, from the
+    ${f.unknown.signal} signal. The kernel models score
+    ${fmt(f.unknown.kernelAurocValues[0], 3)}, which is chance level: as detectors of
+    the unknown they carry no signal at all.</p>`;
+}
+
 (async () => {
   const results = await loadJSON("data/results.json");
   drawGrid(results);
+  drawFindings(results.findings);
   const b = results.edge.benchmarks;
   const row = (name, w) => {
     const p = b[w].primary, f = b[w].fallback;
