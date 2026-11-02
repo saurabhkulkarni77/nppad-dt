@@ -217,6 +217,49 @@
    }
   }
  },
+ "findings": {
+  "ceiling": {
+   "setting": "windows starting at t0 = 20 s, W = 30 or 60 s, both variable sets, all eight models",
+   "bestMacroF1": 0.189182
+  },
+  "onset": {
+   "multiRocketHydraMin": 0.983799,
+   "multiRocketHydraMax": 0.987767,
+   "bestSingle": {
+    "model": "Rocket",
+    "W": 120,
+    "macroF1": 0.991862
+   }
+  },
+  "oracleCost": {
+   "setting": "t0 = 100 s, W = 60 s, all variables minus realistic, per model",
+   "maxDrop": 0.01686299999999996,
+   "perModel": {
+    "CNN": 0.016000000000000014,
+    "GRU": 0.016199999999999992,
+    "LogReg": 0.004386000000000001,
+    "LogReg+": 0.011936999999999975,
+    "MiniRocket": 0.01686299999999996,
+    "MultiRocket+HYDRA": 0.008001000000000036,
+    "Random Forest": 0.007979999999999987,
+    "Rocket": 0.016332000000000013
+   }
+  },
+  "ramps": {
+   "bestMacroF1": 0.625,
+   "model": "GRU",
+   "W": 120
+  },
+  "unknown": {
+   "bestAuroc": 0.9678,
+   "signal": "RF entropy (all variables)",
+   "W": 120,
+   "kernelAurocValues": [
+    0.5
+   ]
+  },
+  "provenance": "Computed by tools/generate_data.py from HW2_Combined_Results_All_Models.csv and the executed all models run's extracted.json."
+ },
  "edge": {
   "benchmarks": {
    "W60": {
@@ -381,7 +424,7 @@
     "jsConf": 0.1561,
     "refConf": 0.1561,
     "maxDp": 0,
-    "nodeMs": 117
+    "nodeMs": 74
    },
    {
     "id": "test-LOCAC-1.csv",
@@ -391,7 +434,7 @@
     "jsConf": 0.2056,
     "refConf": 0.2056,
     "maxDp": 0,
-    "nodeMs": 26
+    "nodeMs": 16
    },
    {
     "id": "test-SLBIC-1.csv",
@@ -401,7 +444,7 @@
     "jsConf": 0.3619,
     "refConf": 0.3615,
     "maxDp": 0.00253,
-    "nodeMs": 35
+    "nodeMs": 8
    },
    {
     "id": "test-SLBOC-1.csv",
@@ -411,7 +454,7 @@
     "jsConf": 0.2388,
     "refConf": 0.2389,
     "maxDp": 0.00019,
-    "nodeMs": 13
+    "nodeMs": 3
    },
    {
     "id": "test-SGATR-1.csv",
@@ -421,7 +464,7 @@
     "jsConf": 0.192,
     "refConf": 0.192,
     "maxDp": 0,
-    "nodeMs": 7
+    "nodeMs": 50
    },
    {
     "id": "test-SGBTR-1.csv",
@@ -431,7 +474,7 @@
     "jsConf": 0.1373,
     "refConf": 0.1373,
     "maxDp": 0,
-    "nodeMs": 4
+    "nodeMs": 8
    },
    {
     "id": "test-RW-1.csv",
@@ -441,7 +484,7 @@
     "jsConf": 0.1593,
     "refConf": 0.1593,
     "maxDp": 0,
-    "nodeMs": 7
+    "nodeMs": 3
    },
    {
     "id": "test-RI--10.csv",
@@ -451,7 +494,7 @@
     "jsConf": 0.3678,
     "refConf": 0.3678,
     "maxDp": 0,
-    "nodeMs": 4
+    "nodeMs": 5
    },
    {
     "id": "test-FLB-1.csv",
@@ -480,7 +523,7 @@
     "ok": true,
     "jsConf": 0.2415,
     "refConf": 0.2415,
-    "maxDp": 0.00001,
+    "maxDp": 0,
     "nodeMs": 4
    },
    {
@@ -491,7 +534,7 @@
     "jsConf": 0.2985,
     "refConf": 0.2985,
     "maxDp": 0,
-    "nodeMs": 20
+    "nodeMs": 4
    },
    {
     "id": "test-LOCA-21.csv",
@@ -501,7 +544,7 @@
     "jsConf": 0.374,
     "refConf": 0.374,
     "maxDp": 0,
-    "nodeMs": 9
+    "nodeMs": 2
    },
    {
     "id": "test-LOCAC-21.csv",
@@ -511,7 +554,7 @@
     "jsConf": 0.3881,
     "refConf": 0.3881,
     "maxDp": 0,
-    "nodeMs": 10
+    "nodeMs": 2
    },
    {
     "id": "normal-op",
@@ -521,7 +564,7 @@
     "jsConf": 0.3147,
     "refConf": 0.3147,
     "maxDp": 0,
-    "nodeMs": 15
+    "nodeMs": 3
    },
    {
     "id": "pre-onset",
@@ -531,7 +574,7 @@
     "jsConf": 0.2825,
     "refConf": 0.2825,
     "maxDp": 0,
-    "nodeMs": 5
+    "nodeMs": 2
    }
   ],
   "note": "Browser port (js/edge.js) vs the pure NumPy NPPAD-Edge runtime, checked at build time by tools/verify_js.cjs."
