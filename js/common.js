@@ -36,7 +36,7 @@ function header(active) {
 }
 function footer() {
   document.getElementById("ftr").innerHTML = `
-  NPPAD DIGITAL TWIN — a ground twin and flight style console for the NPPAD accident
+  NPPAD DIGITAL TWIN. A ground twin and flight style console for the NPPAD accident
   diagnosis study (Saurabh Sanjay Kulkarni). Every result shown on these pages is
   generated at build time from the study's own computed artifacts by
   tools/generate_data.py. No result is hand typed. The flight model is the
@@ -48,4 +48,4 @@ async function loadJSON(path) {
   if (!r.ok) throw new Error(path + " " + r.status);
   return r.json();
 }
-function fmt(x, d = 4) { return x === null || x === undefined ? "—" : Number(x).toFixed(d); }
+function fmt(x, d = 4) { return x === null || x === undefined ? "n/a" : Number(x).toFixed(d); }
