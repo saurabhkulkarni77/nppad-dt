@@ -15,7 +15,7 @@ a:hover{text-decoration:underline}
 .wrap{max-width:1180px;margin:0 auto;padding:0 18px 60px}
 
 /* header */
-header.mission{border-bottom:1px solid var(--line);background:linear-gradient(180deg,#081426,#050a13)}
+header.topbar{border-bottom:1px solid var(--line);background:linear-gradient(180deg,#081426,#050a13)}
 .hbar{max-width:1180px;margin:0 auto;padding:14px 18px 10px;display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;justify-content:space-between}
 .brand h1{font-family:var(--mono);font-size:21px;letter-spacing:3px;margin:0;color:#fff}
 .brand h1 .thin{color:var(--cyan)}
