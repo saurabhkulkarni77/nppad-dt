@@ -152,7 +152,7 @@ function drawLLM(b) {
       <span class="v">${(results.edge.bundleBytes / 1e6).toFixed(2)} MB</span></div>
     <div class="kv"><span class="k">MEMORY USED</span>
       <span class="v">${fmt(b.payload_only_peak_rss_mb, 1)} MB OF THE 512 MB BUDGET</span></div>
-    <div class="kv"><span class="k">SENT TO EARTH PER EVENT</span><span class="v">~150 BYTES · THE ANSWER ONLY</span></div>
+    <div class="kv"><span class="k">SIZE OF ONE EVENT RECORD</span><span class="v">~150 BYTES · THE ANSWER ONLY</span></div>
     <div class="kv"><span class="k">CHECK AGAINST THE STUDY REFERENCE</span>
       <span class="v">${results.jsVerification.argmaxAgreement}/${results.jsVerification.scenariosChecked} SCENARIOS MATCH</span></div>`;
 })();
