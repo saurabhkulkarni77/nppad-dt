@@ -11,7 +11,9 @@ function met() {
 function header(active) {
   const pages = [
     ["index.html", "DIGITAL TWIN", "twin"],
+    ["plant.html", "THE PLANT", "plant"],
     ["ml.html", "HOW ML TAKES PLACE", "ml"],
+    ["analysis.html", "ANALYSIS", "analysis"],
     ["app.html", "SPACE APP", "app"],
   ];
   const nav = pages.map(([href, label, key]) =>
@@ -39,7 +41,7 @@ function footer() {
   NPPAD DIGITAL TWIN. A ground twin and flight style console for the NPPAD accident
   diagnosis study (Saurabh Sanjay Kulkarni). Every result shown on these pages is
   generated at build time from the study's own computed artifacts by
-  tools/generate_data.py. No result is hand typed. The flight model is the
+  the generators in tools/. No result is hand typed. The flight model is the
   NPPAD-Edge payload: MultiRocket+HYDRA kernel features with a ridge head,
   built to run at the point of capture with no ground round trip.`;
 }
