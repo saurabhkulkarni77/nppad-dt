@@ -13,15 +13,13 @@ transient allows sixty seconds. Ground cannot be in that loop.
 
 ## Pages
 
-- `index.html`: the Digital Twin. Playback of genuine held out test
-  transients with twin state tracked against the physical record, a
-  diagnosis event panel, flight model health from measured edge
-  benchmarks, and a light time comparison tool.
-- `ml.html`: How ML Takes Place. The full onboard pipeline (sense,
-  window, condition, kernel features, ridge head, decide and alert),
-  why it fits space, the study's results grid for all eight models,
-  measured edge benchmarks, safe mode design, and the honest caveats.
-- `app.html`: the Space App mission console. The primary flight model
+The site was simplified to three pages, one per idea, in this order:
+
+- `plant.html`: The Plant. An interactive schematic of the pressurized
+  water reactor with a scenario picker and time scrubber; every readout
+  on the drawing is a recorded channel value from that scenario's run.
+  Below the drawing, the recorded per model predictions for the run.
+- `index.html`: Try the AI. The primary flight model
   (MultiRocket+HYDRA + ridge head) runs **live in the browser** on
   genuine study windows and times itself. Six more of the study's
   models are shown as their recorded predictions for the same windows,
@@ -29,7 +27,15 @@ transient allows sixty seconds. Ground cannot be in that loop.
   saved their results only as totals over the whole test split, never
   as a prediction for each window, and the page says so plainly.
   Includes a link loss simulation: the diagnosis does not change,
-  because it never used the link.
+  because it never used the link. (This page folds in the former Space
+  App console, `app.html`, retired in the simplification.)
+- `ml.html`: What We Learned. The study findings in plain language:
+  the headline results, the per model results grid and table, the four
+  extensions (hard pairs, ramp accidents, unknown accident detection,
+  oracle variable cost), the LLM benchmark panel, the onboard pipeline
+  in six steps, measured edge benchmarks, safe mode design, and the
+  honest caveats. (This page folds in the former Analysis page,
+  `analysis.html`, retired in the simplification.)
 
 ## Data integrity rule
 
