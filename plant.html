@@ -11,19 +11,19 @@
 <div class="wrap">
 
   <div class="panel" style="margin-top:14px">
-    <h2>THE PLANT: A PRESSURIZED WATER REACTOR, LIVE FROM RECORDED DATA</h2>
-    <p>PCTRAN, the simulator behind the NPPAD dataset, models a pressurized water
-    reactor. This schematic shows that plant: containment, reactor pressure vessel
-    and core, pressurizer, steam generator, reactor coolant pump and the primary
-    loop, then the secondary loop with turbine, generator and condenser. Pick any
-    scenario the Space App console uses and press play. Every readout on the
-    drawing is a recorded channel value from that scenario's run at the time on
-    the clock, taken from the same recorded data the rest of the twin ships.</p>
+    <h2>THE PLANT: A NUCLEAR POWER PLANT YOU CAN WATCH</h2>
+    <p>This page is a drawing of a pressurized water reactor (PWR for short), the
+    most common kind of nuclear power plant in the world. The numbers on the drawing
+    are real recorded measurements from accident runs in a computer simulator
+    called PCTRAN, the same simulator that produced the study's data.</p>
+    <p><b>What to try:</b> pick an accident run below and press PLAY. The clock runs,
+    the measurements on the drawing change, and you can watch the accident unfold.
+    The slider lets you jump to any moment in the run.</p>
     <div class="grid g3" style="margin-top:12px; align-items:end">
-      <div><label class="lbl">SCENARIO</label>
+      <div><label class="lbl">ACCIDENT RUN</label>
         <select id="scenSel" style="width:100%"></select></div>
       <div><label class="lbl">TIME</label>
-        <div class="kv"><span class="k">RUN CLOCK</span>
+        <div class="kv"><span class="k">TIME INTO THE RUN</span>
           <span class="v" id="clock">0 s</span></div></div>
       <div style="display:flex; gap:8px">
         <button id="playBtn" class="primary">PLAY</button>
@@ -33,21 +33,28 @@
       <input type="range" id="scrub" min="0" max="10" value="0" style="width:100%">
     </div>
     <div id="plantSvg" style="margin-top:6px"></div>
-    <p class="dim small">Series are shown at 20 s steps (every second recorded
-    sample); the values are the recorded samples themselves, never interpolated.
-    The generator and the condenser carry no live value: the dataset records no
-    process channel for them, so they are labeled without one rather than given
-    an invented number.</p>
+    <p class="dim small">How to read the drawing: the reactor building (containment)
+    holds the reactor vessel and its hot core, the pressurizer (which keeps the
+    water pressure steady), the steam generator, and the pump that pushes hot water
+    around the loop. Steam leaves the building, spins the turbine, and the generator
+    turns that spin into electricity. The water is then cooled in the condenser and
+    sent back. The drawing shows one measured value every 20 seconds of the run,
+    always the recorded value itself, never a made up in between number. Two parts
+    carry no number, the generator and the condenser, because the dataset records
+    no measurement for them. Rather than invent numbers, they are labelled as
+    having none.</p>
   </div>
 
   <div class="panel">
-    <h3>DIAGNOSIS READOUT: RECORDED PREDICTIONS FOR THIS SCENARIO</h3>
+    <h3>WHAT THE AI SAID ABOUT THIS RUN</h3>
     <div id="scenMeta" style="margin-bottom:10px"></div>
     <div id="diagBox"></div>
-    <p class="dim small">Recorded predictions at the twin protocol: onset aligned
-    at t0 = 100 s, W = 60 s, realistic channels, copied from the scenario data
-    the Space App console ships. CNN and GRU were saved by the study only as
-    aggregate scores, so no recorded per window prediction exists for them.</p>
+    <p class="dim small">Each study model was shown one minute of this run, starting
+    100 seconds in (just as the accident gets going), and each gave its answer.
+    Those recorded answers are shown above; the right answer is the accident named
+    in the run you picked. Two models, CNN and GRU, are missing from the table: the
+    study only kept their overall scores, never their answer for each single run,
+    so there is no recorded answer to show for them.</p>
   </div>
 
   <footer id="ftr"></footer>
