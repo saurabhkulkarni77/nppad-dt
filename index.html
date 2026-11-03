@@ -3,96 +3,96 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NPPAD Digital Twin: Twin Console</title>
+<title>NPPAD Digital Twin: Try the AI</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header class="mission" id="hdr"></header>
 <div class="wrap">
 
+  <div class="panel" style="margin-top:14px">
+    <h2>TRY THE AI: WHAT DOES IT THINK IS HAPPENING?</h2>
+    <p>This page runs a real AI model in your browser. The model was trained to look
+    at one minute of sensor readings from a nuclear plant and say which accident is
+    happening. Pick a recorded accident below, press RUN THE AI, and see its answer,
+    how sure it is, and whether it was right.</p>
+  </div>
+
+  <div class="note blue" style="margin-top:14px">
+    <b>WHAT IS LIVE HERE, IN PLAIN WORDS.</b> One model, called MultiRocket+HYDRA,
+    really runs in your browser when you press RUN THE AI. It is the same model the
+    study built to ride on the plant's own small computer, and before this site was
+    published it was checked against the study's reference version on every scenario
+    on this page; the check result is in the status line below. The other seven
+    study models do not run live here. Their answers, recorded during the study for
+    this exact same minute of data, are shown on the right so you can compare. The
+    time the model takes is measured in your browser, as it runs.
+  </div>
+
   <div class="grid g21">
     <div class="panel">
-      <h2>PLANT TWIN: LIVE PLAYBACK OF A RECORDED TEST TRANSIENT</h2>
-      <p class="dim small">The twin mirrors a genuine NPPAD test run from the study's held out
-      test split. Playback is the recorded plant data; the twin state tracks it sample by
-      sample. When playback passes the end of the first diagnosis window, the onboard
-      model's computed diagnosis for this exact run appears in the event panel.</p>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;margin:10px 0">
-        <div><label class="lbl">TEST RUN</label><select id="runSel"></select></div>
-        <div><label class="lbl">CHANNEL</label><select id="chSel"></select></div>
-        <div><label class="lbl">PLAYBACK</label>
-          <button id="playBtn" class="primary">▶ PLAY</button>
-          <button id="resetBtn">RESET</button></div>
-        <div style="flex:1;min-width:180px"><label class="lbl">SCRUB</label>
-          <input type="range" id="scrub" min="0" max="100" value="0"></div>
+      <h2>THE CONSOLE</h2>
+      <div class="lights" style="margin-bottom:12px">
+        <span class="light"><span class="dot" id="dotModel"></span><span id="modelState">AI MODEL LOADING</span></span>
+        <span class="light"><span class="dot cyan"></span>WHERE IT RUNS: HERE, IN YOUR BROWSER</span>
+        <span class="light"><span class="dot amber" id="dotLink"></span><span id="linkState">LINK TO EARTH: SLOW BUT WORKING</span></span>
+        <span class="light"><span class="dot"></span>MODEL: THE MAIN ONE</span>
       </div>
-      <canvas class="chart" id="chart" width="760" height="300"></canvas>
-      <div class="lights" style="margin-top:10px">
-        <span class="light"><span class="dot"></span>TWIN SYNC</span>
-        <span class="light"><span class="dot cyan"></span>SENSOR STREAM</span>
-        <span class="light"><span class="dot amber"></span>GROUND LINK DELAYED</span>
-        <span class="light"><span class="dot"></span>EDGE MODEL NOMINAL</span>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end">
+        <div style="flex:1;min-width:260px"><label class="lbl">PICK A RECORDED ACCIDENT WINDOW</label>
+          <select id="scenSel" style="width:100%"></select></div>
+        <div><label class="lbl">TRY IT WITHOUT EARTH</label>
+          <button id="linkBtn" class="warn">CUT THE LINK TO EARTH</button></div>
+        <div><label class="lbl">RUN</label>
+          <button id="runBtn" class="primary" disabled>RUN THE AI</button></div>
+      </div>
+      <p class="dim small" id="scenMeta" style="margin-top:10px"></p>
+      <canvas class="chart" id="winChart" width="760" height="190"></canvas>
+      <p class="dim small">The minute of data the AI sees: 6 readings, 10 seconds
+      apart, from 88 plant sensors, starting when the accident gets going. Three
+      example sensors are drawn: P (pressurizer pressure), TAVG (average coolant
+      temperature) and LVPZ (pressurizer water level), each stretched to fit its
+      own range.</p>
+      <div id="resultBox" style="margin-top:12px">
+        <p class="dim small">Nothing run yet. Pick a scenario above and press
+        RUN THE AI. The model runs on this device; nothing is sent anywhere.</p>
       </div>
     </div>
 
     <div class="panel">
-      <h3>DIAGNOSIS EVENT</h3>
-      <div id="diagBox">
-        <p class="dim small">No diagnosis yet. The first window closes 60 s after onset
-        (t = 160 s). The edge model decides on board, at the point of capture.
-        Ground is not consulted.</p>
-      </div>
-      <h3 style="margin-top:16px">MISSION RULE</h3>
-      <p class="small dim">A ground round trip over an interplanetary link takes minutes
-      to tens of minutes. An accident transient does not wait. The diagnosis therefore
-      has to happen where the data is born: on the edge processor riding with the plant.</p>
+      <h3>WHAT ALL THE STUDY MODELS SAID ABOUT THIS SAME MINUTE</h3>
+      <div id="studyBox"><p class="dim small">The recorded answers load with the scenario.</p></div>
+      <h3 style="margin-top:16px">EVENT LOG: WHAT WOULD BE SENT TO EARTH</h3>
+      <p class="dim small">Only the short answer is ever sent: which accident, how
+      confident, and when. The raw sensor data never leaves the plant computer.</p>
+      <div id="eventLog" style="font-family:var(--mono);font-size:11.5px;color:var(--dim);max-height:220px;overflow:auto"></div>
     </div>
   </div>
 
-  <div class="grid g2">
-    <div class="panel">
-      <h3>TELEMETRY: PHYSICAL PLANT vs TWIN STATE</h3>
-      <table class="tel"><thead><tr>
-        <th>CHANNEL</th><th style="text-align:right">PHYSICAL</th>
-        <th style="text-align:right">TWIN</th><th style="text-align:right">DELTA</th><th>STATE</th>
-      </tr></thead><tbody id="telBody"></tbody></table>
-      <p class="dim small" id="telTime"></p>
-    </div>
-
-    <div class="panel">
-      <h3>FLIGHT MODEL HEALTH: NPPAD-EDGE PAYLOAD</h3>
-      <div id="health"></div>
-      <p class="dim small">Measured with the pure NumPy edge runtime on a single core
-      under a spacecraft style budget. Full benchmark record ships with the
-      NPPAD-Edge project.</p>
-    </div>
-  </div>
-
-  <div class="grid g2">
-    <div class="panel">
-      <h3>WHY THE TWIN RIDES ALONG</h3>
-      <p>Engineers use digital twin technology to simulate and verify behaviour before
-      committing commands to a real system. This twin does the same job for a reactor
-      in deep space: it replays genuine accident transients against the flight
-      diagnosis model, so the model's behaviour on LOCA, steam generator tube rupture
-      and the rest of the accident set is known before the hardware ever flies.</p>
-      <p>The twin and the flight console share one model and one set of computed
-      results. What the twin shows is what the spacecraft would decide.</p>
-    </div>
-    <div class="panel">
-      <h3>THE LINK BUDGET PROBLEM</h3>
-      <p class="small dim">Drag the distance. Light time is physics, not engineering:
-      no radio closes this gap. Compare the ground round trip with the onboard
-      decision time of the edge model.</p>
-      <label class="lbl">DISTANCE TO EARTH (AU)</label>
-      <input type="range" id="au" min="0.4" max="2.6" step="0.1" value="1.5">
-      <div id="linkOut"></div>
-    </div>
+  <div class="grid g3">
+    <div class="panel"><h3>IT WORKS WITH NO LINK AT ALL</h3>
+      <p class="small">Cut the link to Earth with the button above and run again.
+      The answer is exactly the same, because the AI never used the link. That is
+      the whole idea: the decision is made where the accident happens, not on a
+      faraway Earth that takes minutes to answer.</p></div>
+    <div class="panel"><h3>IT TAKES THE SAME TIME EVERY RUN</h3>
+      <p class="small">The model does the same fixed set of steps for every window,
+      so it costs the same small amount of time each time. The time you measure
+      here is the same task the plant computer would run; its speed on a single
+      processor core is listed on the "What we learned" page.</p></div>
+    <div class="panel"><h3>WHAT IT CANNOT DO</h3>
+      <p class="small">The AI only knows the 12 accident types it was taught. Try
+      the "normal operation" or "before the accident" scenarios and watch: shown
+      data outside those 12, it still picks one of them. A real plant would also
+      need a separate guard that can say "nothing is wrong" or "this is new to
+      me". And the confidence number is a way of ranking its guesses, not a true
+      probability.</p></div>
   </div>
 
   <footer id="ftr"></footer>
 </div>
 <script src="js/common.js"></script>
-<script src="js/twin.js"></script>
+<script src="js/edge.js"></script>
+<script src="js/try.js"></script>
 </body>
 </html>
