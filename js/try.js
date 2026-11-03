@@ -2,7 +2,7 @@
 header("ai"); footer();
 const $ = (id) => document.getElementById(id);
 
-let model = null, scen = null, results = null, cur = null, linkDown = false;
+let model = null, scen = null, results = null, cur = null;
 
 /* Plain names for the accident codes, from the dataset's own class table. */
 const NAMES = {
@@ -96,7 +96,7 @@ function logEvent(obj) {
   const s = JSON.stringify(obj);
   const bytes = new Blob([s]).size;
   const line = document.createElement("div");
-  line.textContent = `[${met()}] ${s} · ${bytes} bytes sent to Earth`;
+  line.textContent = `[${met()}] ${s} · ${bytes} bytes`;
   const log = $("eventLog");
   log.prepend(line);
 }
@@ -127,10 +127,10 @@ function runDiagnosis() {
     <div class="kv"><span class="k">TIME IT TOOK HERE (MEASURED)</span><span class="v">${ms.toFixed(1)} MS</span></div>
     <div class="kv"><span class="k">THE STUDY'S REFERENCE ANSWER</span>
       <span class="v">${ref.pred} · conf ${fmt(ref.conf, 3)} · ${match ? "THIS BROWSER RUN MATCHES IT" : "DIFFERS"}</span></div>
-    <div class="kv"><span class="k">DID IT ASK EARTH?</span>
-      <span class="v">${linkDown ? "NO. THE LINK WAS CUT, AND THE ANSWER DID NOT CHANGE" : "NO. IT DECIDED ON ITS OWN"}</span></div>`;
+    <div class="kv"><span class="k">WHERE IT DECIDED</span>
+      <span class="v">HERE, ON THIS COMPUTER. NOTHING WAS SENT ANYWHERE</span></div>`;
   logEvent({ t: met(), cls: r.pred, conf: +r.conf.toFixed(3),
-             mode: "primary", link: linkDown ? "down" : "delayed" });
+             mode: "primary" });
 }
 
 (async () => {
@@ -162,11 +162,4 @@ function runDiagnosis() {
   }
   $("scenSel").addEventListener("change", showScenario);
   $("runBtn").addEventListener("click", runDiagnosis);
-  $("linkBtn").addEventListener("click", () => {
-    linkDown = !linkDown;
-    $("dotLink").className = "dot " + (linkDown ? "red" : "amber");
-    $("linkState").textContent = linkDown ? "LINK TO EARTH: CUT (TEST)" : "LINK TO EARTH: SLOW BUT WORKING";
-    $("linkBtn").textContent = linkDown ? "RESTORE THE LINK" : "CUT THE LINK TO EARTH";
-    logEvent({ t: met(), evt: linkDown ? "link_loss_simulated" : "link_restored" });
-  });
 })();
