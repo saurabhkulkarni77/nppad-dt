@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="mission" id="hdr"></header>
+<header class="topbar" id="hdr"></header>
 <div class="wrap">
 
   <div class="panel" style="margin-top:14px">
@@ -41,9 +41,8 @@
         a score. The highest score is the answer; how far ahead it is becomes the
         confidence figure.</div></div>
       <div class="step"><div class="n">STEP 6</div><div class="t">ANSWER AND REPORT</div>
-        <div class="d">The answer, its confidence and the time are written to a log
-        and sent out. The raw sensor window itself never leaves the plant
-        computer.</div></div>
+        <div class="d">The answer, its confidence and the time are written to a log.
+        The raw sensor window itself never leaves the plant computer.</div></div>
     </div>
   </div>
 
@@ -164,15 +163,14 @@
       and checked feature by feature against the original.</p>
     </div>
     <div class="panel">
-      <h3>WHY THE AI MUST LIVE AT THE PLANT</h3>
-      <p><b>Help from far away arrives too late.</b> Imagine this plant on a
-      spacecraft. A radio message to Earth takes minutes to arrive, and the answer
-      takes minutes to come back. An accident allows about a minute. So the AI has
-      to run on a small computer at the plant itself, and the main model was built
-      and timed for exactly that.</p>
-      <p><b>Only the answer travels.</b> Sending all the raw sensor data would
-      swamp a slow link. The system sends just the short event: what happened, how
-      confident, and when. About 150 bytes.</p>
+      <h3>THE ANSWER, THE BACKUP, AND ONE HONEST LIMIT</h3>
+      <p><b>The AI runs at the plant itself.</b> An accident allows about a minute,
+      so there is no time to send the readings off somewhere else and wait for an
+      answer to come back. The main model was built and timed to run on a small
+      computer at the plant, on the spot.</p>
+      <p><b>Only the answer is recorded.</b> The system writes just the short event
+      to its log: what happened, how confident, and when. About 150 bytes. The raw
+      sensor window itself never leaves the plant computer.</p>
       <p><b>If the main model breaks, a smaller one takes over.</b> A checker keeps
       re-verifying the model's stored numbers. If they come out wrong, the system
       switches to a much smaller, simpler backup model (called LogReg+) instead of
