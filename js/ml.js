@@ -44,28 +44,33 @@ function drawFindings(f) {
   const el = $("findings");
   if (!el || !f) return;
   el.innerHTML = `
-    <p><b>Windows that start too early.</b> When windows start at t0 = 20 s, before the
-    plant has responded, the best macro F1 any of the eight models reaches is
-    ${fmt(f.ceiling.bestMacroF1, 3)} (W = 30 or 60 s, either variable set). The accident
-    signal is not in the data yet, and no model can find it.</p>
-    <p><b>Onset aligned windows.</b> Aligned to onset at t0 = 100 s, MultiRocket+HYDRA
-    scores between ${fmt(f.onset.multiRocketHydraMin, 3)} and
-    ${fmt(f.onset.multiRocketHydraMax, 3)} macro F1 at every window length. The best
-    single score in the whole grid is ${f.onset.bestSingle.model} at
-    W = ${f.onset.bestSingle.W} s, with ${fmt(f.onset.bestSingle.macroF1, 3)}.</p>
-    <p><b>Cost of dropping the oracle variables.</b> The flight set leaves out the 8
-    oracle leak variables, which no real sensor suite would see. At t0 = 100 s and
-    W = 60 s that costs at most ${fmt(f.oracleCost.maxDrop, 3)} macro F1 for any model.
-    The 88 realistic channels carry nearly all of the signal.</p>
-    <p><b>Ramp accidents.</b> Accidents that arrive as slow ramps are the hard case in
-    this study. The best macro F1 on ramp accidents is ${fmt(f.ramps.bestMacroF1, 3)}
-    (${f.ramps.model}, W = ${f.ramps.W} s), far below the onset aligned scores.</p>
-    <p><b>Accidents outside the trained set.</b> Detecting an accident class the models
-    never trained on works only at the longest window. The best AUROC is
-    ${fmt(f.unknown.bestAuroc, 3)} at W = ${f.unknown.W} s, from the
-    ${f.unknown.signal} signal. The kernel models score
-    ${fmt(f.unknown.kernelAurocValues[0], 3)}, which is chance level: as detectors of
-    the unknown they carry no signal at all.</p>`;
+    <p><b>Too early is hopeless.</b> If the window starts at 20 seconds, before the
+    plant has reacted to the accident, the best score any of the eight programs
+    reaches is ${fmt(f.ceiling.bestMacroF1, 3)} (with a 30 or 60 second window, on
+    either channel set). The accident simply is not visible in the numbers yet, and
+    no program can find what is not there.</p>
+    <p><b>Once the accident has started, the best program is excellent.</b> With
+    windows lined up to the accident's start (100 seconds into the run),
+    MultiRocket+HYDRA scores between ${fmt(f.onset.multiRocketHydraMin, 3)} and
+    ${fmt(f.onset.multiRocketHydraMax, 3)} at every window length. The single best
+    score in the whole study is ${f.onset.bestSingle.model} at a window of
+    ${f.onset.bestSingle.W} s, with ${fmt(f.onset.bestSingle.macroF1, 3)}.</p>
+    <p><b>Leaving out the "cheating" channels costs almost nothing.</b> The honest
+    sensor set leaves out 8 oracle channels that no real sensor could measure. At a
+    100 second start and a 60 second window, that costs at most
+    ${fmt(f.oracleCost.maxDrop, 3)} score for any program. The 88 honest channels
+    carry nearly all of the signal.</p>
+    <p><b>Slow, creeping accidents are the weak spot.</b> When accidents arrive as
+    slow ramps instead of sudden breaks, the best score any program reaches is
+    ${fmt(f.ramps.bestMacroF1, 3)} (${f.ramps.model}, window
+    ${f.ramps.W} s), far below the sudden accident scores.</p>
+    <p><b>An accident it never learned is nearly invisible.</b> Spotting an accident
+    type the programs never trained on works only at the longest window. The best
+    alarm score is ${fmt(f.unknown.bestAuroc, 3)} at a window of
+    ${f.unknown.W} s, from the ${f.unknown.signal} signal (an alarm score of 1.0
+    would be perfect and 0.5 is pure guessing). The shape matching "kernel"
+    programs score ${fmt(f.unknown.kernelAurocValues[0], 3)}: pure guessing. As
+    alarms for the unknown, they tell you nothing.</p>`;
 }
 
 function drawLLM(b) {
@@ -89,33 +94,40 @@ function drawLLM(b) {
       <td class="num">${fmt(ref.t0_20[name], 3)}</td></tr>`).join("");
   const chans = m.channels.map((c) => c.code).join(", ");
   el.innerHTML = `
-    <p>The same windows the study models read, handed to language models as
-    text. Zero shot: no training, no examples, one identical prompt per window.
-    Each window is ${m.windowSeconds} s at ${m.samplingSeconds} s sampling
-    (${m.samplesPerChannel} samples per channel), ${m.windowsPerProtocol} test
-    windows per protocol (4 runs per class, stratified, seed ${m.seed}), at two
-    protocols: onset aligned (t0 = 100 s) and Task E (t0 = 20 s). Twelve
-    realistic channels are serialized at 3 significant figures: ${chans}.
-    Parsing is strict: an answer counts only if it is exactly one class code.</p>
-    <table class="tel"><thead><tr><th>LANGUAGE MODEL</th>
-      <th style="text-align:right">T0=100 ACC</th>
-      <th style="text-align:right">T0=100 F1</th>
+    <p>How the test worked: each chatbot was given the same windows the study
+    programs read, written out as text, and asked one identical question per
+    window: which accident is this? No training and no examples were given. Each
+    window is ${m.windowSeconds} s of readings, one every ${m.samplingSeconds} s
+    (${m.samplesPerChannel} readings per channel), with ${m.windowsPerProtocol}
+    test windows per start position (4 runs per accident type, chosen at random
+    with seed ${m.seed}). Two start positions were tried: lined up with the
+    accident's start (100 s in) and very early (20 s in, the study's "Task E"
+    setting). Twelve honest channels were written out at 3 significant figures:
+    ${chans}. The scoring is strict: an answer counts only if it is exactly one
+    accident code.</p>
+    <table class="tel"><thead><tr><th>CHATBOT (LANGUAGE MODEL)</th>
+      <th style="text-align:right">START 100 S: ACCURACY</th>
+      <th style="text-align:right">START 100 S: F1</th>
       <th style="text-align:right">BAD FORMAT</th>
-      <th style="text-align:right">T0=20 ACC</th>
-      <th style="text-align:right">T0=20 F1</th>
+      <th style="text-align:right">START 20 S: ACCURACY</th>
+      <th style="text-align:right">START 20 S: F1</th>
       <th style="text-align:right">BAD FORMAT</th>
       <th style="text-align:right">TOTAL TIME</th></tr></thead>
       <tbody>${rows}</tbody></table>
     <p class="dim small" style="margin-top:6px">${b.models.map((md) =>
       `${md.name}: ${md.access}`).join("<br>")}</p>
-    <h3 style="margin-top:14px">TRAINED STUDY MODELS, FOR REFERENCE (FULL TEST SPLIT)</h3>
-    <table class="tel"><thead><tr><th>MODEL</th>
-      <th style="text-align:right">T0=100 MACRO F1</th>
-      <th style="text-align:right">T0=20 MACRO F1</th></tr></thead>
+    <h3 style="margin-top:14px">THE TRAINED STUDY PROGRAMS, FOR COMPARISON (FULL TEST SET)</h3>
+    <table class="tel"><thead><tr><th>PROGRAM</th>
+      <th style="text-align:right">START 100 S: F1 SCORE</th>
+      <th style="text-align:right">START 20 S: F1 SCORE</th></tr></thead>
       <tbody>${refRows}</tbody></table>
     <p class="dim small" style="margin-top:6px">${ref.note}</p>
-    ${Object.keys(b.notRun || {}).length ? `<p style="margin-top:8px"><b>Not run.</b> ${Object.entries(b.notRun).map(
-      ([k, v]) => `${k}: ${v}`).join(" ")}</p>` : ""}
+    ${Object.keys(b.notRun || {}).length ? `<p style="margin-top:8px"><b>Not run:</b> ` +
+      Object.keys(b.notRun).map((k) => k === "ChatGPT"
+        ? "ChatGPT, because the OpenAI account was out of credits"
+        : k === "Gemini"
+          ? "Gemini, because its key is on the free tier and hit the daily request limit"
+          : k).join("; ") + `.</p>` : ""}
     ${b.apiAccess ? `<p style="margin-top:8px">${b.apiAccess}</p>` : ""}`;
 }
 
@@ -132,15 +144,15 @@ function drawLLM(b) {
       <td class="num">${fmt(f.macro_F1)}</td><td class="num">${fmt(f.latency_ms_mean, 2)} ms</td></tr>`;
   };
   $("bench").innerHTML = `
-    <table class="tel"><thead><tr><th>FLIGHT WINDOW</th>
-      <th style="text-align:right">PRIMARY F1</th><th style="text-align:right">PRIMARY LATENCY</th>
-      <th style="text-align:right">FALLBACK F1</th><th style="text-align:right">FALLBACK LATENCY</th>
-      </tr></thead><tbody>${row("W = 60 s", "W60")}${row("W = 120 s", "W120")}</tbody></table>
-    <div class="kv" style="margin-top:8px"><span class="k">UPLINK BUNDLE, BOTH WINDOWS + FALLBACKS</span>
+    <table class="tel"><thead><tr><th>WINDOW</th>
+      <th style="text-align:right">MAIN MODEL SCORE (F1)</th><th style="text-align:right">MAIN MODEL TIME</th>
+      <th style="text-align:right">BACKUP MODEL SCORE (F1)</th><th style="text-align:right">BACKUP MODEL TIME</th>
+      </tr></thead><tbody>${row("60 s window", "W60")}${row("120 s window", "W120")}</tbody></table>
+    <div class="kv" style="margin-top:8px"><span class="k">SIZE OF THE WHOLE MODEL PACKAGE</span>
       <span class="v">${(results.edge.bundleBytes / 1e6).toFixed(2)} MB</span></div>
-    <div class="kv"><span class="k">PAYLOAD PEAK MEMORY</span>
-      <span class="v">${fmt(b.payload_only_peak_rss_mb, 1)} MB OF 512 MB BUDGET</span></div>
-    <div class="kv"><span class="k">DOWNLINK PER EVENT</span><span class="v">~150 BYTES · EVENT ONLY</span></div>
-    <div class="kv"><span class="k">BROWSER PORT VERIFICATION</span>
-      <span class="v">${results.jsVerification.argmaxAgreement}/${results.jsVerification.scenariosChecked} SCENARIOS MATCH NUMPY RUNTIME</span></div>`;
+    <div class="kv"><span class="k">MEMORY USED</span>
+      <span class="v">${fmt(b.payload_only_peak_rss_mb, 1)} MB OF THE 512 MB BUDGET</span></div>
+    <div class="kv"><span class="k">SENT TO EARTH PER EVENT</span><span class="v">~150 BYTES · THE ANSWER ONLY</span></div>
+    <div class="kv"><span class="k">CHECK AGAINST THE STUDY REFERENCE</span>
+      <span class="v">${results.jsVerification.argmaxAgreement}/${results.jsVerification.scenariosChecked} SCENARIOS MATCH</span></div>`;
 })();
