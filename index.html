@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="mission" id="hdr"></header>
+<header class="topbar" id="hdr"></header>
 <div class="wrap">
 
   <div class="panel" style="margin-top:14px">
@@ -21,7 +21,7 @@
   <div class="note blue" style="margin-top:14px">
     <b>WHAT IS LIVE HERE, IN PLAIN WORDS.</b> One model, called MultiRocket+HYDRA,
     really runs in your browser when you press RUN THE AI. It is the same model the
-    study built to ride on the plant's own small computer, and before this site was
+    study built for the plant's own small computer, and before this site was
     published it was checked against the study's reference version on every scenario
     on this page; the check result is in the status line below. The other seven
     study models do not run live here. Their answers, recorded during the study for
@@ -35,14 +35,11 @@
       <div class="lights" style="margin-bottom:12px">
         <span class="light"><span class="dot" id="dotModel"></span><span id="modelState">AI MODEL LOADING</span></span>
         <span class="light"><span class="dot cyan"></span>WHERE IT RUNS: HERE, IN YOUR BROWSER</span>
-        <span class="light"><span class="dot amber" id="dotLink"></span><span id="linkState">LINK TO EARTH: SLOW BUT WORKING</span></span>
         <span class="light"><span class="dot"></span>MODEL: THE MAIN ONE</span>
       </div>
       <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end">
         <div style="flex:1;min-width:260px"><label class="lbl">PICK A RECORDED ACCIDENT WINDOW</label>
           <select id="scenSel" style="width:100%"></select></div>
-        <div><label class="lbl">TRY IT WITHOUT EARTH</label>
-          <button id="linkBtn" class="warn">CUT THE LINK TO EARTH</button></div>
         <div><label class="lbl">RUN</label>
           <button id="runBtn" class="primary" disabled>RUN THE AI</button></div>
       </div>
@@ -62,19 +59,19 @@
     <div class="panel">
       <h3>WHAT ALL THE STUDY MODELS SAID ABOUT THIS SAME MINUTE</h3>
       <div id="studyBox"><p class="dim small">The recorded answers load with the scenario.</p></div>
-      <h3 style="margin-top:16px">EVENT LOG: WHAT WOULD BE SENT TO EARTH</h3>
-      <p class="dim small">Only the short answer is ever sent: which accident, how
-      confident, and when. The raw sensor data never leaves the plant computer.</p>
+      <h3 style="margin-top:16px">EVENT LOG: WHAT THE AI REPORTS</h3>
+      <p class="dim small">Only the short answer is ever recorded: which accident,
+      how confident, and when. The raw sensor data stays on the plant computer.</p>
       <div id="eventLog" style="font-family:var(--mono);font-size:11.5px;color:var(--dim);max-height:220px;overflow:auto"></div>
     </div>
   </div>
 
   <div class="grid g3">
-    <div class="panel"><h3>IT WORKS WITH NO LINK AT ALL</h3>
-      <p class="small">Cut the link to Earth with the button above and run again.
-      The answer is exactly the same, because the AI never used the link. That is
-      the whole idea: the decision is made where the accident happens, not on a
-      faraway Earth that takes minutes to answer.</p></div>
+    <div class="panel"><h3>IT RUNS ENTIRELY ON THIS COMPUTER</h3>
+      <p class="small">Nothing leaves this page when you run the AI. The model and
+      the scenario data are loaded with the page, and the answer is worked out on
+      this computer. That mirrors how it would run at the plant: the decision is
+      made on the spot, where the accident happens.</p></div>
     <div class="panel"><h3>IT TAKES THE SAME TIME EVERY RUN</h3>
       <p class="small">The model does the same fixed set of steps for every window,
       so it costs the same small amount of time each time. The time you measure
