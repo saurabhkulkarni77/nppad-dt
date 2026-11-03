@@ -1,15 +1,10 @@
 # NPPAD Digital Twin
 
-A NASA mission style digital twin and flight console for the NPPAD
-nuclear power plant accident diagnosis study, built for applying the
-diagnosis algorithm in space, at the edge.
-
-The premise follows the Mars Society's account of real time decision
-making on Mars: interplanetary light time delay makes ground control
-too slow to close a control loop, bandwidth is scarce, and the only
-workable answer is onboard autonomy: process at the point of capture,
-downlink only results, and design for faults. A reactor accident
-transient allows sixty seconds. Ground cannot be in that loop.
+A digital twin and live console for the NPPAD nuclear power plant
+accident diagnosis study. The idea in one line: a reactor accident
+transient allows about sixty seconds, so the diagnosis model has to run
+on a small computer at the plant itself, on the spot, and only its short
+answer is ever recorded.
 
 ## Pages
 
@@ -19,22 +14,21 @@ The site was simplified to three pages, one per idea, in this order:
   water reactor with a scenario picker and time scrubber; every readout
   on the drawing is a recorded channel value from that scenario's run.
   Below the drawing, the recorded per model predictions for the run.
-- `index.html`: Try the AI. The primary flight model
+- `index.html`: Try the AI. The primary model
   (MultiRocket+HYDRA + ridge head) runs **live in the browser** on
   genuine study windows and times itself. Six more of the study's
   models are shown as their recorded predictions for the same windows,
   labelled as playback. CNN and GRU are not in that table: the study
   saved their results only as totals over the whole test split, never
   as a prediction for each window, and the page says so plainly.
-  Includes a link loss simulation: the diagnosis does not change,
-  because it never used the link. (This page folds in the former Space
-  App console, `app.html`, retired in the simplification.)
+  (This page folds in the former console page, `app.html`, retired in
+  the simplification.)
 - `ml.html`: What We Learned. The study findings in plain language:
   the headline results, the per model results grid and table, the four
   extensions (hard pairs, ramp accidents, unknown accident detection,
-  oracle variable cost), the LLM benchmark panel, the onboard pipeline
-  in six steps, measured edge benchmarks, safe mode design, and the
-  honest caveats. (This page folds in the former Analysis page,
+  oracle variable cost), the LLM benchmark panel, the pipeline
+  in six steps, measured edge benchmarks, the backup model design, and
+  the honest caveats. (This page folds in the former Analysis page,
   `analysis.html`, retired in the simplification.)
 
 ## Data integrity rule
@@ -42,7 +36,7 @@ The site was simplified to three pages, one per idea, in this order:
 No result on this site is hand typed. `tools/generate_data.py`
 generates every data file from the study's own artifacts:
 
-- the NPPAD-Edge flight bundle (`primary_w60.npz`) for the model
+- the NPPAD-Edge model bundle (`primary_w60.npz`) for the model
   parameters in `data/model.bin`,
 - the NPPAD-Edge held out test windows and its pure NumPy runtime for
   reference outputs,
@@ -75,11 +69,11 @@ Any static server works, for example:
 then open http://localhost:8000 . Opening the files directly with
 file:// will not work: browsers block the data fetches.
 
-## Flight model
+## Main model
 
 MultiRocket+HYDRA kernel features (50,752) with a ridge classifier
 head, onset aligned windows (t0 = 100 s, W = 60 s), 88 realistic
-channels, 12 accident classes. Edge bundle test macro F1 0.9838 at
-W = 60 s, identical to the full precision study model. The safe mode
+channels, 12 accident classes. Bundled model test macro F1 0.9838 at
+W = 60 s, identical to the full precision study model. The backup
 fallback is LogReg+ on summary features. Confidence is the softmax of
 the head scores: indicative, not calibrated.
