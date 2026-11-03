@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NPPAD Digital Twin: The Plant</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="mission" id="hdr"></header>
+<div class="wrap">
+
+  <div class="panel" style="margin-top:14px">
+    <h2>THE PLANT: A PRESSURIZED WATER REACTOR, LIVE FROM RECORDED DATA</h2>
+    <p>PCTRAN, the simulator behind the NPPAD dataset, models a pressurized water
+    reactor. This schematic shows that plant: containment, reactor pressure vessel
+    and core, pressurizer, steam generator, reactor coolant pump and the primary
+    loop, then the secondary loop with turbine, generator and condenser. Pick any
+    scenario the Space App console uses and press play. Every readout on the
+    drawing is a recorded channel value from that scenario's run at the time on
+    the clock, taken from the same recorded data the rest of the twin ships.</p>
+    <div class="grid g3" style="margin-top:12px; align-items:end">
+      <div><label class="lbl">SCENARIO</label>
+        <select id="scenSel" style="width:100%"></select></div>
+      <div><label class="lbl">TIME</label>
+        <div class="kv"><span class="k">RUN CLOCK</span>
+          <span class="v" id="clock">0 s</span></div></div>
+      <div style="display:flex; gap:8px">
+        <button id="playBtn" class="primary">PLAY</button>
+        <button id="resetBtn">RESET</button></div>
+    </div>
+    <div style="margin-top:10px">
+      <input type="range" id="scrub" min="0" max="10" value="0" style="width:100%">
+    </div>
+    <div id="plantSvg" style="margin-top:6px"></div>
+    <p class="dim small">Series are shown at 20 s steps (every second recorded
+    sample); the values are the recorded samples themselves, never interpolated.
+    The generator and the condenser carry no live value: the dataset records no
+    process channel for them, so they are labeled without one rather than given
+    an invented number.</p>
+  </div>
+
+  <div class="panel">
+    <h3>DIAGNOSIS READOUT: RECORDED PREDICTIONS FOR THIS SCENARIO</h3>
+    <div id="scenMeta" style="margin-bottom:10px"></div>
+    <div id="diagBox"></div>
+    <p class="dim small">Recorded predictions at the twin protocol: onset aligned
+    at t0 = 100 s, W = 60 s, realistic channels, copied from the scenario data
+    the Space App console ships. CNN and GRU were saved by the study only as
+    aggregate scores, so no recorded per window prediction exists for them.</p>
+  </div>
+
+  <footer id="ftr"></footer>
+</div>
+<script src="js/common.js"></script>
+<script src="js/plant.js"></script>
+</body>
+</html>
