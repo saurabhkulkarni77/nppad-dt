@@ -68,10 +68,62 @@ function drawFindings(f) {
     the unknown they carry no signal at all.</p>`;
 }
 
+function drawLLM(b) {
+  const el = $("llmbench");
+  if (!el || !b) return;
+  const m = b.method;
+  const lat = (s) => s === null || s === undefined ? "n/a"
+    : s >= 90 ? `${(s / 60).toFixed(1)} min` : `${s.toFixed(0)} s`;
+  const rows = b.models.map((md) => `
+    <tr><td>${md.name}</td>
+      <td class="num">${fmt(md.t0_100.accuracy, 3)}</td>
+      <td class="num">${fmt(md.t0_100.macroF1, 3)}</td>
+      <td class="num">${md.t0_100.parseFailures}</td>
+      <td class="num">${fmt(md.t0_20.accuracy, 3)}</td>
+      <td class="num">${fmt(md.t0_20.macroF1, 3)}</td>
+      <td class="num">${md.t0_20.parseFailures}</td>
+      <td class="num">${lat(md.latencySeconds)}</td></tr>`).join("");
+  const ref = b.trainedReferences;
+  const refRows = Object.keys(ref.t0_100).map((name) => `
+    <tr><td>${name}</td><td class="num">${fmt(ref.t0_100[name], 3)}</td>
+      <td class="num">${fmt(ref.t0_20[name], 3)}</td></tr>`).join("");
+  const chans = m.channels.map((c) => c.code).join(", ");
+  el.innerHTML = `
+    <p>The same windows the study models read, handed to language models as
+    text. Zero shot: no training, no examples, one identical prompt per window.
+    Each window is ${m.windowSeconds} s at ${m.samplingSeconds} s sampling
+    (${m.samplesPerChannel} samples per channel), ${m.windowsPerProtocol} test
+    windows per protocol (4 runs per class, stratified, seed ${m.seed}), at two
+    protocols: onset aligned (t0 = 100 s) and Task E (t0 = 20 s). Twelve
+    realistic channels are serialized at 3 significant figures: ${chans}.
+    Parsing is strict: an answer counts only if it is exactly one class code.</p>
+    <table class="tel"><thead><tr><th>LANGUAGE MODEL</th>
+      <th style="text-align:right">T0=100 ACC</th>
+      <th style="text-align:right">T0=100 F1</th>
+      <th style="text-align:right">BAD FORMAT</th>
+      <th style="text-align:right">T0=20 ACC</th>
+      <th style="text-align:right">T0=20 F1</th>
+      <th style="text-align:right">BAD FORMAT</th>
+      <th style="text-align:right">TOTAL TIME</th></tr></thead>
+      <tbody>${rows}</tbody></table>
+    <p class="dim small" style="margin-top:6px">${b.models.map((md) =>
+      `${md.name}: ${md.access}`).join("<br>")}</p>
+    <h3 style="margin-top:14px">TRAINED STUDY MODELS, FOR REFERENCE (FULL TEST SPLIT)</h3>
+    <table class="tel"><thead><tr><th>MODEL</th>
+      <th style="text-align:right">T0=100 MACRO F1</th>
+      <th style="text-align:right">T0=20 MACRO F1</th></tr></thead>
+      <tbody>${refRows}</tbody></table>
+    <p class="dim small" style="margin-top:6px">${ref.note}</p>
+    ${Object.keys(b.notRun || {}).length ? `<p style="margin-top:8px"><b>Not run.</b> ${Object.entries(b.notRun).map(
+      ([k, v]) => `${k}: ${v}`).join(" ")}</p>` : ""}
+    ${b.apiAccess ? `<p style="margin-top:8px">${b.apiAccess}</p>` : ""}`;
+}
+
 (async () => {
   const results = await loadJSON("data/results.json");
   drawGrid(results);
   drawFindings(results.findings);
+  try { drawLLM(await loadJSON("data/llm_benchmark.json")); } catch (e) {}
   const b = results.edge.benchmarks;
   const row = (name, w) => {
     const p = b[w].primary, f = b[w].fallback;
