@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NPPAD Digital Twin: How ML Takes Place</title>
+<title>NPPAD Digital Twin: What We Learned</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,110 +11,176 @@
 <div class="wrap">
 
   <div class="panel" style="margin-top:14px">
-    <h2>HOW ML TAKES PLACE: ON BOARD, AT THE POINT OF CAPTURE</h2>
-    <p>There is no cloud at the end of an interplanetary link, and no operator fast
-    enough to matter. So the machine learning does not happen on the ground and it does
-    not happen later. It happens on a small edge processor riding with the reactor, on
-    the same clock as the accident itself. This page is the full pipeline, sensor to
-    decision, exactly as the NPPAD-Edge payload runs it.</p>
-    <div class="pipe" style="margin-top:12px">
-      <div class="step"><div class="n">STAGE 01</div><div class="t">SENSE</div>
-        <div class="d">88 realistic plant channels sampled every 10 s. The 8 oracle leak
-        variables are excluded: a flight sensor suite never sees them.</div></div>
-      <div class="step"><div class="n">STAGE 02</div><div class="t">WINDOW</div>
-        <div class="d">The stream is aligned to accident onset and cut into fixed
-        windows: 30 to 600 s, with 60 s the primary flight window.</div></div>
-      <div class="step"><div class="n">STAGE 03</div><div class="t">CONDITION</div>
-        <div class="d">Log compression of heavy tailed channels, per channel
-        standardisation, clipping. Fitted on training data only, frozen for flight.</div></div>
-      <div class="step"><div class="n">STAGE 04</div><div class="t">KERNEL FEATURES</div>
-        <div class="d">MultiRocket and HYDRA random convolution kernels turn the window
-        into 50,752 features. No training at this stage: the kernels are fixed.</div></div>
-      <div class="step"><div class="n">STAGE 05</div><div class="t">RIDGE HEAD</div>
-        <div class="d">One linear layer scores the 12 accident classes. A softmax turns
-        scores into the confidence figure carried in telemetry.</div></div>
-      <div class="step"><div class="n">STAGE 06</div><div class="t">DECIDE + ALERT</div>
-        <div class="d">Class, confidence and mode are written to the event log and
-        downlinked. The raw window never leaves the processor.</div></div>
+    <h2>WHAT WE LEARNED: TEACHING A COMPUTER TO SPOT A NUCLEAR ACCIDENT</h2>
+    <p>We taught computer programs to look at one minute of sensor readings from a
+    nuclear power plant and say which accident is happening. The plant is a computer
+    simulation (PCTRAN, a well known reactor simulator), so accidents could be run
+    safely and every sensor reading recorded. The best programs get the answer right
+    almost every time, but only once the accident has actually started. Catching it
+    in the first seconds, while the plant still looks normal, is beyond every program
+    we tried. This page is the whole story, in plain words.</p>
+    <h3 style="margin-top:14px">HOW THE BEST PROGRAM WORKS, IN SIX STEPS</h3>
+    <div class="pipe">
+      <div class="step"><div class="n">STEP 1</div><div class="t">READ THE SENSORS</div>
+        <div class="d">88 sensor channels from the plant, read every 10 seconds.
+        Eight extra "oracle" channels that would give the leak away directly are
+        left out: no real sensor can see them, so using them would be cheating.</div></div>
+      <div class="step"><div class="n">STEP 2</div><div class="t">TAKE ONE MINUTE</div>
+        <div class="d">Cut the readings into short windows lined up with the moment
+        the accident starts. Lengths from 30 seconds to 10 minutes were tried; one
+        minute is the main one.</div></div>
+      <div class="step"><div class="n">STEP 3</div><div class="t">TIDY THE NUMBERS</div>
+        <div class="d">Squash extreme values and put every channel on the same
+        scale, using rules fitted on the training runs only, then frozen.</div></div>
+      <div class="step"><div class="n">STEP 4</div><div class="t">LOOK FOR SHAPES</div>
+        <div class="d">Thousands of fixed pattern matchers (a method called
+        MultiRocket+HYDRA) turn the window into 50,752 numbers describing its
+        shapes. This step is never trained; the patterns are fixed in advance.</div></div>
+      <div class="step"><div class="n">STEP 5</div><div class="t">SCORE THE 12 ACCIDENTS</div>
+        <div class="d">One simple scoring layer gives each of the 12 accident types
+        a score. The highest score is the answer; how far ahead it is becomes the
+        confidence figure.</div></div>
+      <div class="step"><div class="n">STEP 6</div><div class="t">ANSWER AND REPORT</div>
+        <div class="d">The answer, its confidence and the time are written to a log
+        and sent out. The raw sensor window itself never leaves the plant
+        computer.</div></div>
     </div>
+  </div>
+
+  <div class="panel">
+    <h3>THE HEADLINE RESULTS</h3>
+    <div id="findings"></div>
+    <p class="dim small">Every figure in this panel is computed from the study's own
+    result files by the build script (tools/generate_data.py). Nothing here is typed
+    in by hand. Scores are "macro F1": 1.0 would be perfect, and lower means more
+    mistakes, counted fairly across all 12 accident types.</p>
+  </div>
+
+  <div class="panel">
+    <h3>THE SCORES OF ALL EIGHT PROGRAMS, BY WINDOW LENGTH</h3>
+    <canvas class="chart" id="gridChart" width="520" height="300"></canvas>
+    <div id="gridLegend" class="small dim" style="margin-top:8px"></div>
+    <p class="dim small">Each line is one program. The chart shows its score for
+    windows of different lengths, all starting when the accident starts (100 seconds
+    into the run), on test runs the programs had never seen, using the honest 88
+    sensor channels. Drawn from the study's results file, not from typed numbers.</p>
+  </div>
+
+  <div class="panel">
+    <h3>THE SAME SCORES AS A TABLE</h3>
+    <div id="grid100"></div>
+    <p class="dim small">The chart above, as numbers. The three "Rocket" programs
+    (MultiRocket+HYDRA, Rocket and MiniRocket), which work by matching shapes in the
+    data, hold the top scores at every window length.</p>
   </div>
 
   <div class="grid g2">
     <div class="panel">
-      <h3>WHY IT FITS SPACE: THE MARS LESSON, APPLIED TO A REACTOR</h3>
-      <p><b>No ground round trip.</b> The Mars Society's account of autonomous rovers
-      starts from a hard fact: signals take minutes to cross interplanetary distance,
-      with round trips from six to more than forty minutes. A control loop that waits
-      for Earth is not a control loop. This payload closes the loop on board, in well
-      under a second of compute per window.</p>
-      <p><b>Bandwidth is precious.</b> Early Mars radios moved less than 256 bits per
-      second and needed an orbiter as a relay. The payload therefore downlinks only
-      classification events (timestamp, class, confidence, mode) and keeps raw
-      sensor windows on the device. The useful result travels; the bulk data does not.</p>
-      <p><b>Autonomy is the requirement, not the upgrade.</b> Rovers became autonomous
-      because distance forced it. A reactor on a deep space vehicle is in the same
-      position: the diagnosis must be right, and must be made locally, whether or not
-      anyone on Earth is awake, in contact, or in time.</p>
-      <p><b>Faults are expected.</b> Radiation corrupts memory and data. The flight
-      bundle is SHA-256 verified before load, a memory checker rehashes the live
-      weights in flight, and a watchdog falls back to a small safe mode model rather
-      than flying a corrupted one. Ground teams verify behaviour in advance with the
-      digital twin, the same way rover commands are simulated before transmission.</p>
+      <h3>WHY THE FIRST SECONDS ARE IMPOSSIBLE</h3>
+      <p class="small dim">What if the window starts at 20 seconds, before the plant
+      has reacted to the accident at all? Every program runs into the same low
+      ceiling, and here is why.</p>
+      <div id="ceiling"></div>
     </div>
-
     <div class="panel">
-      <h3>STUDY RESULTS: MACRO F1 BY WINDOW, ALL EIGHT MODELS</h3>
-      <canvas class="chart" id="gridChart" width="520" height="300"></canvas>
-      <div id="gridLegend" class="small dim" style="margin-top:8px"></div>
-      <p class="dim small">Held out test split, onset aligned at t0 = 100 s, realistic
-      88 channel set. Computed by the study's executed notebook runs; this chart is
-      drawn from the generated results file, not from typed numbers.</p>
+      <h3>EXTENSION 4 OF 4: WHAT THE "CHEATING" CHANNELS WERE WORTH</h3>
+      <p class="small dim">Eight channels in the raw data would reveal the leak
+      directly, and no real sensor could measure them. All the headline results
+      leave them out. This table shows what each program scores with all 96 channels
+      versus the honest 88.</p>
+      <div id="oracle"></div>
     </div>
   </div>
 
   <div class="panel">
-    <h3>WHAT THE STUDY FOUND</h3>
-    <div id="findings"></div>
-    <p class="dim small">Every figure in this panel is computed by tools/generate_data.py
-    from the study's combined results file and the executed run's own extracted results.
-    Nothing in this panel is typed in by hand.</p>
+    <h3>LONGER WINDOWS HELP ONLY A LITTLE</h3>
+    <p class="small dim">Once a window starts when the accident starts, even
+    30 seconds of data is nearly enough. Where the window starts matters far more
+    than how long it is, as this panel shows.</p>
+    <div id="growth"></div>
   </div>
 
   <div class="panel">
-    <h3>LLM BENCHMARK: CAN A LANGUAGE MODEL READ THE PLANT?</h3>
+    <h3>WHICH ACCIDENTS GET MIXED UP</h3>
+    <p class="small dim">When a good program (here, Random Forest) is wrong, it is
+    not wrong at random. Its mistakes follow the physics: similar accidents get
+    confused with each other. This panel shows the pattern.</p>
+    <div id="confusion"></div>
+  </div>
+
+  <div class="panel">
+    <h3>EXTENSION 1 OF 4: HARD PAIRS</h3>
+    <p class="small dim">Some pairs of accidents look almost identical to the
+    sensors. This table scores each program on just the two accidents in a pair, at
+    each window length, to see which pairs stay hard. A pair score counts only the
+    test runs of those two accidents.</p>
+    <div id="hardpairs"></div>
+    <p class="dim small">The hardest pair is LOCA and LOCAC: the same loss of
+    coolant, at two different pipe locations (the hot leg and the cold leg). The
+    steam generator pair and the inside/outside reactor building pair separate more
+    easily, because sensors belonging to each loop say directly which loop is
+    hurt.</p>
+  </div>
+
+  <div class="grid g2">
+    <div class="panel">
+      <h3>EXTENSION 2 OF 4: ACCIDENTS THAT CREEP IN SLOWLY</h3>
+      <p class="small dim">The eight accidents were also run as slow ramps, creeping
+      in while the plant changes power. The programs were only ever trained on
+      sudden accidents. The scores drop a long way.</p>
+      <div id="ramps"></div>
+    </div>
+    <div class="panel">
+      <h3>EXTENSION 3 OF 4: SPOTTING AN ACCIDENT IT NEVER LEARNED</h3>
+      <p class="small dim">One accident type was hidden from training completely.
+      Can a program at least raise the alarm that something unknown is happening?
+      For most programs the answer is no; only one uncertainty signal works as an
+      alarm, and only at some window lengths.</p>
+      <div id="unknown"></div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>CAN A CHATBOT READ THE PLANT?</h3>
+    <p>We also tried something different: hand the same sensor windows to AI
+    chatbots (language models) as plain text, and ask which accident it is, with no
+    training at all. One chatbot did far better than the small models, but still far
+    below the trained programs. Two well known chatbots could not be tested, for the
+    practical reasons stated under the table.</p>
     <div id="llmbench"></div>
     <p class="dim small">Every figure in this panel was computed by the benchmark
     run itself and written to data/llm_benchmark.json by
-    tools/generate_llm_benchmark.py from the run's results file. Nothing in this
-    panel is typed in by hand.</p>
+    tools/generate_llm_benchmark.py. Nothing here is typed in by hand.</p>
   </div>
 
   <div class="grid g2">
     <div class="panel">
-      <h3>EDGE PAYLOAD: MEASURED BENCHMARKS</h3>
+      <h3>HOW FAST IS THE PLANT COMPUTER VERSION?</h3>
       <div id="bench"></div>
-      <p class="dim small">Measured with the pure NumPy runtime of the NPPAD-Edge
-      project on one core under a 512 MB budget. The edge bundle reproduces the study
-      model's test scores exactly at both flight windows: the kernel transforms are
-      faithful reimplementations, verified feature by feature against the originals.</p>
+      <p class="dim small">Measured on one processor core with the study's own
+      test program, under a memory budget of 512 MB, roughly what a small computer
+      at the plant could offer. The plant version of the model scores exactly the
+      same as the full study model: the shape matching step was rebuilt carefully
+      and checked feature by feature against the original.</p>
     </div>
     <div class="panel">
-      <h3>GRACEFUL DEGRADATION: SAFE MODE</h3>
-      <p>If the memory checker finds corrupted weights, or the latency budget is
-      breached repeatedly, the payload does not stop diagnosing. It switches to a
-      compact fallback: logistic regression on per channel summary features, a model
-      small enough to trust when the primary cannot be trusted. Its measured test
-      score rides in the benchmark panel. Telemetry flags the mode on every event, so
-      ground always knows which model made the call.</p>
-      <h3 style="margin-top:14px">DETERMINISM</h3>
-      <p>The flight pipeline has no queues, no network calls and no unbounded loops.
-      Every window costs the same fixed sequence of operations, so decision latency
-      is a measured distribution, not a hope. The Space App page runs this exact
-      model in your browser and times it live.</p>
-      <h3 style="margin-top:14px">ONE HONEST CAVEAT</h3>
-      <p>The confidence figure is the softmax of the ridge head's scores. It ranks
-      classes well and matches the study's reporting, but it is an indicative score,
-      not a calibrated probability. Mission rules should treat it that way.</p>
+      <h3>WHY THE AI MUST LIVE AT THE PLANT</h3>
+      <p><b>Help from far away arrives too late.</b> Imagine this plant on a
+      spacecraft. A radio message to Earth takes minutes to arrive, and the answer
+      takes minutes to come back. An accident allows about a minute. So the AI has
+      to run on a small computer at the plant itself, and the main model was built
+      and timed for exactly that.</p>
+      <p><b>Only the answer travels.</b> Sending all the raw sensor data would
+      swamp a slow link. The system sends just the short event: what happened, how
+      confident, and when. About 150 bytes.</p>
+      <p><b>If the main model breaks, a smaller one takes over.</b> A checker keeps
+      re-verifying the model's stored numbers. If they come out wrong, the system
+      switches to a much smaller, simpler backup model (called LogReg+) instead of
+      stopping. Its score is in the speed table on the left, and every event says
+      which model made the call.</p>
+      <p><b>One honest limit.</b> The confidence figure ranks the guesses; it is
+      not a true probability. Read it as "how strongly the model prefers this
+      answer", nothing more.</p>
     </div>
   </div>
 
@@ -122,5 +188,6 @@
 </div>
 <script src="js/common.js"></script>
 <script src="js/ml.js"></script>
+<script src="js/analysis.js"></script>
 </body>
 </html>
