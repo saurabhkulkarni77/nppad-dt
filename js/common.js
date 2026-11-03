@@ -24,7 +24,6 @@ function header(active) {
     </div>
     <div class="hud">
       <div class="hudbox"><div class="k">TIME ON THIS PAGE</div><div class="v" id="met">00:00:00</div></div>
-      <div class="hudbox"><div class="k">LINK TO EARTH</div><div class="v" style="color:var(--amber)">MINUTES SLOW</div></div>
       <div class="hudbox"><div class="k">WHERE THE AI RUNS</div><div class="v">AT THE PLANT</div></div>
     </div>
   </div>
@@ -41,7 +40,7 @@ function footer() {
   AI yourself, then read what the study learned. Every number on these pages is
   computed from the study's own result files by the scripts in tools/. Nothing is
   typed in by hand. The AI model (MultiRocket+HYDRA) is small enough to run on a
-  computer at the plant itself, so no answer ever has to wait for Earth.`;
+  computer at the plant itself, so it gives its answer on the spot.`;
 }
 async function loadJSON(path) {
   const r = await fetch(path);
