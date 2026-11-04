@@ -10,10 +10,14 @@ answer is ever recorded.
 
 The site was simplified to three pages, one per idea, in this order:
 
-- `plant.html`: The Plant. An interactive schematic of the pressurized
-  water reactor with a scenario picker and time scrubber; every readout
-  on the drawing is a recorded channel value from that scenario's run.
-  Below the drawing, the recorded per model predictions for the run.
+- `plant.html`: The Plant. A real time 3D model of the pressurized water
+  reactor (Three.js, vendored in `js/vendor/`, scene in `js/plant3d.js`)
+  with a scenario picker and time scrubber; every readout on the model
+  is a recorded channel value from that scenario's run, the core glow
+  follows the recorded reactor power, and the flow pulses in the pipes
+  follow the recorded loop and steam flows. If WebGL is unavailable the
+  page falls back to the flat schematic drawing, with the same readouts.
+  Below the model, the recorded per model predictions for the run.
 - `index.html`: Try the AI. The primary model
   (MultiRocket+HYDRA + ridge head) runs **live in the browser** on
   genuine study windows and times itself. Six more of the study's
