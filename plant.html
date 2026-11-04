@@ -12,12 +12,14 @@
 
   <div class="panel" style="margin-top:14px">
     <h2>THE PLANT: A NUCLEAR POWER PLANT YOU CAN WATCH</h2>
-    <p>This page is a drawing of a pressurized water reactor (PWR for short), the
-    most common kind of nuclear power plant in the world. The numbers on the drawing
-    are real recorded measurements from accident runs in a computer simulator
-    called PCTRAN, the same simulator that produced the study's data.</p>
+    <p>This page is a three dimensional model of a pressurized water reactor
+    (PWR for short), the most common kind of nuclear power plant in the world.
+    Drag the model to turn it around, and scroll or pinch to zoom in. The
+    numbers on the model are real recorded measurements from accident runs in
+    a computer simulator called PCTRAN, the same simulator that produced the
+    study's data.</p>
     <p><b>What to try:</b> pick an accident run below and press PLAY. The clock runs,
-    the measurements on the drawing change, and you can watch the accident unfold.
+    the measurements on the model change, and you can watch the accident unfold.
     The slider lets you jump to any moment in the run.</p>
     <div class="grid g3" style="margin-top:12px; align-items:end">
       <div><label class="lbl">ACCIDENT RUN</label>
@@ -33,16 +35,21 @@
       <input type="range" id="scrub" min="0" max="10" value="0" style="width:100%">
     </div>
     <div id="plantSvg" style="margin-top:6px"></div>
-    <p class="dim small">How to read the drawing: the reactor building (containment)
-    holds the reactor vessel and its hot core, the pressurizer (which keeps the
-    water pressure steady), the steam generator, and the pump that pushes hot water
-    around the loop. Steam leaves the building, spins the turbine, and the generator
-    turns that spin into electricity. The water is then cooled in the condenser and
-    sent back. The drawing shows one measured value every 20 seconds of the run,
-    always the recorded value itself, never a made up in between number. Two parts
-    carry no number, the generator and the condenser, because the dataset records
-    no measurement for them. Rather than invent numbers, they are labelled as
-    having none.</p>
+    <p class="dim small">How to read the model: the reactor building (containment)
+    is the clear shell on the left. Inside it sit the reactor vessel with its
+    hot core, the pressurizer (which keeps the water pressure steady), the
+    steam generator, and the pump that pushes hot water around the loop. Steam
+    leaves the building, spins the turbine, and the generator turns that spin
+    into electricity. The water is then cooled in the condenser and sent back.
+    The vessel is cut open at the front so you can see the core; it glows
+    brighter or dimmer with the recorded reactor power. Bright pulses move
+    through the pipes to show the water and steam circulating; their speed
+    follows the recorded flows, and the pulses themselves are not
+    measurements. The model shows one measured value every 20 seconds of the
+    run, always the recorded value itself, never a made up in between number.
+    Two parts carry no number, the generator and the condenser, because the
+    dataset records no measurement for them. Rather than invent numbers, they
+    are labelled as having none.</p>
   </div>
 
   <div class="panel">
@@ -60,6 +67,8 @@
   <footer id="ftr"></footer>
 </div>
 <script src="js/common.js"></script>
+<script src="js/vendor/three.min.js"></script>
+<script src="js/plant3d.js"></script>
 <script src="js/plant.js"></script>
 </body>
 </html>
