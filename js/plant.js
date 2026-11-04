@@ -117,6 +117,9 @@ function render() {
       if (el) el.textContent = `${ch.code} ${fv(s[ch.code][idx])} ${ch.unit}`;
     });
   });
+  /* Drive the 3D scene (core glow, flow speeds) from the same recorded
+     step. No-op in SVG fallback mode beyond the label values above. */
+  if (window.Plant3D) Plant3D.onStep(s, idx);
 }
 
 function stop() {
@@ -165,7 +168,13 @@ function showScenario() {
 
 (async () => {
   plant = await loadJSON("data/plant.json");
-  $("plantSvg").innerHTML = svgMarkup();
+  /* Prefer the 3D scene; fall back to the SVG drawing if WebGL or the
+     Three.js load failed, so the page never breaks. */
+  let use3D = false;
+  if (window.Plant3D) {
+    try { use3D = Plant3D.init($("plantSvg")); } catch (e) { use3D = false; }
+  }
+  if (!use3D) $("plantSvg").innerHTML = svgMarkup();
   $("scenSel").innerHTML = plant.scenarios.map((s, i) =>
     `<option value="${i}">${scenLabel(s)}</option>`).join("");
   $("scenSel").addEventListener("change", showScenario);
