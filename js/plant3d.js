@@ -32,7 +32,7 @@ window.Plant3D = (() => {
 
   /* ---------- label definitions: same channels, same grouping as the SVG */
   const LABELS = [
-    { t: "CONTAINMENT (REACTOR BUILDING)", a: [-9.3, 6.0, -0.8], ch: ["PRB", "TRB"] },
+    { t: "CONTAINMENT<br>(REACTOR BUILDING)", a: [-9.3, 6.0, -0.8], ax: -100, ch: ["PRB", "TRB"] },
     { t: "REACTOR PRESSURE VESSEL", a: [-6.9, 4.3, -0.4], ch: ["TF", "TAVG", "LVCR", "PWR"] },
     { t: "PRESSURIZER", a: [0.9, 5.6, -3.4], ch: ["P", "LVPZ"] },
     { t: "STEAM GENERATOR A", a: [-2.5, 7.5, 1.7], ch: ["PSGA", "LSGA", "NSGA"] },
@@ -57,7 +57,7 @@ window.Plant3D = (() => {
       if (L.note) html += `<div class="n">${L.note}</div>`;
       el.innerHTML = html;
       labelLayer.appendChild(el);
-      labels.push({ el, anchor: new T.Vector3(L.a[0], L.a[1], L.a[2]) });
+      labels.push({ el, anchor: new T.Vector3(L.a[0], L.a[1], L.a[2]), align: L.ax === undefined ? -50 : L.ax });
     }
   }
 
@@ -341,7 +341,7 @@ window.Plant3D = (() => {
       const x = (proj.x * 0.5 + 0.5) * W;
       const y = (-proj.y * 0.5 + 0.5) * H;
       L.el.style.opacity = "1";
-      L.el.style.transform = `translate(-50%,-100%) translate(${x.toFixed(1)}px,${y.toFixed(1)}px)`;
+      L.el.style.transform = `translate(${L.align}%,-100%) translate(${x.toFixed(1)}px,${y.toFixed(1)}px)`;
     }
   }
 
