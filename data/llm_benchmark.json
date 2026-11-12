@@ -1,5 +1,5 @@
 {
- "generatedBy": "tools/generate_llm_benchmark.py from the LLM benchmark run's computed results file (workspace/nppad_llm_bench/llm_benchmark_results.json). No number is typed into the page.",
+ "generatedBy": "tools/generate_study_data.py from the Nov 8, 2026 revised benchmark results file (prompt v1 benchmark; one local-model arm removed 2026-11-08 at the author's order)",
  "method": {
   "seed": 2026,
   "windowsPerProtocol": 48,
@@ -76,6 +76,8 @@
   {
    "name": "Claude",
    "access": "Blinded subagent calls: each call received only the prompt text for a batch of up to 6 windows, keyed by window ID, with no labels or study context.",
+   "latencySeconds": 633,
+   "latencyNote": "wall clock for 16 parallel blinded batch calls",
    "t0_100": {
     "n": 48,
     "accuracy": 0.3958333333333333,
@@ -101,45 +103,13 @@
     "accuracy": 0.3333333333333333,
     "macroF1": 0.2612433862433862,
     "parseFailures": 0
-   },
-   "latencySeconds": 633,
-   "latencyNote": "wall clock for 16 parallel blinded batch calls"
-  },
-  {
-   "name": "Qwen2.5 3B Instruct",
-   "access": "Local llama.cpp (build b12032) server, temperature 0, seed 2026, 16 max tokens.",
-   "t0_100": {
-    "n": 48,
-    "accuracy": 0.08333333333333333,
-    "macroF1": 0.012820512820512822,
-    "parseFailures": 0,
-    "perClassRecall": {
-     "LOCA": 1.0,
-     "LOCAC": 0.0,
-     "SLBIC": 0.0,
-     "SLBOC": 0.0,
-     "SGATR": 0.0,
-     "SGBTR": 0.0,
-     "RW": 0.0,
-     "RI": 0.0,
-     "FLB": 0.0,
-     "MD": 0.0,
-     "LR": 0.0,
-     "LLB": 0.0
-    }
-   },
-   "t0_20": {
-    "n": 48,
-    "accuracy": 0.08333333333333333,
-    "macroF1": 0.012820512820512822,
-    "parseFailures": 0
-   },
-   "latencySeconds": 918.1982278823853,
-   "latencyNote": null
+   }
   },
   {
    "name": "Llama 3.2 3B Instruct",
    "access": "Local llama.cpp (build b12032) server, temperature 0, seed 2026, 16 max tokens.",
+   "latencySeconds": 881.2574579715729,
+   "latencyNote": "",
    "t0_100": {
     "n": 48,
     "accuracy": 0.08333333333333333,
@@ -165,9 +135,7 @@
     "accuracy": 0.08333333333333333,
     "macroF1": 0.012820512820512822,
     "parseFailures": 0
-   },
-   "latencySeconds": 881.2574579715729,
-   "latencyNote": null
+   }
   }
  ],
  "trainedReferences": {
@@ -195,6 +163,6 @@
  },
  "notRun": {
   "ChatGPT": "Not run: the key authenticates, but the OpenAI account has no API credits remaining. Every chat completion call returned HTTP 429 (no credits), so no ChatGPT answers could be collected.",
-  "Gemini": "Not completed: the provided Gemini key is on the Free Tier, which allows 20 generate requests per day per model (the API quoted a retry delay of about 12.5 hours), so the 96 window protocol cannot be served today. The Pro models were also unusable on this key: gemini-2.5-pro is no longer available to new users, and gemini-3.1-pro-preview was already quota exhausted. About 30 genuine answers from gemini-3-flash-preview are preserved in the working folder (gemini_partial_3flash_outputs.csv), but they cover only part of the sample, so no Gemini score is claimed. A paid tier key, or the daily quota reset, completes this row under the same protocol."
+  "Gemini": "Not completed: 57 of the 96 windows have genuine answers from gemini-3-flash-preview (all 48 onset aligned windows at t0 = 100 s, and 9 of 48 at t0 = 20 s), after the Nov 3 and Nov 4 runs stopped when the free tier daily quota returned HTTP 429. No Gemini score is claimed from a partial sample. The remaining 39 windows complete under the same protocol when the daily quota resets."
  }
 }
