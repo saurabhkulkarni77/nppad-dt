@@ -1,5 +1,5 @@
 "use strict";
-/* Shared page frame: header, clock, footer. Same on all three pages. */
+/* Shared page frame: header, clock, footer. Same on all pages. */
 const T0 = Date.now();
 function met() {
   const s = Math.floor((Date.now() - T0) / 1000);
@@ -13,6 +13,8 @@ function header(active) {
     ["plant.html", "THE PLANT", "plant"],
     ["index.html", "TRY THE AI", "ai"],
     ["ml.html", "WHAT WE LEARNED", "ml"],
+    ["results.html", "RESULTS", "results"],
+    ["llm.html", "LLM STUDY", "llm"],
   ];
   const nav = pages.map(([href, label, key]) =>
     `<a href="${href}" class="${key === active ? "on" : ""}">${label}</a>`).join("");
@@ -36,8 +38,9 @@ function header(active) {
 function footer() {
   document.getElementById("ftr").innerHTML = `
   NPPAD DIGITAL TWIN. A working copy of the NPPAD nuclear accident study
-  (Saurabh Sanjay Kulkarni). The story in three pages: look at the plant, try the
-  AI yourself, then read what the study learned. Every number on these pages is
+  (Saurabh Sanjay Kulkarni). The story in five pages: look at the plant, try the
+  AI yourself, read what the study learned, then dig into the full trained-model
+  results and the complete language-model prompt study. Every number on these pages is
   computed from the study's own result files by the scripts in tools/. Nothing is
   typed in by hand. The AI model (MultiRocket+HYDRA) is small enough to run on a
   computer at the plant itself, so it gives its answer on the spot.`;
