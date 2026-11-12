@@ -1,0 +1,9126 @@
+{
+ "generatedBy": "tools/generate_study_data.py, recomputed from NPPAD_Results_Explorer/preds/*.csv (cross-checked against the w60Study rows of data.json)",
+ "setting": "Task E setting: transient onset t0 = 20 s, window W = 60 s, full held-out test split",
+ "classes": [
+  "LOCA",
+  "LOCAC",
+  "SLBIC",
+  "SLBOC",
+  "SGATR",
+  "SGBTR",
+  "RW",
+  "RI",
+  "FLB",
+  "MD",
+  "LR",
+  "LLB"
+ ],
+ "windows": [
+  {
+   "file": "LOCA/1.csv",
+   "severity": "1.0",
+   "label": "LOCA"
+  },
+  {
+   "file": "LOCA/11.csv",
+   "severity": "11.0",
+   "label": "LOCA"
+  },
+  {
+   "file": "LOCA/16.csv",
+   "severity": "16.0",
+   "label": "LOCA"
+  },
+  {
+   "file": "LOCA/21.csv",
+   "severity": "21.0",
+   "label": "LOCA"
+  },
+  {
+   "file": "LOCA/26.csv",
+   "severity": "26.0",
+   "label": "LOCA"
+  },
+  {
+   "file": "LOCA/31.csv",
+   "severity": "31.0",
+   "label": "LOCA"
+  },
+  {
+   "file": "LOCA/36.csv",
+   "severity": "36.0",
+   "label": "LOCA"
+  },
+  {
+   "file": "LOCA/41.csv",
+   "severity": "41.0",
+   "label": "LOCA"
+  },
+  {
+   "file": "LOCA/46.csv",
+   "severity": "46.0",
+   "label": "LOCA"
+  },
+  {
+   "file": "LOCA/51.csv",
+   "severity": "51.0",
+   "label": "LOCA"
+  },
+  {
+   "file": "LOCA/56.csv",
+   "severity": "56.0",
+   "label": "LOCA"
+  },
+  {
+   "file": "LOCA/6.csv",
+   "severity": "6.0",
+   "label": "LOCA"
+  },
+  {
+   "file": "LOCA/61.csv",
+   "severity": "61.0",
+   "label": "LOCA"
+  },
+  {
+   "file": "LOCA/66.csv",
+   "severity": "66.0",
+   "label": "LOCA"
+  },
+  {
+   "file": "LOCA/71.csv",
+   "severity": "71.0",
+   "label": "LOCA"
+  },
+  {
+   "file": "LOCA/76.csv",
+   "severity": "76.0",
+   "label": "LOCA"
+  },
+  {
+   "file": "LOCA/81.csv",
+   "severity": "81.0",
+   "label": "LOCA"
+  },
+  {
+   "file": "LOCA/86.csv",
+   "severity": "86.0",
+   "label": "LOCA"
+  },
+  {
+   "file": "LOCA/91.csv",
+   "severity": "91.0",
+   "label": "LOCA"
+  },
+  {
+   "file": "LOCA/96.csv",
+   "severity": "96.0",
+   "label": "LOCA"
+  },
+  {
+   "file": "LOCAC/1.csv",
+   "severity": "1.0",
+   "label": "LOCAC"
+  },
+  {
+   "file": "LOCAC/11.csv",
+   "severity": "11.0",
+   "label": "LOCAC"
+  },
+  {
+   "file": "LOCAC/16.csv",
+   "severity": "16.0",
+   "label": "LOCAC"
+  },
+  {
+   "file": "LOCAC/21.csv",
+   "severity": "21.0",
+   "label": "LOCAC"
+  },
+  {
+   "file": "LOCAC/26.csv",
+   "severity": "26.0",
+   "label": "LOCAC"
+  },
+  {
+   "file": "LOCAC/31.csv",
+   "severity": "31.0",
+   "label": "LOCAC"
+  },
+  {
+   "file": "LOCAC/36.csv",
+   "severity": "36.0",
+   "label": "LOCAC"
+  },
+  {
+   "file": "LOCAC/41.csv",
+   "severity": "41.0",
+   "label": "LOCAC"
+  },
+  {
+   "file": "LOCAC/46.csv",
+   "severity": "46.0",
+   "label": "LOCAC"
+  },
+  {
+   "file": "LOCAC/51.csv",
+   "severity": "51.0",
+   "label": "LOCAC"
+  },
+  {
+   "file": "LOCAC/56.csv",
+   "severity": "56.0",
+   "label": "LOCAC"
+  },
+  {
+   "file": "LOCAC/6.csv",
+   "severity": "6.0",
+   "label": "LOCAC"
+  },
+  {
+   "file": "LOCAC/61.csv",
+   "severity": "61.0",
+   "label": "LOCAC"
+  },
+  {
+   "file": "LOCAC/66.csv",
+   "severity": "66.0",
+   "label": "LOCAC"
+  },
+  {
+   "file": "LOCAC/71.csv",
+   "severity": "71.0",
+   "label": "LOCAC"
+  },
+  {
+   "file": "LOCAC/76.csv",
+   "severity": "76.0",
+   "label": "LOCAC"
+  },
+  {
+   "file": "LOCAC/81.csv",
+   "severity": "81.0",
+   "label": "LOCAC"
+  },
+  {
+   "file": "LOCAC/86.csv",
+   "severity": "86.0",
+   "label": "LOCAC"
+  },
+  {
+   "file": "LOCAC/91.csv",
+   "severity": "91.0",
+   "label": "LOCAC"
+  },
+  {
+   "file": "LOCAC/96.csv",
+   "severity": "96.0",
+   "label": "LOCAC"
+  },
+  {
+   "file": "SLBIC/1.csv",
+   "severity": "1.0",
+   "label": "SLBIC"
+  },
+  {
+   "file": "SLBIC/101.csv",
+   "severity": "101.0",
+   "label": "SLBIC"
+  },
+  {
+   "file": "SLBIC/11.csv",
+   "severity": "11.0",
+   "label": "SLBIC"
+  },
+  {
+   "file": "SLBIC/16.csv",
+   "severity": "16.0",
+   "label": "SLBIC"
+  },
+  {
+   "file": "SLBIC/21.csv",
+   "severity": "21.0",
+   "label": "SLBIC"
+  },
+  {
+   "file": "SLBIC/26.csv",
+   "severity": "26.0",
+   "label": "SLBIC"
+  },
+  {
+   "file": "SLBIC/31.csv",
+   "severity": "31.0",
+   "label": "SLBIC"
+  },
+  {
+   "file": "SLBIC/36.csv",
+   "severity": "36.0",
+   "label": "SLBIC"
+  },
+  {
+   "file": "SLBIC/41.csv",
+   "severity": "41.0",
+   "label": "SLBIC"
+  },
+  {
+   "file": "SLBIC/46.csv",
+   "severity": "46.0",
+   "label": "SLBIC"
+  },
+  {
+   "file": "SLBIC/51.csv",
+   "severity": "51.0",
+   "label": "SLBIC"
+  },
+  {
+   "file": "SLBIC/56.csv",
+   "severity": "56.0",
+   "label": "SLBIC"
+  },
+  {
+   "file": "SLBIC/6.csv",
+   "severity": "6.0",
+   "label": "SLBIC"
+  },
+  {
+   "file": "SLBIC/61.csv",
+   "severity": "61.0",
+   "label": "SLBIC"
+  },
+  {
+   "file": "SLBIC/66.csv",
+   "severity": "66.0",
+   "label": "SLBIC"
+  },
+  {
+   "file": "SLBIC/71.csv",
+   "severity": "71.0",
+   "label": "SLBIC"
+  },
+  {
+   "file": "SLBIC/76.csv",
+   "severity": "76.0",
+   "label": "SLBIC"
+  },
+  {
+   "file": "SLBIC/81.csv",
+   "severity": "81.0",
+   "label": "SLBIC"
+  },
+  {
+   "file": "SLBIC/86.csv",
+   "severity": "86.0",
+   "label": "SLBIC"
+  },
+  {
+   "file": "SLBIC/91.csv",
+   "severity": "91.0",
+   "label": "SLBIC"
+  },
+  {
+   "file": "SLBIC/96.csv",
+   "severity": "96.0",
+   "label": "SLBIC"
+  },
+  {
+   "file": "SLBOC/1.csv",
+   "severity": "1.0",
+   "label": "SLBOC"
+  },
+  {
+   "file": "SLBOC/11.csv",
+   "severity": "11.0",
+   "label": "SLBOC"
+  },
+  {
+   "file": "SLBOC/16.csv",
+   "severity": "16.0",
+   "label": "SLBOC"
+  },
+  {
+   "file": "SLBOC/21.csv",
+   "severity": "21.0",
+   "label": "SLBOC"
+  },
+  {
+   "file": "SLBOC/26.csv",
+   "severity": "26.0",
+   "label": "SLBOC"
+  },
+  {
+   "file": "SLBOC/31.csv",
+   "severity": "31.0",
+   "label": "SLBOC"
+  },
+  {
+   "file": "SLBOC/36.csv",
+   "severity": "36.0",
+   "label": "SLBOC"
+  },
+  {
+   "file": "SLBOC/41.csv",
+   "severity": "41.0",
+   "label": "SLBOC"
+  },
+  {
+   "file": "SLBOC/46.csv",
+   "severity": "46.0",
+   "label": "SLBOC"
+  },
+  {
+   "file": "SLBOC/51.csv",
+   "severity": "51.0",
+   "label": "SLBOC"
+  },
+  {
+   "file": "SLBOC/56.csv",
+   "severity": "56.0",
+   "label": "SLBOC"
+  },
+  {
+   "file": "SLBOC/6.csv",
+   "severity": "6.0",
+   "label": "SLBOC"
+  },
+  {
+   "file": "SLBOC/61.csv",
+   "severity": "61.0",
+   "label": "SLBOC"
+  },
+  {
+   "file": "SLBOC/66.csv",
+   "severity": "66.0",
+   "label": "SLBOC"
+  },
+  {
+   "file": "SLBOC/71.csv",
+   "severity": "71.0",
+   "label": "SLBOC"
+  },
+  {
+   "file": "SLBOC/76.csv",
+   "severity": "76.0",
+   "label": "SLBOC"
+  },
+  {
+   "file": "SLBOC/81.csv",
+   "severity": "81.0",
+   "label": "SLBOC"
+  },
+  {
+   "file": "SLBOC/86.csv",
+   "severity": "86.0",
+   "label": "SLBOC"
+  },
+  {
+   "file": "SLBOC/91.csv",
+   "severity": "91.0",
+   "label": "SLBOC"
+  },
+  {
+   "file": "SLBOC/96.csv",
+   "severity": "96.0",
+   "label": "SLBOC"
+  },
+  {
+   "file": "SGATR/1.csv",
+   "severity": "1.0",
+   "label": "SGATR"
+  },
+  {
+   "file": "SGATR/11.csv",
+   "severity": "11.0",
+   "label": "SGATR"
+  },
+  {
+   "file": "SGATR/16.csv",
+   "severity": "16.0",
+   "label": "SGATR"
+  },
+  {
+   "file": "SGATR/21.csv",
+   "severity": "21.0",
+   "label": "SGATR"
+  },
+  {
+   "file": "SGATR/26.csv",
+   "severity": "26.0",
+   "label": "SGATR"
+  },
+  {
+   "file": "SGATR/31.csv",
+   "severity": "31.0",
+   "label": "SGATR"
+  },
+  {
+   "file": "SGATR/36.csv",
+   "severity": "36.0",
+   "label": "SGATR"
+  },
+  {
+   "file": "SGATR/41.csv",
+   "severity": "41.0",
+   "label": "SGATR"
+  },
+  {
+   "file": "SGATR/46.csv",
+   "severity": "46.0",
+   "label": "SGATR"
+  },
+  {
+   "file": "SGATR/51.csv",
+   "severity": "51.0",
+   "label": "SGATR"
+  },
+  {
+   "file": "SGATR/56.csv",
+   "severity": "56.0",
+   "label": "SGATR"
+  },
+  {
+   "file": "SGATR/6.csv",
+   "severity": "6.0",
+   "label": "SGATR"
+  },
+  {
+   "file": "SGATR/61.csv",
+   "severity": "61.0",
+   "label": "SGATR"
+  },
+  {
+   "file": "SGATR/66.csv",
+   "severity": "66.0",
+   "label": "SGATR"
+  },
+  {
+   "file": "SGATR/71.csv",
+   "severity": "71.0",
+   "label": "SGATR"
+  },
+  {
+   "file": "SGATR/76.csv",
+   "severity": "76.0",
+   "label": "SGATR"
+  },
+  {
+   "file": "SGATR/81.csv",
+   "severity": "81.0",
+   "label": "SGATR"
+  },
+  {
+   "file": "SGATR/86.csv",
+   "severity": "86.0",
+   "label": "SGATR"
+  },
+  {
+   "file": "SGATR/91.csv",
+   "severity": "91.0",
+   "label": "SGATR"
+  },
+  {
+   "file": "SGATR/96.csv",
+   "severity": "96.0",
+   "label": "SGATR"
+  },
+  {
+   "file": "SGBTR/1.csv",
+   "severity": "1.0",
+   "label": "SGBTR"
+  },
+  {
+   "file": "SGBTR/101.csv",
+   "severity": "101.0",
+   "label": "SGBTR"
+  },
+  {
+   "file": "SGBTR/106.csv",
+   "severity": "106.0",
+   "label": "SGBTR"
+  },
+  {
+   "file": "SGBTR/11.csv",
+   "severity": "11.0",
+   "label": "SGBTR"
+  },
+  {
+   "file": "SGBTR/16.csv",
+   "severity": "16.0",
+   "label": "SGBTR"
+  },
+  {
+   "file": "SGBTR/21.csv",
+   "severity": "21.0",
+   "label": "SGBTR"
+  },
+  {
+   "file": "SGBTR/26.csv",
+   "severity": "26.0",
+   "label": "SGBTR"
+  },
+  {
+   "file": "SGBTR/31.csv",
+   "severity": "31.0",
+   "label": "SGBTR"
+  },
+  {
+   "file": "SGBTR/36.csv",
+   "severity": "36.0",
+   "label": "SGBTR"
+  },
+  {
+   "file": "SGBTR/41.csv",
+   "severity": "41.0",
+   "label": "SGBTR"
+  },
+  {
+   "file": "SGBTR/46.csv",
+   "severity": "46.0",
+   "label": "SGBTR"
+  },
+  {
+   "file": "SGBTR/51.csv",
+   "severity": "51.0",
+   "label": "SGBTR"
+  },
+  {
+   "file": "SGBTR/56.csv",
+   "severity": "56.0",
+   "label": "SGBTR"
+  },
+  {
+   "file": "SGBTR/6.csv",
+   "severity": "6.0",
+   "label": "SGBTR"
+  },
+  {
+   "file": "SGBTR/61.csv",
+   "severity": "61.0",
+   "label": "SGBTR"
+  },
+  {
+   "file": "SGBTR/66.csv",
+   "severity": "66.0",
+   "label": "SGBTR"
+  },
+  {
+   "file": "SGBTR/71.csv",
+   "severity": "71.0",
+   "label": "SGBTR"
+  },
+  {
+   "file": "SGBTR/76.csv",
+   "severity": "76.0",
+   "label": "SGBTR"
+  },
+  {
+   "file": "SGBTR/81.csv",
+   "severity": "81.0",
+   "label": "SGBTR"
+  },
+  {
+   "file": "SGBTR/86.csv",
+   "severity": "86.0",
+   "label": "SGBTR"
+  },
+  {
+   "file": "SGBTR/91.csv",
+   "severity": "91.0",
+   "label": "SGBTR"
+  },
+  {
+   "file": "SGBTR/96.csv",
+   "severity": "96.0",
+   "label": "SGBTR"
+  },
+  {
+   "file": "RW/1.csv",
+   "severity": "1.0",
+   "label": "RW"
+  },
+  {
+   "file": "RW/11.csv",
+   "severity": "11.0",
+   "label": "RW"
+  },
+  {
+   "file": "RW/16.csv",
+   "severity": "16.0",
+   "label": "RW"
+  },
+  {
+   "file": "RW/21.csv",
+   "severity": "21.0",
+   "label": "RW"
+  },
+  {
+   "file": "RW/26.csv",
+   "severity": "26.0",
+   "label": "RW"
+  },
+  {
+   "file": "RW/31.csv",
+   "severity": "31.0",
+   "label": "RW"
+  },
+  {
+   "file": "RW/36.csv",
+   "severity": "36.0",
+   "label": "RW"
+  },
+  {
+   "file": "RW/41.csv",
+   "severity": "41.0",
+   "label": "RW"
+  },
+  {
+   "file": "RW/46.csv",
+   "severity": "46.0",
+   "label": "RW"
+  },
+  {
+   "file": "RW/51.csv",
+   "severity": "51.0",
+   "label": "RW"
+  },
+  {
+   "file": "RW/56.csv",
+   "severity": "56.0",
+   "label": "RW"
+  },
+  {
+   "file": "RW/6.csv",
+   "severity": "6.0",
+   "label": "RW"
+  },
+  {
+   "file": "RW/61.csv",
+   "severity": "61.0",
+   "label": "RW"
+  },
+  {
+   "file": "RW/66.csv",
+   "severity": "66.0",
+   "label": "RW"
+  },
+  {
+   "file": "RW/71.csv",
+   "severity": "71.0",
+   "label": "RW"
+  },
+  {
+   "file": "RW/76.csv",
+   "severity": "76.0",
+   "label": "RW"
+  },
+  {
+   "file": "RW/81.csv",
+   "severity": "81.0",
+   "label": "RW"
+  },
+  {
+   "file": "RW/86.csv",
+   "severity": "86.0",
+   "label": "RW"
+  },
+  {
+   "file": "RW/91.csv",
+   "severity": "91.0",
+   "label": "RW"
+  },
+  {
+   "file": "RW/96.csv",
+   "severity": "96.0",
+   "label": "RW"
+  },
+  {
+   "file": "RI/-10.csv",
+   "severity": "-10.0",
+   "label": "RI"
+  },
+  {
+   "file": "RI/-100.csv",
+   "severity": "-100.0",
+   "label": "RI"
+  },
+  {
+   "file": "RI/-15.csv",
+   "severity": "-15.0",
+   "label": "RI"
+  },
+  {
+   "file": "RI/-20.csv",
+   "severity": "-20.0",
+   "label": "RI"
+  },
+  {
+   "file": "RI/-25.csv",
+   "severity": "-25.0",
+   "label": "RI"
+  },
+  {
+   "file": "RI/-30.csv",
+   "severity": "-30.0",
+   "label": "RI"
+  },
+  {
+   "file": "RI/-35.csv",
+   "severity": "-35.0",
+   "label": "RI"
+  },
+  {
+   "file": "RI/-40.csv",
+   "severity": "-40.0",
+   "label": "RI"
+  },
+  {
+   "file": "RI/-45.csv",
+   "severity": "-45.0",
+   "label": "RI"
+  },
+  {
+   "file": "RI/-5.csv",
+   "severity": "-5.0",
+   "label": "RI"
+  },
+  {
+   "file": "RI/-50.csv",
+   "severity": "-50.0",
+   "label": "RI"
+  },
+  {
+   "file": "RI/-55.csv",
+   "severity": "-55.0",
+   "label": "RI"
+  },
+  {
+   "file": "RI/-60.csv",
+   "severity": "-60.0",
+   "label": "RI"
+  },
+  {
+   "file": "RI/-65.csv",
+   "severity": "-65.0",
+   "label": "RI"
+  },
+  {
+   "file": "RI/-70.csv",
+   "severity": "-70.0",
+   "label": "RI"
+  },
+  {
+   "file": "RI/-75.csv",
+   "severity": "-75.0",
+   "label": "RI"
+  },
+  {
+   "file": "RI/-80.csv",
+   "severity": "-80.0",
+   "label": "RI"
+  },
+  {
+   "file": "RI/-85.csv",
+   "severity": "-85.0",
+   "label": "RI"
+  },
+  {
+   "file": "RI/-90.csv",
+   "severity": "-90.0",
+   "label": "RI"
+  },
+  {
+   "file": "RI/-95.csv",
+   "severity": "-95.0",
+   "label": "RI"
+  },
+  {
+   "file": "FLB/1.csv",
+   "severity": "1.0",
+   "label": "FLB"
+  },
+  {
+   "file": "FLB/11.csv",
+   "severity": "11.0",
+   "label": "FLB"
+  },
+  {
+   "file": "FLB/16.csv",
+   "severity": "16.0",
+   "label": "FLB"
+  },
+  {
+   "file": "FLB/21.csv",
+   "severity": "21.0",
+   "label": "FLB"
+  },
+  {
+   "file": "FLB/26.csv",
+   "severity": "26.0",
+   "label": "FLB"
+  },
+  {
+   "file": "FLB/31.csv",
+   "severity": "31.0",
+   "label": "FLB"
+  },
+  {
+   "file": "FLB/36.csv",
+   "severity": "36.0",
+   "label": "FLB"
+  },
+  {
+   "file": "FLB/41.csv",
+   "severity": "41.0",
+   "label": "FLB"
+  },
+  {
+   "file": "FLB/46.csv",
+   "severity": "46.0",
+   "label": "FLB"
+  },
+  {
+   "file": "FLB/51.csv",
+   "severity": "51.0",
+   "label": "FLB"
+  },
+  {
+   "file": "FLB/56.csv",
+   "severity": "56.0",
+   "label": "FLB"
+  },
+  {
+   "file": "FLB/6.csv",
+   "severity": "6.0",
+   "label": "FLB"
+  },
+  {
+   "file": "FLB/61.csv",
+   "severity": "61.0",
+   "label": "FLB"
+  },
+  {
+   "file": "FLB/66.csv",
+   "severity": "66.0",
+   "label": "FLB"
+  },
+  {
+   "file": "FLB/71.csv",
+   "severity": "71.0",
+   "label": "FLB"
+  },
+  {
+   "file": "FLB/76.csv",
+   "severity": "76.0",
+   "label": "FLB"
+  },
+  {
+   "file": "FLB/81.csv",
+   "severity": "81.0",
+   "label": "FLB"
+  },
+  {
+   "file": "FLB/86.csv",
+   "severity": "86.0",
+   "label": "FLB"
+  },
+  {
+   "file": "FLB/91.csv",
+   "severity": "91.0",
+   "label": "FLB"
+  },
+  {
+   "file": "FLB/96.csv",
+   "severity": "96.0",
+   "label": "FLB"
+  },
+  {
+   "file": "MD/1.csv",
+   "severity": "1.0",
+   "label": "MD"
+  },
+  {
+   "file": "MD/11.csv",
+   "severity": "11.0",
+   "label": "MD"
+  },
+  {
+   "file": "MD/16.csv",
+   "severity": "16.0",
+   "label": "MD"
+  },
+  {
+   "file": "MD/21.csv",
+   "severity": "21.0",
+   "label": "MD"
+  },
+  {
+   "file": "MD/26.csv",
+   "severity": "26.0",
+   "label": "MD"
+  },
+  {
+   "file": "MD/31.csv",
+   "severity": "31.0",
+   "label": "MD"
+  },
+  {
+   "file": "MD/36.csv",
+   "severity": "36.0",
+   "label": "MD"
+  },
+  {
+   "file": "MD/41.csv",
+   "severity": "41.0",
+   "label": "MD"
+  },
+  {
+   "file": "MD/46.csv",
+   "severity": "46.0",
+   "label": "MD"
+  },
+  {
+   "file": "MD/51.csv",
+   "severity": "51.0",
+   "label": "MD"
+  },
+  {
+   "file": "MD/56.csv",
+   "severity": "56.0",
+   "label": "MD"
+  },
+  {
+   "file": "MD/6.csv",
+   "severity": "6.0",
+   "label": "MD"
+  },
+  {
+   "file": "MD/61.csv",
+   "severity": "61.0",
+   "label": "MD"
+  },
+  {
+   "file": "MD/66.csv",
+   "severity": "66.0",
+   "label": "MD"
+  },
+  {
+   "file": "MD/71.csv",
+   "severity": "71.0",
+   "label": "MD"
+  },
+  {
+   "file": "MD/76.csv",
+   "severity": "76.0",
+   "label": "MD"
+  },
+  {
+   "file": "MD/81.csv",
+   "severity": "81.0",
+   "label": "MD"
+  },
+  {
+   "file": "MD/86.csv",
+   "severity": "86.0",
+   "label": "MD"
+  },
+  {
+   "file": "MD/91.csv",
+   "severity": "91.0",
+   "label": "MD"
+  },
+  {
+   "file": "MD/96.csv",
+   "severity": "96.0",
+   "label": "MD"
+  },
+  {
+   "file": "LR/1.csv",
+   "severity": "1.0",
+   "label": "LR"
+  },
+  {
+   "file": "LR/11.csv",
+   "severity": "11.0",
+   "label": "LR"
+  },
+  {
+   "file": "LR/16.csv",
+   "severity": "16.0",
+   "label": "LR"
+  },
+  {
+   "file": "LR/21.csv",
+   "severity": "21.0",
+   "label": "LR"
+  },
+  {
+   "file": "LR/26.csv",
+   "severity": "26.0",
+   "label": "LR"
+  },
+  {
+   "file": "LR/31.csv",
+   "severity": "31.0",
+   "label": "LR"
+  },
+  {
+   "file": "LR/36.csv",
+   "severity": "36.0",
+   "label": "LR"
+  },
+  {
+   "file": "LR/41.csv",
+   "severity": "41.0",
+   "label": "LR"
+  },
+  {
+   "file": "LR/46.csv",
+   "severity": "46.0",
+   "label": "LR"
+  },
+  {
+   "file": "LR/51.csv",
+   "severity": "51.0",
+   "label": "LR"
+  },
+  {
+   "file": "LR/56.csv",
+   "severity": "56.0",
+   "label": "LR"
+  },
+  {
+   "file": "LR/6.csv",
+   "severity": "6.0",
+   "label": "LR"
+  },
+  {
+   "file": "LR/61.csv",
+   "severity": "61.0",
+   "label": "LR"
+  },
+  {
+   "file": "LR/66.csv",
+   "severity": "66.0",
+   "label": "LR"
+  },
+  {
+   "file": "LR/71.csv",
+   "severity": "71.0",
+   "label": "LR"
+  },
+  {
+   "file": "LR/76.csv",
+   "severity": "76.0",
+   "label": "LR"
+  },
+  {
+   "file": "LR/81.csv",
+   "severity": "81.0",
+   "label": "LR"
+  },
+  {
+   "file": "LR/86.csv",
+   "severity": "86.0",
+   "label": "LR"
+  },
+  {
+   "file": "LR/91.csv",
+   "severity": "91.0",
+   "label": "LR"
+  },
+  {
+   "file": "LR/96.csv",
+   "severity": "96.0",
+   "label": "LR"
+  },
+  {
+   "file": "LLB/1.csv",
+   "severity": "1.0",
+   "label": "LLB"
+  },
+  {
+   "file": "LLB/101.csv",
+   "severity": "101.0",
+   "label": "LLB"
+  },
+  {
+   "file": "LLB/11.csv",
+   "severity": "11.0",
+   "label": "LLB"
+  },
+  {
+   "file": "LLB/16.csv",
+   "severity": "16.0",
+   "label": "LLB"
+  },
+  {
+   "file": "LLB/21.csv",
+   "severity": "21.0",
+   "label": "LLB"
+  },
+  {
+   "file": "LLB/26.csv",
+   "severity": "26.0",
+   "label": "LLB"
+  },
+  {
+   "file": "LLB/31.csv",
+   "severity": "31.0",
+   "label": "LLB"
+  },
+  {
+   "file": "LLB/36.csv",
+   "severity": "36.0",
+   "label": "LLB"
+  },
+  {
+   "file": "LLB/41.csv",
+   "severity": "41.0",
+   "label": "LLB"
+  },
+  {
+   "file": "LLB/46.csv",
+   "severity": "46.0",
+   "label": "LLB"
+  },
+  {
+   "file": "LLB/51.csv",
+   "severity": "51.0",
+   "label": "LLB"
+  },
+  {
+   "file": "LLB/56.csv",
+   "severity": "56.0",
+   "label": "LLB"
+  },
+  {
+   "file": "LLB/6.csv",
+   "severity": "6.0",
+   "label": "LLB"
+  },
+  {
+   "file": "LLB/61.csv",
+   "severity": "61.0",
+   "label": "LLB"
+  },
+  {
+   "file": "LLB/66.csv",
+   "severity": "66.0",
+   "label": "LLB"
+  },
+  {
+   "file": "LLB/71.csv",
+   "severity": "71.0",
+   "label": "LLB"
+  },
+  {
+   "file": "LLB/76.csv",
+   "severity": "76.0",
+   "label": "LLB"
+  },
+  {
+   "file": "LLB/81.csv",
+   "severity": "81.0",
+   "label": "LLB"
+  },
+  {
+   "file": "LLB/86.csv",
+   "severity": "86.0",
+   "label": "LLB"
+  },
+  {
+   "file": "LLB/91.csv",
+   "severity": "91.0",
+   "label": "LLB"
+  },
+  {
+   "file": "LLB/96.csv",
+   "severity": "96.0",
+   "label": "LLB"
+  }
+ ],
+ "models": {
+  "LogReg": {
+   "preds": [
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SLBIC",
+     "c": 0.9996
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SLBIC",
+     "c": 0.9996
+    },
+    {
+     "p": "SLBIC",
+     "c": 0.9996
+    },
+    {
+     "p": "SLBIC",
+     "c": 0.9996
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SLBIC",
+     "c": 0.9996
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    }
+   ],
+   "metrics": {
+    "accuracy": 0.27459016393442626,
+    "macroF1": 0.18918229365990558
+   }
+  },
+  "LogReg+": {
+   "preds": [
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "LOCA",
+     "c": 0.9853
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SLBIC",
+     "c": 0.9996
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SLBIC",
+     "c": 0.9996
+    },
+    {
+     "p": "SLBIC",
+     "c": 0.9996
+    },
+    {
+     "p": "SLBIC",
+     "c": 0.9996
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SLBIC",
+     "c": 0.9996
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1243
+    }
+   ],
+   "metrics": {
+    "accuracy": 0.27459016393442626,
+    "macroF1": 0.18918229365990558
+   }
+  },
+  "Random Forest": {
+   "preds": [
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "SLBIC",
+     "c": 1.0
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "SLBIC",
+     "c": 1.0
+    },
+    {
+     "p": "SLBIC",
+     "c": 1.0
+    },
+    {
+     "p": "SLBIC",
+     "c": 1.0
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "SLBIC",
+     "c": 1.0
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "RW",
+     "c": 0.5
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    },
+    {
+     "p": "MD",
+     "c": 0.1143
+    }
+   ],
+   "metrics": {
+    "accuracy": 0.26639344262295084,
+    "macroF1": 0.18769058970063993
+   }
+  },
+  "CNN": {
+   "preds": [
+    {
+     "p": "LOCA",
+     "c": 0.7054
+    },
+    {
+     "p": "LOCA",
+     "c": 0.7054
+    },
+    {
+     "p": "LOCA",
+     "c": 0.7054
+    },
+    {
+     "p": "LOCA",
+     "c": 0.7054
+    },
+    {
+     "p": "LOCA",
+     "c": 0.7054
+    },
+    {
+     "p": "LOCA",
+     "c": 0.7054
+    },
+    {
+     "p": "LOCA",
+     "c": 0.7054
+    },
+    {
+     "p": "LOCA",
+     "c": 0.7054
+    },
+    {
+     "p": "LOCA",
+     "c": 0.7054
+    },
+    {
+     "p": "LOCA",
+     "c": 0.7054
+    },
+    {
+     "p": "LOCA",
+     "c": 0.7054
+    },
+    {
+     "p": "LOCA",
+     "c": 0.7054
+    },
+    {
+     "p": "LOCA",
+     "c": 0.7054
+    },
+    {
+     "p": "LOCA",
+     "c": 0.7054
+    },
+    {
+     "p": "LOCA",
+     "c": 0.7054
+    },
+    {
+     "p": "LOCA",
+     "c": 0.7054
+    },
+    {
+     "p": "LOCA",
+     "c": 0.7054
+    },
+    {
+     "p": "LOCA",
+     "c": 0.7054
+    },
+    {
+     "p": "LOCA",
+     "c": 0.7054
+    },
+    {
+     "p": "LOCA",
+     "c": 0.7054
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SLBIC",
+     "c": 0.8392
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SLBIC",
+     "c": 0.8392
+    },
+    {
+     "p": "SLBIC",
+     "c": 0.8392
+    },
+    {
+     "p": "SLBIC",
+     "c": 0.8392
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SLBIC",
+     "c": 0.8392
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "RI",
+     "c": 0.4127
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.119
+    }
+   ],
+   "metrics": {
+    "accuracy": 0.27459016393442626,
+    "macroF1": 0.18918229365990558
+   }
+  },
+  "GRU": {
+   "preds": [
+    {
+     "p": "LOCA",
+     "c": 0.694
+    },
+    {
+     "p": "LOCA",
+     "c": 0.694
+    },
+    {
+     "p": "LOCA",
+     "c": 0.694
+    },
+    {
+     "p": "LOCA",
+     "c": 0.694
+    },
+    {
+     "p": "LOCA",
+     "c": 0.694
+    },
+    {
+     "p": "LOCA",
+     "c": 0.694
+    },
+    {
+     "p": "LOCA",
+     "c": 0.694
+    },
+    {
+     "p": "LOCA",
+     "c": 0.694
+    },
+    {
+     "p": "LOCA",
+     "c": 0.694
+    },
+    {
+     "p": "LOCA",
+     "c": 0.694
+    },
+    {
+     "p": "LOCA",
+     "c": 0.694
+    },
+    {
+     "p": "LOCA",
+     "c": 0.694
+    },
+    {
+     "p": "LOCA",
+     "c": 0.694
+    },
+    {
+     "p": "LOCA",
+     "c": 0.694
+    },
+    {
+     "p": "LOCA",
+     "c": 0.694
+    },
+    {
+     "p": "LOCA",
+     "c": 0.694
+    },
+    {
+     "p": "LOCA",
+     "c": 0.694
+    },
+    {
+     "p": "LOCA",
+     "c": 0.694
+    },
+    {
+     "p": "LOCA",
+     "c": 0.694
+    },
+    {
+     "p": "LOCA",
+     "c": 0.694
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SLBIC",
+     "c": 0.9168
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SLBIC",
+     "c": 0.9168
+    },
+    {
+     "p": "SLBIC",
+     "c": 0.9168
+    },
+    {
+     "p": "SLBIC",
+     "c": 0.9168
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SLBIC",
+     "c": 0.9168
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "RW",
+     "c": 0.4995
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    },
+    {
+     "p": "SGBTR",
+     "c": 0.1212
+    }
+   ],
+   "metrics": {
+    "accuracy": 0.27459016393442626,
+    "macroF1": 0.18918229365990558
+   }
+  },
+  "MultiRocket+HYDRA": {
+   "preds": [
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SLBIC",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SLBIC",
+     "c": 1.0
+    },
+    {
+     "p": "SLBIC",
+     "c": 1.0
+    },
+    {
+     "p": "SLBIC",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SLBIC",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    }
+   ],
+   "metrics": {
+    "accuracy": 0.27459016393442626,
+    "macroF1": 0.18918229365990558
+   }
+  },
+  "Rocket": {
+   "preds": [
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SLBIC",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SLBIC",
+     "c": 1.0
+    },
+    {
+     "p": "SLBIC",
+     "c": 1.0
+    },
+    {
+     "p": "SLBIC",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SLBIC",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    }
+   ],
+   "metrics": {
+    "accuracy": 0.27459016393442626,
+    "macroF1": 0.18918229365990558
+   }
+  },
+  "MiniRocket": {
+   "preds": [
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "LOCA",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SLBIC",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SLBIC",
+     "c": 1.0
+    },
+    {
+     "p": "SLBIC",
+     "c": 1.0
+    },
+    {
+     "p": "SLBIC",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SLBIC",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "RW",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    },
+    {
+     "p": "SGBTR",
+     "c": 1.0
+    }
+   ],
+   "metrics": {
+    "accuracy": 0.27459016393442626,
+    "macroF1": 0.18918229365990558
+   }
+  }
+ },
+ "files": [
+  "HW2_Combined_Results_All_Models.csv",
+  "pred_CNN_W60_test.csv",
+  "pred_E_W60_test.csv",
+  "pred_GRU_W60_test.csv",
+  "pred_LogRegPlus_W60_test.csv",
+  "pred_LogReg_W60_test.csv",
+  "pred_MiniRocket_W60_test.csv",
+  "pred_MultiRocketHydra_W60_test.csv",
+  "pred_RandomForest_W60_test.csv",
+  "pred_Rocket_W60_test.csv"
+ ]
+}
