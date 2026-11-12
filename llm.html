@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NPPAD Digital Twin: LLM Study</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar" id="hdr"></header>
+<div class="wrap">
+
+  <div class="panel" style="margin-top:14px">
+    <h2>THE LANGUAGE-MODEL PROMPT STUDY</h2>
+    <p id="taskLine"></p>
+    <p class="dim small" id="protocolLine"></p>
+  </div>
+
+  <div class="panel" style="margin-top:14px">
+    <h3>EVERY ARM, BOTH PROTOCOLS</h3>
+    <p class="dim small">Accuracy and macro F1 on the same frozen windows for
+    every arm of the study. A parse failure means the model did not answer
+    with exactly one valid class code; it counts as a wrong answer. Two arms
+    near the top carry an asterisk of honesty: the plug-in rows score high
+    because a trained model did the work inside them, which their detail
+    cards spell out.</p>
+    <div id="masterTable"></div>
+  </div>
+
+  <div class="panel" style="margin-top:14px">
+    <h3>WHAT THE TRAINED MODELS SCORE (FOR COMPARISON)</h3>
+    <p class="dim small">The eight trained study models, run on the full
+    held-out test split (a larger set than the 48-window language-model
+    sample, so compare loosely). At the early protocol every approach, trained
+    or prompted, lands near the same ceiling: twenty seconds in, ten of the
+    twelve accidents still look almost identical.</p>
+    <div id="refTable"></div>
+  </div>
+
+  <div class="panel" style="margin-top:14px">
+    <h3>ARM BY ARM: WHAT EACH ONE ACTUALLY DID</h3>
+    <p class="dim small">Open an arm to read its method, exactly as recorded
+    in the study files, plus its extra measurements and any honesty flag it
+    carries.</p>
+    <div id="armDetails"></div>
+  </div>
+
+  <div class="panel" style="margin-top:14px">
+    <h3>THE PROMPTS THEMSELVES (v1 TO v4)</h3>
+    <p class="dim small">The exact prompt text sent for the first onset window
+    (P100_W01), read from the study's prompt files. The later versions were
+    built from the v1 data block: v2 explains every channel and accident in
+    plain language, v3 adds step-by-step chain-of-thought, and v4 adds a
+    tree-of-thoughts comparison of the three most plausible classes.</p>
+    <p class="dim small" id="promptNote"></p>
+    <div id="promptBlocks"></div>
+  </div>
+
+  <div class="panel" style="margin-top:14px">
+    <h3>INTEGRITY NOTES AND CAVEATS (NOT FINE PRINT — READ THESE)</h3>
+    <div id="caveatList"></div>
+  </div>
+
+  <div class="panel" style="margin-top:14px">
+    <h3>THE SAME PROMPT ARMS ON PUBLIC DATA (UEA BENCHMARK)</h3>
+    <p class="dim small">To check the prompt methods were not just tuned to
+    this one plant dataset, the main arms were also run on five public UEA
+    multivariate time-series datasets, 40 cases each, same seed. Mean macro
+    F1 across the five datasets:</p>
+    <div id="ueaAgg"></div>
+    <div id="ueaPerDataset" style="margin-top:12px"></div>
+    <h4 style="margin-top:14px">UEA caveats, from the benchmark's own summary</h4>
+    <div class="dim small" id="ueaCaveats" style="white-space:pre-wrap"></div>
+  </div>
+
+  <div class="note blue" style="margin-top:14px">
+    <b>WHERE THESE NUMBERS COME FROM.</b> Every number on this page is read at
+    build time from the study's result files by
+    tools/generate_study_data.py. The Gemini scores were recomputed by that
+    script from the run's own answer file against the window manifest, and
+    the plug-in agreement counts were recomputed from the prompt and answer
+    files. Nothing here is typed in by hand.
+  </div>
+
+</div>
+<footer id="ftr"></footer>
+<script src="js/common.js"></script>
+<script src="js/llm.js"></script>
+</body>
+</html>
