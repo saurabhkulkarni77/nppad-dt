@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 """NPPAD Digital Twin: LLM benchmark data generator.
 
+SUPERSEDED in the merged app by tools/generate_study_data.py, which builds
+data/llm_benchmark.json (plus the RESULTS and LLM STUDY data) from the
+Nov 8, 2026 revised benchmark results file. Kept for provenance.
+
 Emits data/llm_benchmark.json for the LLM BENCHMARK panel on ml.html.
 Every number comes from the benchmark run's own results file
 (~/workspace/nppad_llm_bench/llm_benchmark_results.json), which score.py
@@ -42,7 +46,6 @@ CHANNEL_INFO = [
 
 SHORT = {
     "Claude (blinded agent calls)": "Claude",
-    "Qwen2.5 3B Instruct (GGUF Q4_K_M, local llama.cpp)": "Qwen2.5 3B Instruct",
     "Llama 3.2 3B Instruct (GGUF Q4_K_M, local llama.cpp)": "Llama 3.2 3B Instruct",
 }
 
