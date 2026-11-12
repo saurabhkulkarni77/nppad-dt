@@ -1,0 +1,1302 @@
+{
+ "generatedBy": "tools/generate_study_data.py from ~/workspace/nppad_llm_bench results files and ~/workspace/prompt_bench_uea/results.json",
+ "task": "Frozen LLMs, no fine-tuning and no examples, classify one 60-second window of 12 NPPAD sensor channels (6 samples per channel, given as numbers in a text prompt) into one of 12 accident classes. 48 held-out windows per protocol, strict scoring: anything but exactly one class code counts as wrong.",
+ "protocols": {
+  "t0_100": "Onset-aligned (t0 = 100 s)",
+  "t0_20": "Early (t0 = 20 s, the Task E placement)"
+ },
+ "chance": 0.08333333333333333,
+ "classes": [
+  "LOCA",
+  "LOCAC",
+  "SLBIC",
+  "SLBOC",
+  "SGATR",
+  "SGBTR",
+  "RW",
+  "RI",
+  "FLB",
+  "MD",
+  "LR",
+  "LLB"
+ ],
+ "channels": [
+  "P",
+  "PSGA",
+  "TAVG",
+  "THA",
+  "TCA",
+  "TF",
+  "WRCA",
+  "WFWA",
+  "WSTA",
+  "WECS",
+  "LVPZ",
+  "LSGA"
+ ],
+ "seed": 2026,
+ "sample": {
+  "windowsPerProtocol": 48,
+  "perClass": 4,
+  "totalWindows": 96,
+  "runs": [
+   "FLB/11.csv",
+   "FLB/26.csv",
+   "FLB/36.csv",
+   "FLB/91.csv",
+   "LLB/1.csv",
+   "LLB/36.csv",
+   "LLB/66.csv",
+   "LLB/91.csv",
+   "LOCA/46.csv",
+   "LOCA/51.csv",
+   "LOCA/56.csv",
+   "LOCA/76.csv",
+   "LOCAC/11.csv",
+   "LOCAC/36.csv",
+   "LOCAC/51.csv",
+   "LOCAC/6.csv",
+   "LR/51.csv",
+   "LR/6.csv",
+   "LR/71.csv",
+   "LR/91.csv",
+   "MD/26.csv",
+   "MD/41.csv",
+   "MD/61.csv",
+   "MD/81.csv",
+   "RI/-10.csv",
+   "RI/-15.csv",
+   "RI/-30.csv",
+   "RI/-35.csv",
+   "RW/21.csv",
+   "RW/56.csv",
+   "RW/6.csv",
+   "RW/66.csv",
+   "SGATR/21.csv",
+   "SGATR/41.csv",
+   "SGATR/51.csv",
+   "SGATR/96.csv",
+   "SGBTR/16.csv",
+   "SGBTR/26.csv",
+   "SGBTR/56.csv",
+   "SGBTR/66.csv",
+   "SLBIC/56.csv",
+   "SLBIC/6.csv",
+   "SLBIC/76.csv",
+   "SLBIC/81.csv",
+   "SLBOC/26.csv",
+   "SLBOC/31.csv",
+   "SLBOC/41.csv",
+   "SLBOC/46.csv"
+  ]
+ },
+ "arms": [
+  {
+   "id": "v1",
+   "name": "Prompt v1 \u2014 plain zero-shot",
+   "group": "Prompt versions (Claude)",
+   "status": "run",
+   "description": "Blinded subagent calls: each call received only the prompt text for a batch of up to 6 windows, keyed by window ID, with no labels or study context.",
+   "t0_100": {
+    "n": 48,
+    "accuracy": 0.3958333333333333,
+    "macroF1": 0.3916786916786917,
+    "parseFailures": 0
+   },
+   "t0_20": {
+    "n": 48,
+    "accuracy": 0.3333333333333333,
+    "macroF1": 0.2612433862433862,
+    "parseFailures": 0
+   },
+   "extras": {},
+   "flags": []
+  },
+  {
+   "id": "v2",
+   "name": "Prompt v2 \u2014 context",
+   "group": "Prompt versions (Claude)",
+   "status": "run",
+   "description": "Blinded subagent calls, Prompt v2: expanded plain-language channel and class descriptions plus a trend-comparison instruction added to the v1 prompt; same windows, same batching (up to 6 windows per call), strict single-code parsing. What changed from the plainer versions: v2 EXPANDS those into full plain-language explanations of what each channel measures and what physically happens in each accident class, and adds an explicit instruction to compare trends across the 6 samples before answering.",
+   "t0_100": {
+    "n": 48,
+    "accuracy": 0.3333333333333333,
+    "macroF1": 0.29478715728715726,
+    "parseFailures": 0
+   },
+   "t0_20": {
+    "n": 48,
+    "accuracy": 0.020833333333333332,
+    "macroF1": 0.03333333333333333,
+    "parseFailures": 0
+   },
+   "extras": {},
+   "flags": []
+  },
+  {
+   "id": "v3",
+   "name": "Prompt v3 \u2014 chain-of-thought",
+   "group": "Prompt versions (Claude)",
+   "status": "run",
+   "description": "Blinded subagent calls, Prompt v3: Prompt v2 context plus step-by-step reasoning instruction; answer extracted from the FINAL: line (no valid FINAL line = parse failure = wrong). What changed from the plainer versions: v3 = v2 + step-by-step chain-of-thought, ending with \"FINAL: <code>\".",
+   "t0_100": {
+    "n": 48,
+    "accuracy": 0.4166666666666667,
+    "macroF1": 0.35000000000000003,
+    "parseFailures": 0
+   },
+   "t0_20": {
+    "n": 48,
+    "accuracy": 0.10416666666666667,
+    "macroF1": 0.051351351351351354,
+    "parseFailures": 0
+   },
+   "extras": {},
+   "flags": []
+  },
+  {
+   "id": "v4",
+   "name": "Prompt v4 \u2014 tree-of-thoughts",
+   "group": "Prompt versions (Claude)",
+   "status": "run",
+   "description": "Blinded subagent calls, Prompt v4: Prompt v2 context plus instruction to argue for/against the 3 most plausible classes before committing; answer extracted from the FINAL: line (no valid FINAL line = parse failure = wrong). What changed from the plainer versions: v4 = v2 + tree-of-thoughts: argue for/against the 3 most plausible classes, then commit with \"FINAL: <code>\".",
+   "t0_100": {
+    "n": 48,
+    "accuracy": 0.3333333333333333,
+    "macroF1": 0.3095238095238095,
+    "parseFailures": 0
+   },
+   "t0_20": {
+    "n": 48,
+    "accuracy": 0.10416666666666667,
+    "macroF1": 0.051351351351351354,
+    "parseFailures": 0
+   },
+   "extras": {},
+   "flags": []
+  },
+  {
+   "id": "feta",
+   "name": "FETA-style DTW few-shot",
+   "group": "Literature methods (Claude)",
+   "status": "run",
+   "description": "Blinded subagent calls. Prompt = v1 prompt plus the 3 labeled windows retrieved per test window by dependent multivariate DTW over all 12 channels (per-channel z-normalization with exemplar-pool statistics). Exemplar pool: 144 windows from TRAIN-split runs only (12 per class, seed 777), disjoint from the 48 test-split benchmark runs by the split rule. Exemplars serialized identically to the test window. Strict single-code parsing.",
+   "t0_100": {
+    "n": 48,
+    "accuracy": 0.7708333333333334,
+    "macroF1": 0.7376283846872083,
+    "parseFailures": 0
+   },
+   "t0_20": {
+    "n": 48,
+    "accuracy": 0.2708333333333333,
+    "macroF1": 0.1893162393162393,
+    "parseFailures": 0
+   },
+   "extras": {},
+   "flags": []
+  },
+  {
+   "id": "stats",
+   "name": "Health-LLM-style statistical summary",
+   "group": "Literature methods (Claude)",
+   "status": "run",
+   "description": "Blinded subagent calls. Prompt = v1 framing with the raw samples replaced by per-channel statistics genuinely computed from each window (mean, std, min, max, first, last, least-squares slope per 10 s step), 3 significant figures. Strict single-code parsing.",
+   "t0_100": {
+    "n": 48,
+    "accuracy": 0.4583333333333333,
+    "macroF1": 0.38416179337231965,
+    "parseFailures": 0
+   },
+   "t0_20": {
+    "n": 48,
+    "accuracy": 0.1875,
+    "macroF1": 0.10439276485788113,
+    "parseFailures": 0
+   },
+   "extras": {},
+   "flags": []
+  },
+  {
+   "id": "llmtime",
+   "name": "LLMTime-style serialization",
+   "group": "Literature methods (Claude)",
+   "status": "run",
+   "description": "Blinded subagent calls. Prompt = v1 framing with each channel percentile-scaled within the window (10th pct -> 0, 90th pct -> 1000, linear, unclipped), rounded to integers, digits separated by spaces, timesteps separated by commas (Gruver et al. 2023 encoding). Strict single-code parsing.",
+   "t0_100": {
+    "n": 48,
+    "accuracy": 0.14583333333333334,
+    "macroF1": 0.10416666666666667,
+    "parseFailures": 0
+   },
+   "t0_20": {
+    "n": 48,
+    "accuracy": 0.14583333333333334,
+    "macroF1": 0.07254901960784314,
+    "parseFailures": 0
+   },
+   "extras": {},
+   "flags": []
+  },
+  {
+   "id": "plugin",
+   "name": "ReasonTSC-style plug-in",
+   "group": "Literature methods (Claude)",
+   "status": "run",
+   "description": "Blinded subagent calls. Prompt = v1 prompt plus the trained MultiRocket+HYDRA output for the same window (argmax class and all 12 class probabilities) from the study's genuine per-window artifacts, matched by run file: t0=100 from exec_work/sota_results/probs_MultiRocketHydra_t0100_realistic_W60.npz, t0=20 from exec_work/outputs/pred_MultiRocketHydra_W60_test.csv. Strict single-code parsing.",
+   "t0_100": {
+    "n": 48,
+    "accuracy": 1.0,
+    "macroF1": 1.0,
+    "parseFailures": 0
+   },
+   "t0_20": {
+    "n": 48,
+    "accuracy": 0.2708333333333333,
+    "macroF1": 0.1893162393162393,
+    "parseFailures": 0
+   },
+   "extras": {
+    "argmaxAgreement": {
+     "t0_100": {
+      "windows": 48,
+      "agree": 48
+     },
+     "t0_20": {
+      "windows": 48,
+      "agree": 48
+     }
+    }
+   },
+   "flags": [
+    "The language model's final answers matched the plug-in classifier's own top prediction on the windows counted in the detail view \u2014 the LLM added nothing on top of the trained model."
+   ]
+  },
+  {
+   "id": "reasontsc_full",
+   "name": "ReasonTSC \u2014 full replication",
+   "group": "Literature methods (Claude)",
+   "status": "run",
+   "description": "Blinded subagent calls carrying a multi-turn transcript: round 1 pattern analysis and round 2 plug-in fusion analysis generated once per protocol by Claude subagents, then per-window round 3 integrative reasoning in batches of 6 windows sharing that transcript. Plug-in probabilities from the study's genuine artifacts (t0=100 npz, t0=20 test CSV), matched by run file.",
+   "t0_100": {
+    "n": 48,
+    "accuracy": 0.9791666666666666,
+    "macroF1": 0.978835978835979,
+    "parseFailures": 0
+   },
+   "t0_20": {
+    "n": 48,
+    "accuracy": 0.2708333333333333,
+    "macroF1": 0.1893162393162393,
+    "parseFailures": 0
+   },
+   "extras": {
+    "pluginAnalysis": {
+     "t0_100": {
+      "agreeWithPlugin": 47,
+      "corrections": 0,
+      "breakages": 1,
+      "pluginArgmaxAccuracyOnSubset": 1.0
+     },
+     "t0_20": {
+      "agreeWithPlugin": 48,
+      "corrections": 0,
+      "breakages": 0,
+      "pluginArgmaxAccuracyOnSubset": 0.2708333333333333
+     }
+    },
+    "deviationsFromPaper": [
+     "D1 multivariate serialization: paper feeds only the first dimension of multivariate sets as a flat comma string; here all 12 channels are serialized in the benchmark's labeled-row format.",
+     "D2 categories identified by class codes (the paper's datasets use integer labels); same prompt fields, this benchmark's labels.",
+     "D3 round-1 category samples (2 per class) drawn from TRAIN-split runs (seed 777 pool construction of the FETA arm); the paper's repo does not document the split its config samples come from.",
+     "D4 round-2 classification examples (1 correct + 2 incorrect) follow the paper's provenance: evaluated-set samples with genuine plug-in outputs and labels shown. At t0=20 all 3 are benchmark windows (P20_W01, P20_W05, P20_W06). At t0=100 the plug-in is correct on all 48 benchmark windows, so only the correct case is a benchmark window (P100_W01) and the 2 false cases come from the plug-in's genuine outputs on other test-split runs (LOCA/1.csv, LOCAC/26.csv) \u2014 the same artifact the paper draws its examples from (its TSFM output file over the full test set).",
+     "D5 rounds 1-2 generated once per protocol and the transcript reused for all 48 round-3 conversations (in main.py the identical round-1/2 prompts are re-issued per sample at temperature 0.2).",
+     "D6 a final 'FINAL: <code>' line is requested after the paper's answer format so the benchmark's uniform extraction rule applies.",
+     "D7 plug-in is MultiRocket+HYDRA (this benchmark's domain-specific trained model) instead of the paper's MOMENT and a second TSFM; the parallel MOMENT probe arm had produced no per-window outputs or logits when this run was built. Logits shown are the plug-in's class probabilities rounded to 2 decimals (the paper rounds its TSFM logits to 2 decimals)."
+    ]
+   },
+   "flags": [
+    "The paper's claim that the LLM corrector fixes the base classifier did NOT reproduce here: at onset it made 0 corrections and 1 breakage."
+   ]
+  },
+  {
+   "id": "randshot",
+   "name": "Random few-shot control \u2014 clean re-run",
+   "group": "Controls and probes",
+   "status": "run",
+   "description": "CORRECTED (closed-protocol clean re-run 2026-11-06): t0=100 windows W37-W48 re-measured with the full randshot prompt text inline, no file access; W01-W36 and the whole t0=20 protocol are the trusted wave-2 answers (not compromised). Old t0=100 row SUPERSEDED \u2014 see 'superseded'.",
+   "t0_100": {
+    "n": 48,
+    "accuracy": 0.7083333333333334,
+    "macroF1": 0.6976430976430977,
+    "parseFailures": 0
+   },
+   "t0_20": {
+    "n": 48,
+    "accuracy": 0.3125,
+    "macroF1": 0.2817760942760943,
+    "parseFailures": 0
+   },
+   "extras": {},
+   "flags": [
+    "CLEAN RE-RUN values. The original run's headline values were not trustworthy (possible label-file access); only the closed-protocol clean re-run is shown."
+   ]
+  },
+  {
+   "id": "plot",
+   "name": "Plot-image zero-shot \u2014 clean re-run",
+   "group": "Controls and probes",
+   "status": "run",
+   "description": "CORRECTED (closed-protocol clean re-run 2026-11-06): t0=100 windows W37-W48 and ALL t0=20 windows re-measured with the instruction text + plot image inline, no file access; t0=100 W01-W36 are the trusted wave-2 answers. Old rows SUPERSEDED \u2014 see 'superseded'. Plot delivery used verified downscaled band derivatives of the plots/ PNGs (see note).",
+   "t0_100": {
+    "n": 48,
+    "accuracy": 0.2916666666666667,
+    "macroF1": 0.2338217338217338,
+    "parseFailures": 0
+   },
+   "t0_20": {
+    "n": 48,
+    "accuracy": 0.08333333333333333,
+    "macroF1": 0.020833333333333332,
+    "parseFailures": 0
+   },
+   "extras": {},
+   "flags": [
+    "CLEAN RE-RUN values. The original run's headline values were not trustworthy (possible label-file access); only the closed-protocol clean re-run is shown."
+   ]
+  },
+  {
+   "id": "moment",
+   "name": "MOMENT-1 embedding probe",
+   "group": "Controls and probes",
+   "status": "run",
+   "description": "AutonLab/MOMENT-1-base frozen embeddings (each channel linearly resampled 6->512 steps, the MOMENT paper's classification protocol; pipeline returns one pooled 768-d embedding per window) + logistic regression probe",
+   "t0_100": {
+    "n": 48,
+    "accuracy": 0.75,
+    "macroF1": 0.7138188608776844,
+    "parseFailures": 0
+   },
+   "t0_20": {
+    "n": 48,
+    "accuracy": 0.2708333333333333,
+    "macroF1": 0.1893162393162393,
+    "parseFailures": 0
+   },
+   "extras": {},
+   "flags": []
+  },
+  {
+   "id": "llama",
+   "name": "Llama 3.2 3B Instruct \u2014 local, zero-shot",
+   "group": "Controls and probes",
+   "status": "run",
+   "description": "Local llama.cpp (build b12032) server, temperature 0, seed 2026, 16 max tokens.",
+   "t0_100": {
+    "n": 48,
+    "accuracy": 0.08333333333333333,
+    "macroF1": 0.012820512820512822,
+    "parseFailures": 0
+   },
+   "t0_20": {
+    "n": 48,
+    "accuracy": 0.08333333333333333,
+    "macroF1": 0.012820512820512822,
+    "parseFailures": 0
+   },
+   "extras": {},
+   "flags": []
+  },
+  {
+   "id": "ce",
+   "name": "Context Engineering",
+   "group": "Prompt-engineering extensions",
+   "status": "run",
+   "description": "Context engineering arm. The model never sees the raw 72-number table. A deterministic pipeline (build_prompts_ce.py) assembles each prompt from: (1) a compact task line with the 12 class codes and plain names; (2) a Window profile computed from the window's own 12 channels x 6 samples \u2014 per channel first value, last value, change, percent change, trend word from the least-squares slope with a relative deadband of 0.005 (relative slope = slope / mean(|values|); > 0.005 rising, < -0.005 falling, else steady), min and max, at 3 significant figures; (3) Class signatures computed from TRAIN-SPLIT runs only (same split rule and 144-window train pool as the FETA arm, 12 per class, seed 777, asserted train-only and disjoint from the test runs in build_prompts_ce.py): per class, the 3 channels with the strongest mean percent increase and the 3 with the strongest mean percent decrease from window start to end, protocol-matched; (4) the closing instruction to answer with exactly one class code and nothing else. No reasoning scaffold. No test label is used anywhere in prompt construction. Blinded subagent calls (16 batches of 6 windows, batch text inline only, no file access). Strict single-code parsing; invalid or missing = wrong.",
+   "t0_100": {
+    "n": 48,
+    "accuracy": 0.6041666666666666,
+    "macroF1": 0.519928954487778,
+    "parseFailures": 0
+   },
+   "t0_20": {
+    "n": 48,
+    "accuracy": 0.2708333333333333,
+    "macroF1": 0.1893162393162393,
+    "parseFailures": 0
+   },
+   "extras": {},
+   "flags": []
+  },
+  {
+   "id": "pet",
+   "name": "PET \u2014 prompt elimination tournament",
+   "group": "Prompt-engineering extensions",
+   "status": "run",
+   "description": "PET decomposes the 12-way zero-shot classification into 11 binary matches in a fixed single-elimination bracket seeded by the v1 class list order (LOCA, LOCAC, SLBIC, SLBOC, SGATR, SGBTR, RW, RI, FLB, MD, LR, LLB). Each window was judged by one blinded subagent (16 batches of 6 windows) that received, inline only, the window's v1 data block, all 12 class signature lines, and the bracket; it reported all 11 match winners and the champion. Signature lines were computed by code (build_pet_signatures.py) from TRAIN-split runs only (144-run pool, 12 per class, seed 777, disjoint from the 48 test-split benchmark runs): per class and protocol, the 3 channels with strongest mean percent increase and 3 with strongest mean percent decrease, first to last sample. Seeding used only the fixed v1 class order. No test label influenced any signature or seeding; labels from windows_manifest.json were read only at scoring time. A window whose bracket was incomplete, internally inconsistent (a reported winner not among the match's two participants), or whose champion differed from the M11 winner counts as a parse failure and is scored wrong. Elimination analysis follows the true class through the reported bracket: the round of the first match it lost (round1 = M1-M6, round2 = M7-M9, semifinal = M10, final = M11).",
+   "t0_100": {
+    "n": 48,
+    "accuracy": 0.5833,
+    "macroF1": 0.5389,
+    "parseFailures": 0
+   },
+   "t0_20": {
+    "n": 48,
+    "accuracy": 0.1042,
+    "macroF1": 0.0741,
+    "parseFailures": 0
+   },
+   "extras": {
+    "eliminationRounds": {
+     "overall": {
+      "round1": 35,
+      "semifinal": 6,
+      "final": 11,
+      "round2": 11
+     },
+     "byProtocol": {
+      "t0=100": {
+       "round1": 8,
+       "semifinal": 2,
+       "final": 7,
+       "round2": 3
+      },
+      "t0=20": {
+       "round1": 27,
+       "round2": 8,
+       "semifinal": 4,
+       "final": 4
+      }
+     }
+    }
+   },
+   "flags": []
+  },
+  {
+   "id": "automl",
+   "name": "AutoML v1 \u2014 frozen classical pipeline search",
+   "group": "Prompt-engineering extensions",
+   "status": "run",
+   "description": "One LLM designing agent wrote a self-contained Python program (numpy/pandas/scipy only; scikit-learn is not installed in this environment). The coordinator executed it on two prepared CSVs. The agent received one feedback round containing only the program's own train-split CV output and returned a revised program (v2), which ran cleanly and is the frozen final program. No test accuracy, test predictions' correctness, or test labels were ever given to any designing agent; scoring happened only after the final program was frozen.",
+   "t0_100": {
+    "n": 48,
+    "accuracy": 0.8125,
+    "macroF1": 0.7773109243697479,
+    "parseFailures": 0
+   },
+   "t0_20": {
+    "n": 48,
+    "accuracy": 0.1875,
+    "macroF1": 0.10598290598290598,
+    "parseFailures": 0
+   },
+   "extras": {
+    "trainCV": {
+     "protocol": "Stratified 4-fold CV on the 288-row train file only (both protocols pooled); pooled out-of-fold predictions; macro F1 = mean over the 12 classes of one-vs-rest F1.",
+     "algorithmsTried": {
+      "knn_dtw": 0.458068,
+      "knn_euclidean": 0.420045,
+      "centroid_features": 0.300573,
+      "logistic_regression": 0.508232,
+      "gaussian_naive_bayes": 0.529476,
+      "gnb_shrink": 0.321852,
+      "gnb_ext": 0.361898,
+      "lda_diag": 0.316428,
+      "rbf_ridge": 0.425515,
+      "rocket_ridge": 0.440793,
+      "ensemble_vote": 0.445442
+     },
+     "selected": "gaussian_naive_bayes",
+     "selectedDetail": "Single family, not the ensemble: Gaussian naive Bayes on engineered per-channel features (mean, std, min, max, first, last, slope, range per channel; raw physical scales), refit on all 288 train rows. The majority-vote ensemble of top performers was implemented and CV-evaluated (ensemble_vote, 0.445442) but scored below plain GNB on train CV, so the program's CV-driven selection kept the single best family."
+    },
+    "methodNote": "This arm TRAINS on labeled train-split data (288 labeled windows from the FETA train pool): the LLM acts as an ML engineer that writes, cross-validates and selects a classical time-series classification program. It is therefore NOT a zero-shot prompt technique and is not directly comparable to the prompt arms (v1-v4, FETA, CE, PET, PAL, SC); its natural reference points are the trained models. At t0=100 its macro F1 (0.7773) sits above every zero-shot prompt arm and below the study's trained references on the full test split (MultiRocket+HYDRA 0.984). At t0=20 it is poor (macro F1 0.1060): selection pooled both protocols, and the early windows of several classes are near-identical steady state, the same data property the CE arm documented. Per-class recall at t0=100: FLB and MD are 0.0 (absorbed by look-alike steady-state classes), LLB 0.75, all other classes 1.0."
+   },
+   "flags": [
+    "Caveat, recorded honestly: both designing agents were instructed to return program text without using tools, but their recorded tool calls show browsing of label-free workspace files (prep_data.py and prompt text files; prompt files contain no labels) against that instruction. The first agent additionally ran scratch experiments in /tmp on data it extracted itself using prep_data.py's public deterministic split rule, which can in principle identify test-rule runs, so design-level blindness (e.g. freedom of the fixed hyperparameters from any indirect test-split influence) cannot be certified. No recorded call opened windows_manifest.json (the only file mapping benchmark window ids to labels), the test CSV handed to the program contained no labels, all feedback to the agents contained only execution status and the program's own train-split CV output, and the executed final program's only inputs were the two prepared CSVs with all model selection done by train-split CV inside the program."
+   ]
+  },
+  {
+   "id": "automl_v2",
+   "name": "AutoML v2 \u2014 steered clean rerun",
+   "group": "Prompt-engineering extensions",
+   "status": "run",
+   "description": "One self-contained program (automl_arm_v2/automl_program_v2.py), written for this arm and executed once, end to end, in the arm's own venv. Unlike v1, real ML libraries were allowed. The program itself performed all screening, tuning, error analysis and selection using ONLY the labeled train CSV, then predicted the unlabeled test CSV once. Scoring ran afterwards, outside the program, with the study scorer. No agent saw test labels, test predictions' correctness, or any feedback from test at any point.",
+   "t0_100": {
+    "n": 48,
+    "accuracy": 0.8125,
+    "macroF1": 0.7773109243697479,
+    "parseFailures": 0
+   },
+   "t0_20": {
+    "n": 48,
+    "accuracy": 0.1875,
+    "macroF1": 0.10598290598290598,
+    "parseFailures": 0
+   },
+   "extras": {
+    "stage1Candidates": 10,
+    "stage1Top": [
+     {
+      "family": "gnb_default",
+      "cvMacroF1": 0.5254891855057519
+     },
+     {
+      "family": "logreg_default",
+      "cvMacroF1": 0.5210961817857314
+     },
+     {
+      "family": "lightgbm_default",
+      "cvMacroF1": 0.5015495187201212
+     },
+     {
+      "family": "random_forest_default",
+      "cvMacroF1": 0.4908353404082943
+     },
+     {
+      "family": "minirocket_default",
+      "cvMacroF1": 0.49066627023279596
+     }
+    ],
+    "selected": {
+     "family": "gnb",
+     "features": "ENG",
+     "params": {
+      "var_smoothing": 1e-09
+     },
+     "t0Indicator": false,
+     "diffChannels": false,
+     "classWeight": null,
+     "trainCvMacroF1": 0.5254891855057519,
+     "selectionRule": "best pooled-OOF train-CV macro F1 across stage 1 + stage 2 (+ error-analysis fix only if it improved the same CV)"
+    },
+    "comparisonV1vsV2": {
+     "v1": {
+      "selected": "gaussian_naive_bayes",
+      "trainCvMacroF1": 0.529476,
+      "t0_100": {
+       "accuracy": 0.8125,
+       "macroF1": 0.7773109243697479
+      },
+      "t0_20": {
+       "accuracy": 0.1875,
+       "macroF1": 0.10598290598290598
+      },
+      "libraries": "numpy/pandas/scipy only, hand-written classifiers (no scikit-learn available)"
+     },
+     "v2": {
+      "selected": "gnb",
+      "trainCvMacroF1": 0.5254891855057519,
+      "t0_100": {
+       "accuracy": 0.8125,
+       "macroF1": 0.7773109243697479
+      },
+      "t0_20": {
+       "accuracy": 0.1875,
+       "macroF1": 0.10598290598290598
+      },
+      "libraries": "scikit-learn + XGBoost + LightGBM + aeon + PyTorch, mandated advanced families all screened and top-3 tuned"
+     },
+     "predictionsIdenticalToV1": true,
+     "verdict": "Head-to-head tie. With the steering fully applied (10 mandated families screened incl. gradient boosting, random forest, RBF SVM, MLP, DTW k-NN, MiniRocket and a 1D CNN; top-3 tuned; one targeted error-analysis fix tried), train-CV selection independently converged on the same model class as v1 \u2014 Gaussian naive Bayes on the engineered per-channel features \u2014 and its 96 test predictions are byte-identical to v1's, so the test scores are identical too. On 288 tiny windows (72 raw values each), the advanced families all scored below GNB in honest train CV: steering changed the search, not the winner."
+    },
+    "methodNote": "Same caveat class as v1: this arm TRAINS on labeled train-split data (288 windows), so it is not a zero-shot prompt technique; its reference points are the trained models. Family notes: MiniRocket ran via aeon on series zero-padded 6 -> 16 steps (aeon's kernel length 9 exceeds the 6-step windows); DTW k-NN used aeon's multivariate DTW distance; the 1D CNN used PyTorch 2.15 CPU. Stage-1 CV ranking: GNB 0.5255 > LogReg 0.5211 > LightGBM 0.5015 > RandomForest 0.4908 ~ MiniRocket 0.4907 ~ XGBoost 0.4886 > DTW-kNN 0.4627 > CNN 0.4512 ~ MLP 0.4500 > RBF-SVM 0.3694. The dominant train-CV confusion was LOCA -> LLB, 12 cases, all at t0=20 \u2014 the same early-window steady-state look-alike problem every arm hits; the targeted fix (append a t0 indicator) did not change CV (0.5255) and was not adopted."
+   },
+   "flags": [
+    "v2 was designed against v1's recorded caveat. The whole search ran inside one program whose only inputs were the two prepared CSVs; all model selection used train-split CV computed inside the program; no answer files, manifests or prior per-window results were opened during design or execution; the study scorer touched test labels only after the predictions file was frozen. The train/test CSVs are md5-identical to v1's, so the comparison is exactly head-to-head."
+   ]
+  },
+  {
+   "id": "agent",
+   "name": "Agentic PAL \u2014 retrieval + iterative code",
+   "group": "Prompt-engineering extensions",
+   "status": "run",
+   "description": "Agentic PAL arm for the NPPAD zero-shot LLM benchmark. Same 96 windows, same scoring as all other arms. Completed from surviving program artifacts after loss of coordinator state; see method note.",
+   "t0_100": {
+    "n": 48,
+    "accuracy": 0.7083333333333334,
+    "macroF1": 0.665406162464986,
+    "parseFailures": 0
+   },
+   "t0_20": {
+    "n": 48,
+    "accuracy": 0.2708333333333333,
+    "macroF1": 0.18976608187134503,
+    "parseFailures": 1
+   },
+   "extras": {
+    "stats": {
+     "windowsUsingRetrieval": null,
+     "windowsUsingRetrieval_note": "Not recoverable: the retrieval request records lived in the lost /tmp/agent_work state. The one surviving raw reply (answers_agent/raw/batch_01_r1.txt, batch 1 round 1) shows RETRIEVE requests, but generalising from it would fabricate the stat.",
+     "meanVersionsPerWindow_onDisk": 1.1041666666666667,
+     "windowsWithMultipleVersionsOnDisk": 10,
+     "windowsAnswerChangedV1ToFinal": 10
+    },
+    "methodNote": "Agentic PAL arm: per window, a blinded agent wrote a self-contained stdlib-only Python program embedding the window data and printing one class code; it could call a DTW retrieval tool (3 nearest labelled train-split exemplars, same pool as the FETA arm) and revise its program up to 3 versions against execution output only (never correctness or test labels). COMPLETION DISCLOSURE: the run went through two earlier coordinator handoffs; the coordinators' working state in /tmp/agent_work (execution logs, FINAL confirmations, continuation files) was lost before the run was scored, so final answers were reconstructed by finish_agent_arm.py executing, once and unedited, the highest surviving program version per window in agent_programs/ (v1 for 86 windows, v2 for 10 windows: P100_W13-W16, P100_W31-W36) under the arm's own answer rule. Surviving artifacts support the version and answer-change stats; the per-window retrieval-usage stat is not recoverable and is reported as null rather than estimated. Scoring: strict single code, invalid/missing = parse failure = wrong, accuracy + macro F1 per protocol vs windows_manifest.json, same as all other arms."
+   },
+   "flags": [
+    "RECONSTRUCTION CAVEAT: this arm's coordinator state was lost mid-run; the reported scores come from each window's final surviving program, executed once, unedited. See the arm's method note."
+   ]
+  },
+  {
+   "id": "sc",
+   "name": "Self-Consistency \u2014 majority vote, k=5",
+   "group": "Prompt-engineering extensions",
+   "status": "run",
+   "description": "The exact v3 chain-of-thought batch prompts were answered in 5 independent rounds, one fresh blinded subagent per batch per round (16 batches x 5 rounds = 80 calls). Each round's answer per window is the code after the LAST 'FINAL:' in that window's section; a missing or invalid FINAL is an abstention. The final answer is the majority vote across the 5 rounds; ties are broken by the tied code that appeared in the earliest round. A window where all 5 rounds abstain is a parse failure.",
+   "t0_100": {
+    "n": 48,
+    "accuracy": 0.2916666666666667,
+    "macroF1": 0.27645502645502645,
+    "parseFailures": 0
+   },
+   "t0_20": {
+    "n": 48,
+    "accuracy": 0.10416666666666667,
+    "macroF1": 0.04883720930232558,
+    "parseFailures": 0
+   },
+   "extras": {
+    "agreement": {
+     "meanPairwiseAgreement": 0.8958333333333334,
+     "pairsCompared": 960,
+     "voteMarginDistribution": {
+      "3": 3,
+      "4": 20,
+      "5": 73
+     },
+     "unanimousWindows": 73,
+     "windowsWithAnyAbstention": 0
+    }
+   },
+   "flags": []
+  },
+  {
+   "id": "pal",
+   "name": "PAL \u2014 program-aided code execution",
+   "group": "Prompt-engineering extensions",
+   "status": "run",
+   "description": "Each window's v1 prompt data was given to a blinded subagent (16 batches of 6 windows) which returned one self-contained Python program per window embedding the window data. Each program was extracted verbatim to pal_programs/<window>.py and executed exactly once with python3 in an empty temp directory with a 15 s timeout; no program was edited or rerun. The PAL answer is the last non-empty stdout line, stripped; anything that is not exactly one of the 12 class codes, and any execution error or timeout, is a parse failure.",
+   "t0_100": {
+    "n": 48,
+    "accuracy": 0.375,
+    "macroF1": 0.3119167869167869,
+    "parseFailures": 0
+   },
+   "t0_20": {
+    "n": 48,
+    "accuracy": 0.16666666666666666,
+    "macroF1": 0.07264957264957266,
+    "parseFailures": 0
+   },
+   "extras": {
+    "execution": {
+     "programsExtracted": 96,
+     "programsExecuted": 96,
+     "cleanExecutions": 96,
+     "executionErrors": {},
+     "extractionProblems": []
+    }
+   },
+   "flags": []
+  },
+  {
+   "id": "gemini",
+   "name": "Gemini 3 Flash \u2014 INCOMPLETE (57 of 96 windows)",
+   "group": "API models",
+   "status": "incomplete",
+   "description": "Not completed: 57 of the 96 windows have genuine answers from gemini-3-flash-preview (all 48 onset aligned windows at t0 = 100 s, and 9 of 48 at t0 = 20 s), after the Nov 3 and Nov 4 runs stopped when the free tier daily quota returned HTTP 429. No Gemini score is claimed from a partial sample. The remaining 39 windows complete under the same protocol when the daily quota resets.",
+   "t0_100": {
+    "n": 48,
+    "accuracy": 0.2708333333333333,
+    "macroF1": 0.18095238095238098,
+    "parseFailures": 5
+   },
+   "t0_20": null,
+   "extras": {
+    "answeredTotal": 96,
+    "answeredOnset": 48,
+    "answeredEarly": 48,
+    "stopReason": "stopped after 3 consecutive windows failed entirely with 429 (daily quota exhausted)"
+   },
+   "flags": [
+    "INCOMPLETE: only 57 of 96 windows were answered before the free-tier API quota ran out. The onset protocol (48/48) is complete and scored from the answer file; the early protocol has only 9 of 48 answers, so no early score is claimed."
+   ]
+  },
+  {
+   "id": "chatgpt",
+   "name": "ChatGPT (gpt-5.2) \u2014 not run",
+   "group": "API models",
+   "status": "not_run",
+   "description": "Not run: the key authenticates, but the OpenAI account has no API credits remaining. Every chat completion call returned HTTP 429 (no credits), so no ChatGPT answers could be collected.",
+   "t0_100": null,
+   "t0_20": null,
+   "extras": {},
+   "flags": []
+  }
+ ],
+ "trainedReferences": [
+  {
+   "name": "LogReg",
+   "t0_100": {
+    "n": 240,
+    "accuracy": 0.875,
+    "macroF1": 0.8606109561493627,
+    "parseFailures": 0
+   },
+   "t0_20": {
+    "n": 244,
+    "accuracy": 0.27459016393442626,
+    "macroF1": 0.1891822936599056,
+    "parseFailures": 0
+   },
+   "scope": "full test split (n=240 at t0=100, n=244 at t0=20), reference"
+  },
+  {
+   "name": "LogReg+",
+   "t0_100": {
+    "n": 240,
+    "accuracy": 0.9666666666666667,
+    "macroF1": 0.967512194901588,
+    "parseFailures": 0
+   },
+   "t0_20": {
+    "n": 244,
+    "accuracy": 0.27459016393442626,
+    "macroF1": 0.1891822936599056,
+    "parseFailures": 0
+   },
+   "scope": "full test split (n=240 at t0=100, n=244 at t0=20), reference"
+  },
+  {
+   "name": "Random Forest",
+   "t0_100": {
+    "n": 240,
+    "accuracy": 0.9625,
+    "macroF1": 0.9635730348178478,
+    "parseFailures": 0
+   },
+   "t0_20": {
+    "n": 244,
+    "accuracy": 0.26639344262295084,
+    "macroF1": 0.18769058970063993,
+    "parseFailures": 0
+   },
+   "scope": "full test split (n=240 at t0=100, n=244 at t0=20), reference"
+  },
+  {
+   "name": "MultiRocket+HYDRA",
+   "t0_100": {
+    "n": 240,
+    "accuracy": 0.9833333333333333,
+    "macroF1": 0.9837988396553342,
+    "parseFailures": 0
+   },
+   "t0_20": {
+    "n": 244,
+    "accuracy": 0.27459016393442626,
+    "macroF1": 0.1891822936599056,
+    "parseFailures": 0
+   },
+   "scope": "full test split (n=240 at t0=100, n=244 at t0=20), reference"
+  },
+  {
+   "name": "Rocket",
+   "t0_100": {
+    "n": 240,
+    "accuracy": 0.9708333333333333,
+    "macroF1": 0.9713676332888501,
+    "parseFailures": 0
+   },
+   "t0_20": {
+    "n": 244,
+    "accuracy": 0.27459016393442626,
+    "macroF1": 0.1891822936599056,
+    "parseFailures": 0
+   },
+   "scope": "full test split (n=240 at t0=100, n=244 at t0=20), reference"
+  },
+  {
+   "name": "MiniRocket",
+   "t0_100": {
+    "n": 240,
+    "accuracy": 0.975,
+    "macroF1": 0.9750366058132425,
+    "parseFailures": 0
+   },
+   "t0_20": {
+    "n": 244,
+    "accuracy": 0.27459016393442626,
+    "macroF1": 0.1891822936599056,
+    "parseFailures": 0
+   },
+   "scope": "full test split (n=240 at t0=100, n=244 at t0=20), reference"
+  },
+  {
+   "name": "CNN",
+   "t0_100": {
+    "n": null,
+    "accuracy": null,
+    "macroF1": 0.9677,
+    "parseFailures": 0
+   },
+   "t0_20": {
+    "n": 244,
+    "accuracy": 0.27459016393442626,
+    "macroF1": 0.1891822936599056,
+    "parseFailures": 0
+   },
+   "scope": "full test split (n=240 at t0=100, n=244 at t0=20), reference"
+  },
+  {
+   "name": "GRU",
+   "t0_100": {
+    "n": null,
+    "accuracy": null,
+    "macroF1": 0.9635,
+    "parseFailures": 0
+   },
+   "t0_20": {
+    "n": 244,
+    "accuracy": 0.27459016393442626,
+    "macroF1": 0.1891822936599056,
+    "parseFailures": 0
+   },
+   "scope": "full test split (n=240 at t0=100, n=244 at t0=20), reference"
+  }
+ ],
+ "prompts": {
+  "v1": "You are classifying a nuclear power plant accident from a short window of plant sensor readings. The window starts at second 100 of a recorded simulated transient and covers 60 seconds, sampled every 10 seconds (6 samples per channel, in time order). Values are rounded to 3 significant figures.\n\nChannels (code: description, unit):\nP: Press RCS, bar\nPSGA: Pressure Steam generator A, bar\nTAVG: Temp RCS average, degC\nTHA: Temp Hot leg A, degC\nTCA: Temp Cold leg A, degC\nTF: Temp Average fuel, degC\nWRCA: Flow Reactor coolant loop A, t/hr\nWFWA: Flow SG A feedwater, t/hr\nWSTA: Flow SG A steam, t/hr\nWECS: Flow Total ECCS, t/hr\nLVPZ: Level Pressurizer, %\nLSGA: Level SG A wide range, M\n\nAccident classes (answer with exactly one of these codes):\nLOCA: Loss of Coolant Accident (Hot Leg)\nLOCAC: Loss of Coolant Accident (Cold Leg)\nSLBIC: Steam Line Break Inside Containment\nSLBOC: Steam Line Break Outside Containment\nSGATR: Steam Generator A Tube Rupture\nSGBTR: Steam Generator B Tube Rupture\nRW: Rod Withdrawal\nRI: Rod Insertion\nFLB: Feedwater Line Break\nMD: Moderator Dilution\nLR: Load Rejection\nLLB: Letdown Line Break in auxiliary buildings\n\nWindow data (one row per channel, values in time order):\nP: 155., 149., 131., 107., 96.9, 88.1\nPSGA: 67.0, 67.0, 66.9, 75.0, 72.6, 69.6\nTAVG: 310., 310., 310., 303., 296., 291.\nTHA: 328., 328., 328., 318., 306., 298.\nTCA: 292., 292., 292., 295., 293., 289.\nTF: 790., 794., 797., 351., 321., 313.\nWRCA: 16500., 16500., 16500., 16600., 16700., 16500.\nWFWA: 1920., 1920., 1920., 1650., 1540., 1430.\nWSTA: 1920., 1920., 1920., 709., 590., 407.\nWECS: 23.8, 68.7, 68.7, 97.7, 102., 106.\nLVPZ: 62.0, 52.8, 27.1, 0.0351, 0, 0\nLSGA: 11.8, 11.8, 11.8, 12.3, 12.5, 12.8\n\nAnswer with exactly one class code from the list above and nothing else.",
+  "v2": "You are classifying a nuclear power plant accident from a short window of plant sensor readings. The window starts at second 100 of a recorded simulated transient and covers 60 seconds, sampled every 10 seconds (6 samples per channel, in time order). Values are rounded to 3 significant figures.\n\nChannels (code: what it measures, and what its movement means):\nP: Primary coolant (RCS) pressure, bar. The pressure of the water cooling the core. It falls when primary coolant is lost through a break or when the coolant cools and shrinks; it rises when the coolant is heated.\nPSGA: Steam generator A pressure, bar. The pressure on the secondary (steam) side of steam generator A. It falls if steam escapes through a break or is drawn off faster than it is produced.\nTAVG: Average primary coolant temperature, degC. Rises when core power exceeds heat removal; falls when the primary is overcooled by the secondary side.\nTHA: Hot leg A temperature, degC. Temperature of coolant leaving the core into loop A; closely tracks core power.\nTCA: Cold leg A temperature, degC. Temperature of coolant returning from steam generator A to the vessel; drops when steam generator A removes extra heat (for example after a steam line break).\nTF: Average fuel temperature, degC. Tracks reactor power closely: it climbs on a power increase (rod withdrawal, dilution) and drops on a power decrease (rod insertion, shutdown).\nWRCA: Reactor coolant flow in loop A, t/hr. Driven by the coolant pumps; roughly steady unless the loop is disturbed.\nWFWA: Feedwater flow into steam generator A, t/hr. The water supply to the secondary side; it is lost if the feedwater line breaks.\nWSTA: Steam flow out of steam generator A, t/hr. Surges if a steam line breaks; collapses if the turbine load is suddenly lost (load rejection).\nWECS: Total emergency core cooling (ECCS) flow, t/hr. Safety injection water pumped into the primary system. It is zero in normal operation and starts automatically on a serious primary coolant loss, so a rising WECS is a strong sign of a primary break.\nLVPZ: Pressurizer water level, %. Falls when primary coolant inventory is lost or shrinks on cooling; rises when coolant expands on heating.\nLSGA: Steam generator A water level (wide range), m. Falls when feedwater is lost or steam escapes; rises when primary coolant leaks into the steam generator through a ruptured tube.\n\nAccident classes (answer with exactly one of these codes; what physically happens in each):\nLOCA: Loss of Coolant Accident (Hot Leg). A break in the hot leg of the primary loop: primary pressure and pressurizer level fall fast and ECCS injection starts.\nLOCAC: Loss of Coolant Accident (Cold Leg). A break in the cold leg: the same kind of primary inventory loss as LOCA, with pressure and pressurizer level falling and ECCS running.\nSLBIC: Steam Line Break Inside Containment. A main steam line breaks inside containment: steam flow surges, steam generator pressure drops, and the primary side is overcooled (temperatures fall).\nSLBOC: Steam Line Break Outside Containment. The same steam line break, but located outside containment; the plant response is similar to SLBIC.\nSGATR: Steam Generator A Tube Rupture. A tube in steam generator A leaks primary coolant into the secondary side: steam generator A level rises while primary pressure and pressurizer level fall slowly.\nSGBTR: Steam Generator B Tube Rupture. The same tube leak in steam generator B, so loop A channels are affected only indirectly.\nRW: Rod Withdrawal. Control rods withdraw and add reactivity: reactor power rises, so fuel and coolant temperatures climb and pressure rises.\nRI: Rod Insertion. Control rods insert and cut reactivity: power falls, so fuel and coolant temperatures drop.\nFLB: Feedwater Line Break. The feedwater line to the steam generator breaks: feedwater flow is lost, steam generator level falls and steam flow drops as the generator dries out.\nMD: Moderator Dilution. Unborated water slowly adds reactivity: a gradual power and temperature rise without any pipe break.\nLR: Load Rejection. The turbine suddenly loses its electrical load: steam flow collapses at once and primary pressure and temperatures spike upward briefly.\nLLB: Letdown Line Break in auxiliary buildings. A break in the letdown line outside the main loops: a slow loss of primary inventory, with pressurizer level falling.\n\nWindow data (one row per channel, values in time order):\nP: 155., 149., 131., 107., 96.9, 88.1\nPSGA: 67.0, 67.0, 66.9, 75.0, 72.6, 69.6\nTAVG: 310., 310., 310., 303., 296., 291.\nTHA: 328., 328., 328., 318., 306., 298.\nTCA: 292., 292., 292., 295., 293., 289.\nTF: 790., 794., 797., 351., 321., 313.\nWRCA: 16500., 16500., 16500., 16600., 16700., 16500.\nWFWA: 1920., 1920., 1920., 1650., 1540., 1430.\nWSTA: 1920., 1920., 1920., 709., 590., 407.\nWECS: 23.8, 68.7, 68.7, 97.7, 102., 106.\nLVPZ: 62.0, 52.8, 27.1, 0.0351, 0, 0\nLSGA: 11.8, 11.8, 11.8, 12.3, 12.5, 12.8\n\nBefore answering, compare the trend of each channel across the 6 samples (rising, falling, or steady) and notice which channels move together.\n\nAnswer with exactly one class code from the list above and nothing else.",
+  "v3": "You are classifying a nuclear power plant accident from a short window of plant sensor readings. The window starts at second 100 of a recorded simulated transient and covers 60 seconds, sampled every 10 seconds (6 samples per channel, in time order). Values are rounded to 3 significant figures.\n\nChannels (code: what it measures, and what its movement means):\nP: Primary coolant (RCS) pressure, bar. The pressure of the water cooling the core. It falls when primary coolant is lost through a break or when the coolant cools and shrinks; it rises when the coolant is heated.\nPSGA: Steam generator A pressure, bar. The pressure on the secondary (steam) side of steam generator A. It falls if steam escapes through a break or is drawn off faster than it is produced.\nTAVG: Average primary coolant temperature, degC. Rises when core power exceeds heat removal; falls when the primary is overcooled by the secondary side.\nTHA: Hot leg A temperature, degC. Temperature of coolant leaving the core into loop A; closely tracks core power.\nTCA: Cold leg A temperature, degC. Temperature of coolant returning from steam generator A to the vessel; drops when steam generator A removes extra heat (for example after a steam line break).\nTF: Average fuel temperature, degC. Tracks reactor power closely: it climbs on a power increase (rod withdrawal, dilution) and drops on a power decrease (rod insertion, shutdown).\nWRCA: Reactor coolant flow in loop A, t/hr. Driven by the coolant pumps; roughly steady unless the loop is disturbed.\nWFWA: Feedwater flow into steam generator A, t/hr. The water supply to the secondary side; it is lost if the feedwater line breaks.\nWSTA: Steam flow out of steam generator A, t/hr. Surges if a steam line breaks; collapses if the turbine load is suddenly lost (load rejection).\nWECS: Total emergency core cooling (ECCS) flow, t/hr. Safety injection water pumped into the primary system. It is zero in normal operation and starts automatically on a serious primary coolant loss, so a rising WECS is a strong sign of a primary break.\nLVPZ: Pressurizer water level, %. Falls when primary coolant inventory is lost or shrinks on cooling; rises when coolant expands on heating.\nLSGA: Steam generator A water level (wide range), m. Falls when feedwater is lost or steam escapes; rises when primary coolant leaks into the steam generator through a ruptured tube.\n\nAccident classes (answer with exactly one of these codes; what physically happens in each):\nLOCA: Loss of Coolant Accident (Hot Leg). A break in the hot leg of the primary loop: primary pressure and pressurizer level fall fast and ECCS injection starts.\nLOCAC: Loss of Coolant Accident (Cold Leg). A break in the cold leg: the same kind of primary inventory loss as LOCA, with pressure and pressurizer level falling and ECCS running.\nSLBIC: Steam Line Break Inside Containment. A main steam line breaks inside containment: steam flow surges, steam generator pressure drops, and the primary side is overcooled (temperatures fall).\nSLBOC: Steam Line Break Outside Containment. The same steam line break, but located outside containment; the plant response is similar to SLBIC.\nSGATR: Steam Generator A Tube Rupture. A tube in steam generator A leaks primary coolant into the secondary side: steam generator A level rises while primary pressure and pressurizer level fall slowly.\nSGBTR: Steam Generator B Tube Rupture. The same tube leak in steam generator B, so loop A channels are affected only indirectly.\nRW: Rod Withdrawal. Control rods withdraw and add reactivity: reactor power rises, so fuel and coolant temperatures climb and pressure rises.\nRI: Rod Insertion. Control rods insert and cut reactivity: power falls, so fuel and coolant temperatures drop.\nFLB: Feedwater Line Break. The feedwater line to the steam generator breaks: feedwater flow is lost, steam generator level falls and steam flow drops as the generator dries out.\nMD: Moderator Dilution. Unborated water slowly adds reactivity: a gradual power and temperature rise without any pipe break.\nLR: Load Rejection. The turbine suddenly loses its electrical load: steam flow collapses at once and primary pressure and temperatures spike upward briefly.\nLLB: Letdown Line Break in auxiliary buildings. A break in the letdown line outside the main loops: a slow loss of primary inventory, with pressurizer level falling.\n\nWindow data (one row per channel, values in time order):\nP: 155., 149., 131., 107., 96.9, 88.1\nPSGA: 67.0, 67.0, 66.9, 75.0, 72.6, 69.6\nTAVG: 310., 310., 310., 303., 296., 291.\nTHA: 328., 328., 328., 318., 306., 298.\nTCA: 292., 292., 292., 295., 293., 289.\nTF: 790., 794., 797., 351., 321., 313.\nWRCA: 16500., 16500., 16500., 16600., 16700., 16500.\nWFWA: 1920., 1920., 1920., 1650., 1540., 1430.\nWSTA: 1920., 1920., 1920., 709., 590., 407.\nWECS: 23.8, 68.7, 68.7, 97.7, 102., 106.\nLVPZ: 62.0, 52.8, 27.1, 0.0351, 0, 0\nLSGA: 11.8, 11.8, 11.8, 12.3, 12.5, 12.8\n\nReason step by step before answering:\n1. For each channel, state whether it rises, falls, or stays steady across the 6 samples.\n2. Note which channels move together and what that combination points to.\n3. Decide which single accident class best explains the whole pattern.\nThen end your reply with a final line in exactly this form:\nFINAL: <class code>",
+  "v4": "You are classifying a nuclear power plant accident from a short window of plant sensor readings. The window starts at second 100 of a recorded simulated transient and covers 60 seconds, sampled every 10 seconds (6 samples per channel, in time order). Values are rounded to 3 significant figures.\n\nChannels (code: what it measures, and what its movement means):\nP: Primary coolant (RCS) pressure, bar. The pressure of the water cooling the core. It falls when primary coolant is lost through a break or when the coolant cools and shrinks; it rises when the coolant is heated.\nPSGA: Steam generator A pressure, bar. The pressure on the secondary (steam) side of steam generator A. It falls if steam escapes through a break or is drawn off faster than it is produced.\nTAVG: Average primary coolant temperature, degC. Rises when core power exceeds heat removal; falls when the primary is overcooled by the secondary side.\nTHA: Hot leg A temperature, degC. Temperature of coolant leaving the core into loop A; closely tracks core power.\nTCA: Cold leg A temperature, degC. Temperature of coolant returning from steam generator A to the vessel; drops when steam generator A removes extra heat (for example after a steam line break).\nTF: Average fuel temperature, degC. Tracks reactor power closely: it climbs on a power increase (rod withdrawal, dilution) and drops on a power decrease (rod insertion, shutdown).\nWRCA: Reactor coolant flow in loop A, t/hr. Driven by the coolant pumps; roughly steady unless the loop is disturbed.\nWFWA: Feedwater flow into steam generator A, t/hr. The water supply to the secondary side; it is lost if the feedwater line breaks.\nWSTA: Steam flow out of steam generator A, t/hr. Surges if a steam line breaks; collapses if the turbine load is suddenly lost (load rejection).\nWECS: Total emergency core cooling (ECCS) flow, t/hr. Safety injection water pumped into the primary system. It is zero in normal operation and starts automatically on a serious primary coolant loss, so a rising WECS is a strong sign of a primary break.\nLVPZ: Pressurizer water level, %. Falls when primary coolant inventory is lost or shrinks on cooling; rises when coolant expands on heating.\nLSGA: Steam generator A water level (wide range), m. Falls when feedwater is lost or steam escapes; rises when primary coolant leaks into the steam generator through a ruptured tube.\n\nAccident classes (answer with exactly one of these codes; what physically happens in each):\nLOCA: Loss of Coolant Accident (Hot Leg). A break in the hot leg of the primary loop: primary pressure and pressurizer level fall fast and ECCS injection starts.\nLOCAC: Loss of Coolant Accident (Cold Leg). A break in the cold leg: the same kind of primary inventory loss as LOCA, with pressure and pressurizer level falling and ECCS running.\nSLBIC: Steam Line Break Inside Containment. A main steam line breaks inside containment: steam flow surges, steam generator pressure drops, and the primary side is overcooled (temperatures fall).\nSLBOC: Steam Line Break Outside Containment. The same steam line break, but located outside containment; the plant response is similar to SLBIC.\nSGATR: Steam Generator A Tube Rupture. A tube in steam generator A leaks primary coolant into the secondary side: steam generator A level rises while primary pressure and pressurizer level fall slowly.\nSGBTR: Steam Generator B Tube Rupture. The same tube leak in steam generator B, so loop A channels are affected only indirectly.\nRW: Rod Withdrawal. Control rods withdraw and add reactivity: reactor power rises, so fuel and coolant temperatures climb and pressure rises.\nRI: Rod Insertion. Control rods insert and cut reactivity: power falls, so fuel and coolant temperatures drop.\nFLB: Feedwater Line Break. The feedwater line to the steam generator breaks: feedwater flow is lost, steam generator level falls and steam flow drops as the generator dries out.\nMD: Moderator Dilution. Unborated water slowly adds reactivity: a gradual power and temperature rise without any pipe break.\nLR: Load Rejection. The turbine suddenly loses its electrical load: steam flow collapses at once and primary pressure and temperatures spike upward briefly.\nLLB: Letdown Line Break in auxiliary buildings. A break in the letdown line outside the main loops: a slow loss of primary inventory, with pressurizer level falling.\n\nWindow data (one row per channel, values in time order):\nP: 155., 149., 131., 107., 96.9, 88.1\nPSGA: 67.0, 67.0, 66.9, 75.0, 72.6, 69.6\nTAVG: 310., 310., 310., 303., 296., 291.\nTHA: 328., 328., 328., 318., 306., 298.\nTCA: 292., 292., 292., 295., 293., 289.\nTF: 790., 794., 797., 351., 321., 313.\nWRCA: 16500., 16500., 16500., 16600., 16700., 16500.\nWFWA: 1920., 1920., 1920., 1650., 1540., 1430.\nWSTA: 1920., 1920., 1920., 709., 590., 407.\nWECS: 23.8, 68.7, 68.7, 97.7, 102., 106.\nLVPZ: 62.0, 52.8, 27.1, 0.0351, 0, 0\nLSGA: 11.8, 11.8, 11.8, 12.3, 12.5, 12.8\n\nWork through the possibilities before answering:\n1. Pick the 3 most plausible accident classes from the list.\n2. For each candidate, briefly argue for and against it using the channel trends across the 6 samples (which channels support it, which contradict it).\n3. Commit to the single class that explains the whole pattern best.\nThen end your reply with a final line in exactly this form:\nFINAL: <class code>"
+ },
+ "promptChanged": {
+  "v2": "v2 EXPANDS those into full plain-language explanations of what each channel measures and what physically happens in each accident class, and adds an explicit instruction to compare trends across the 6 samples before answering.",
+  "v3": "v3 = v2 + step-by-step chain-of-thought, ending with \"FINAL: <code>\".",
+  "v4": "v4 = v2 + tree-of-thoughts: argue for/against the 3 most plausible classes, then commit with \"FINAL: <code>\"."
+ },
+ "promptConditionsNote": "Prompt v2/v3/v4 are separate zero-shot conditions run 2026-11-06, labeled separately and never blended with the original Prompt v1 rows under 'models'. v3/v4 scoring extracts the class code after the FINAL: marker; anything without a valid FINAL line counts as a parse failure (wrong).",
+ "caveats": [
+  {
+   "title": "Wave-2 integrity incident \u2014 clean re-runs only",
+   "text": "CLOSED-PROTOCOL CLEAN RE-RUN (2026-11-06) of the three wave-2 pieces compromised in the integrity incident documented in llm_benchmark_results_lit2_2026-11-06.json: (1) random few-shot t0=100 windows P100_W37-W48; (2) plot-image t0=100 windows P100_W37-W48; (3) plot-image t0=20, all 48 windows P20_W01-W48. Protocol: each classifying child agent received the FULL prompt text (randshot) or the instruction text plus the window's plot image (plot arms) INLINE in its task message (images via the spawn items mechanism) and was instructed to answer ONLY from that inline content and to open NO files; at most 6 windows per agent; the coordinator passed no label or manifest file paths. Every reported number is recomputed by score_lit2clean.py from the answer files with the same strict single-code parser as all earlier arms. Corrected arm-level rows merge the trusted wave-2 answers (windows outside the compromised set) with the clean answers; the old values are kept alongside under 'superseded', labeled SUPERSEDED, and must not be cited. PLOT DELIVERY DEVIATIONS (documented for methods transparency): the plot images reached the children as downscaled quantized derivatives of the plots/ PNGs, because the spawn channel corrupts long base64 payloads at high rates (dozens of coordinator delivery attempts failed validation or PNG CRC checks and produced no answers; every payload actually used was verified byte-identical to its derivative file after spawning). Derivatives: P100_W37 as a single 800x533 image (256 colors); most other windows as three horizontal bands of the 1200x800 plot (rows split at the panel gutters), each band resized to width 480 and quantized to 64 colors; P100_W47 as 16-color bands after the 64-color version proved undeliverable; the shared t0=20 figure (35 windows) as 16-color bands for the agents covering W05-W09, W11-W16 and W37-W42, and as 32-color bands for the agents covering W17-W24, W33-W36 and W43-W48, after several children reported the images did not render (IMAGE_FAIL attempts are void and excluded). IDENTICAL-IMAGE GROUPING (a property of the source data, verified by file hashes): the 60 plot files contain only 13 distinct images. P100_W37-W40 are one identical image; in t0=20, W05-W09 + W11-W24 + W33-W48 are one identical image (35 windows), W01-W04 one image, W25-W32 one image, W10 unique. Identical plots mirror identical underlying window data (checked against the text prompts), so all arms face the same duplication. Windows sharing an image were batched together with one shared image set, and different agents classifying the SAME t0=20 shared figure did not always agree (six independent agents read the 35-window figure as FLB once, SGATR four times and SLBOC once) \u2014 genuine classifier variance, reported as returned. W37 CAVEAT: for P100_W37 the child's answer (LR) is a genuine vision error, not a delivery failure: the window's data are fully constant across all channels (verified in the text prompt) and the child misread the flat traces as moving. It is scored as returned. Full comparison v2 of all NPPAD LLM benchmark conditions, assembled by build_comparison_v2.py from the stored results files (no hand-typed values). Supersedes all_methods_comparison_2026-11-06.json: the plot-image and random few-shot rows are the CORRECTED closed-protocol clean re-run values from llm_benchmark_results_lit2clean_2026-11-06.json (the original wave-2 values for those arms were compromised \u2014 blinded agents had workspace read access; see the incident notes in the lit2 and lit2clean files \u2014 and are preserved there labeled SUPERSEDED). Includes the ReasonTSC full replication row. LLM conditions: 96-window sample, strict single-code scoring, invalid = wrong. Trained references: full test split from references.json (verify_references.py), NOT the 48-window sample. Revision 2026-11-08: one local-model condition (a 3B open-weight model run locally) was removed from this file at the study author's request. All other values are unchanged from the 2026-11-06 original."
+  },
+  {
+   "title": "AutoML v1 \u2014 blindness caveat",
+   "text": "Caveat, recorded honestly: both designing agents were instructed to return program text without using tools, but their recorded tool calls show browsing of label-free workspace files (prep_data.py and prompt text files; prompt files contain no labels) against that instruction. The first agent additionally ran scratch experiments in /tmp on data it extracted itself using prep_data.py's public deterministic split rule, which can in principle identify test-rule runs, so design-level blindness (e.g. freedom of the fixed hyperparameters from any indirect test-split influence) cannot be certified. No recorded call opened windows_manifest.json (the only file mapping benchmark window ids to labels), the test CSV handed to the program contained no labels, all feedback to the agents contained only execution status and the program's own train-split CV output, and the executed final program's only inputs were the two prepared CSVs with all model selection done by train-split CV inside the program."
+  },
+  {
+   "title": "AutoML v2 \u2014 steered rerun",
+   "text": "v2 was designed against v1's recorded caveat. The whole search ran inside one program whose only inputs were the two prepared CSVs; all model selection used train-split CV computed inside the program; no answer files, manifests or prior per-window results were opened during design or execution; the study scorer touched test labels only after the predictions file was frozen. The train/test CSVs are md5-identical to v1's, so the comparison is exactly head-to-head."
+  },
+  {
+   "title": "Agentic PAL \u2014 reconstruction caveat",
+   "text": "the run went through two earlier coordinator handoffs; the coordinators' working state in /tmp/agent_work (execution logs, FINAL confirmations, continuation files) was lost before the run was scored, so final answers were reconstructed by finish_agent_arm.py executing, once and unedited, the highest surviving program version per window in agent_programs/ (v1 for 86 windows, v2 for 10 windows: P100_W13-W16, P100_W31-W36) under the arm's own answer rule. Surviving artifacts support the version and answer-change stats; the per-window retrieval-usage stat is not recoverable and is reported as null rather than estimated. Scoring: strict single code, invalid/missing = parse failure = wrong, accuracy + macro F1 per protocol vs windows_manifest.json, same as all other arms."
+  },
+  {
+   "title": "Gemini \u2014 incomplete run",
+   "text": "Not completed: 57 of the 96 windows have genuine answers from gemini-3-flash-preview (all 48 onset aligned windows at t0 = 100 s, and 9 of 48 at t0 = 20 s), after the Nov 3 and Nov 4 runs stopped when the free tier daily quota returned HTTP 429. No Gemini score is claimed from a partial sample. The remaining 39 windows complete under the same protocol when the daily quota resets."
+  },
+  {
+   "title": "ReasonTSC \u2014 correction claim did not reproduce",
+   "text": "In the full replication the corrector agreed with its own plug-in classifier on 47 of 48 onset windows, made 0 corrections and 1 breakage; at the early protocol it made 0 corrections and 0 breakages. The paper's correction claim did not reproduce."
+  }
+ ],
+ "uea": {
+  "perDataset": {
+   "BasicMotions": {
+    "v1": {
+     "accuracy": 1.0,
+     "macro_f1": 1.0,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 4.0
+    },
+    "v3": {
+     "accuracy": 1.0,
+     "macro_f1": 1.0,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 4.0
+    },
+    "sc": {
+     "accuracy": 1.0,
+     "macro_f1": 1.0,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 4.0
+    },
+    "pal": {
+     "accuracy": 0.5,
+     "macro_f1": 0.5142,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 9.0
+    },
+    "feta": {
+     "accuracy": 0.9,
+     "macro_f1": 0.8985,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 8.0
+    },
+    "ce": {
+     "accuracy": 1.0,
+     "macro_f1": 1.0,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 4.0
+    },
+    "pet": {
+     "accuracy": 1.0,
+     "macro_f1": 1.0,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 4.0
+    },
+    "automl": {
+     "accuracy": 1.0,
+     "macro_f1": 1.0,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 4.0
+    },
+    "rocket": {
+     "accuracy": 1.0,
+     "macro_f1": 1.0,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 4.0
+    }
+   },
+   "Epilepsy": {
+    "v1": {
+     "accuracy": 0.575,
+     "macro_f1": 0.5,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 8.5
+    },
+    "v3": {
+     "accuracy": 0.575,
+     "macro_f1": 0.5,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 8.5
+    },
+    "sc": {
+     "accuracy": 1.0,
+     "macro_f1": 1.0,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 1.5
+    },
+    "pal": {
+     "accuracy": 0.575,
+     "macro_f1": 0.5595,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 7.0
+    },
+    "feta": {
+     "accuracy": 0.95,
+     "macro_f1": 0.9594,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 3.0
+    },
+    "ce": {
+     "accuracy": 0.9,
+     "macro_f1": 0.8882,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 5.5
+    },
+    "pet": {
+     "accuracy": 0.9,
+     "macro_f1": 0.8882,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 5.5
+    },
+    "automl": {
+     "accuracy": 0.925,
+     "macro_f1": 0.9192,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 4.0
+    },
+    "rocket": {
+     "accuracy": 1.0,
+     "macro_f1": 1.0,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 1.5
+    }
+   },
+   "FingerMovements": {
+    "v1": {
+     "accuracy": 0.525,
+     "macro_f1": 0.5223,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 3.0
+    },
+    "v3": {
+     "accuracy": 0.475,
+     "macro_f1": 0.472,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 5.0
+    },
+    "sc": {
+     "accuracy": 0.425,
+     "macro_f1": 0.4246,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 8.0
+    },
+    "pal": {
+     "accuracy": 0.425,
+     "macro_f1": 0.4246,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 8.0
+    },
+    "feta": {
+     "accuracy": 0.5,
+     "macro_f1": 0.5,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 4.0
+    },
+    "ce": {
+     "accuracy": 0.45,
+     "macro_f1": 0.45,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 6.0
+    },
+    "pet": {
+     "accuracy": 0.425,
+     "macro_f1": 0.4246,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 8.0
+    },
+    "automl": {
+     "accuracy": 0.6,
+     "macro_f1": 0.596,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 1.5
+    },
+    "rocket": {
+     "accuracy": 0.6,
+     "macro_f1": 0.596,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 1.5
+    }
+   },
+   "RacketSports": {
+    "v1": {
+     "accuracy": 0.15,
+     "macro_f1": 0.1263,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 9.0
+    },
+    "v3": {
+     "accuracy": 0.125,
+     "macro_f1": 0.1369,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 8.0
+    },
+    "sc": {
+     "accuracy": 0.3,
+     "macro_f1": 0.3067,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 7.0
+    },
+    "pal": {
+     "accuracy": 0.6,
+     "macro_f1": 0.5923,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 4.0
+    },
+    "feta": {
+     "accuracy": 0.85,
+     "macro_f1": 0.8333,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 3.0
+    },
+    "ce": {
+     "accuracy": 0.625,
+     "macro_f1": 0.5881,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 5.0
+    },
+    "pet": {
+     "accuracy": 0.6,
+     "macro_f1": 0.5569,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 6.0
+    },
+    "automl": {
+     "accuracy": 0.925,
+     "macro_f1": 0.9164,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 1.0
+    },
+    "rocket": {
+     "accuracy": 0.9,
+     "macro_f1": 0.8875,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 2.0
+    }
+   },
+   "SelfRegulationSCP1": {
+    "v1": {
+     "accuracy": 0.075,
+     "macro_f1": 0.0744,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 9.0
+    },
+    "v3": {
+     "accuracy": 0.725,
+     "macro_f1": 0.7163,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 6.0
+    },
+    "sc": {
+     "accuracy": 0.125,
+     "macro_f1": 0.1201,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 8.0
+    },
+    "pal": {
+     "accuracy": 0.825,
+     "macro_f1": 0.8195,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 3.0
+    },
+    "feta": {
+     "accuracy": 0.8,
+     "macro_f1": 0.7917,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 4.0
+    },
+    "ce": {
+     "accuracy": 0.625,
+     "macro_f1": 0.5636,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 7.0
+    },
+    "pet": {
+     "accuracy": 0.75,
+     "macro_f1": 0.7333,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 5.0
+    },
+    "automl": {
+     "accuracy": 0.825,
+     "macro_f1": 0.8222,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 2.0
+    },
+    "rocket": {
+     "accuracy": 0.85,
+     "macro_f1": 0.8485,
+     "n": 40,
+     "n_valid_answers": 40,
+     "rank": 1.0
+    }
+   }
+  },
+  "aggregate": {
+   "v1": {
+    "mean_macro_f1": 0.4446,
+    "mean_accuracy": 0.465,
+    "mean_rank": 6.7,
+    "reference": false
+   },
+   "v3": {
+    "mean_macro_f1": 0.565,
+    "mean_accuracy": 0.58,
+    "mean_rank": 6.3,
+    "reference": false
+   },
+   "sc": {
+    "mean_macro_f1": 0.5703,
+    "mean_accuracy": 0.57,
+    "mean_rank": 5.7,
+    "reference": false
+   },
+   "pal": {
+    "mean_macro_f1": 0.582,
+    "mean_accuracy": 0.585,
+    "mean_rank": 6.2,
+    "reference": false
+   },
+   "feta": {
+    "mean_macro_f1": 0.7966,
+    "mean_accuracy": 0.8,
+    "mean_rank": 4.4,
+    "reference": false
+   },
+   "ce": {
+    "mean_macro_f1": 0.698,
+    "mean_accuracy": 0.72,
+    "mean_rank": 5.5,
+    "reference": false
+   },
+   "pet": {
+    "mean_macro_f1": 0.7206,
+    "mean_accuracy": 0.735,
+    "mean_rank": 5.7,
+    "reference": false
+   },
+   "automl": {
+    "mean_macro_f1": 0.8508,
+    "mean_accuracy": 0.855,
+    "mean_rank": 2.5,
+    "reference": true
+   },
+   "rocket": {
+    "mean_macro_f1": 0.8664,
+    "mean_accuracy": 0.87,
+    "mean_rank": 2.0,
+    "reference": true
+   }
+  },
+  "caveats": "1. Answering was performed by blinded LLM sub-agents (one agent per prompt batch file; the five\n   Self-Consistency rounds for each dataset were deliberately given to five different agents).\n   This is an agent harness, not a single API model at fixed temperature; per-arm scores carry\n   agent-execution variance on top of prompt-design effects.\n2. The sampled test cases were answered in dataset order, and the UEA test files are roughly\n   class-grouped, so agents could see block structure across the 40 cases of a file. Several\n   agents explicitly mapped blocks to labels. This likely inflated arms on BasicMotions/Epilepsy\n   (block mapping guessed right) and hurt on SelfRegulationSCP1/RacketSports (guessed wrong).\n   A shuffled case order would be the stricter protocol for a rerun.\n3. PET and SC are operationalized as in the NPPAD study (tournament executed inside one response;\n   SC rounds as independent passes, majority vote, earliest-round tiebreak applied by the scorer).\n4. Macro F1 counts any invalid/missing answer against the arm (an extra \"invalid\" class in the\n   F1 computation); in the event, every arm returned 40/40 valid labels on every dataset, so this\n   rule never actually fired. All 200 PAL programs executed within the 15 s timeout and printed a\n   valid label.\n5. FingerMovements has 28 channels; series were downsampled to 24 steps like all other datasets.",
+  "armLabels": {
+   "v1": "v1 plain",
+   "v3": "v3 chain-of-thought",
+   "sc": "Self-Consistency",
+   "pal": "PAL",
+   "feta": "FETA few-shot",
+   "ce": "Context Engineering",
+   "pet": "PET",
+   "automl": "Steered AutoML (trained reference)",
+   "rocket": "MiniRocket (trained reference)"
+  }
+ }
+}
