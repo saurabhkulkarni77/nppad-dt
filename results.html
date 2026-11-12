@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NPPAD Digital Twin: Results</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar" id="hdr"></header>
+<div class="wrap">
+
+  <div class="panel" style="margin-top:14px">
+    <h2>RESULTS: EVERY TRAINED MODEL, EVERY SETTING</h2>
+    <p>This page is the study's full trained-model record: the eight core models
+    (LogReg, LogReg+, Random Forest, CNN, GRU, MultiRocket+HYDRA, Rocket and
+    MiniRocket), scored on the same held-out test windows under many settings,
+    plus the Transformer arm added later. Filter the main grid by when the
+    window starts, how long it is, and which sensors the model may see. Below
+    the grid you can look up what each model predicted for one exact test
+    window, and read the extension, robustness and detection studies.</p>
+    <p class="dim small" id="splitLine"></p>
+  </div>
+
+  <div class="panel" style="margin-top:14px">
+    <h3>THE MAIN GRID</h3>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end">
+      <div><label class="lbl">WINDOW STARTS (t0)</label>
+        <select id="fT0"></select></div>
+      <div><label class="lbl">WINDOW LENGTH (W, SECONDS)</label>
+        <select id="fW"></select></div>
+      <div><label class="lbl">SENSORS THE MODEL MAY SEE</label>
+        <select id="fVars"></select></div>
+    </div>
+    <canvas class="chart" id="gridChart" width="760" height="200" style="margin-top:12px"></canvas>
+    <div id="gridTable" style="margin-top:10px"></div>
+    <p class="dim small">Macro F1 is the headline score: the average of the
+    per-accident scores, so a model cannot look good by only spotting the easy
+    accidents. Validation F1 was measured on the separate validation split and
+    was used to pick settings; the test columns are the held-out final word.</p>
+  </div>
+
+  <div class="grid g2" style="margin-top:14px">
+    <div class="panel">
+      <h3>THE WINDOW ITSELF CHANGES THE ANSWER (E5)</h3>
+      <p class="dim small">Same models, same start, but the window length W
+      varies. Short windows starve the model; the study's headline setting is
+      W = 60 s.</p>
+      <div id="e5Table"></div>
+    </div>
+    <div class="panel">
+      <h3>THE TRANSFORMER ARM (ADDED 2026-11-11)</h3>
+      <p class="dim small" id="transArch"></p>
+      <div id="transTable"></div>
+      <p class="dim small">Trained under the exact study protocol (same split,
+      same summary features) with three seeds; the numbers shown are the seed
+      means of the probability-averaged scores. Its per-accident F1 scores are
+      in the detail line under the table.</p>
+      <p class="dim small" id="transPerClass"></p>
+    </div>
+  </div>
+
+  <div class="panel" style="margin-top:14px">
+    <h3>LOOK UP ONE TEST WINDOW</h3>
+    <p class="dim small" id="lookupNote"></p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end">
+      <div style="flex:1;min-width:260px"><label class="lbl">PICK A TEST WINDOW</label>
+        <select id="winSel" style="width:100%"></select></div>
+    </div>
+    <div id="winTable" style="margin-top:10px"></div>
+    <p class="dim small" id="lookupMetrics"></p>
+  </div>
+
+  <div class="grid g2" style="margin-top:14px">
+    <div class="panel">
+      <h3>EXTENSIONS X1 AND X2</h3>
+      <p class="dim small">X1 estimates accident severity on a small training
+      budget; X2 is the same severity estimator trained on the full split.
+      Both use a MultiRocket + ridge ensemble with bootstrap prediction
+      intervals.</p>
+      <div id="xTable"></div>
+    </div>
+    <div class="panel">
+      <h3>THE OFFICIAL TASK E FILE</h3>
+      <p class="dim small" id="officialNote"></p>
+      <div id="officialTable"></div>
+      <p class="dim small">Downloads, exactly as recorded in the study:
+      <span id="dlLinks"></span></p>
+    </div>
+  </div>
+
+  <div class="panel" style="margin-top:14px">
+    <h3>ROBUSTNESS: NEW SEVERITIES THE MODELS NEVER TRAINED ON (R1)</h3>
+    <p class="dim small" id="r1Note"></p>
+    <div id="r1Table"></div>
+  </div>
+
+  <div class="panel" style="margin-top:14px">
+    <h3>SPOTTING AN ACCIDENT TYPE NEVER SEEN BEFORE (R2)</h3>
+    <p class="dim small">One accident class is held out completely. A good
+    detector should get uncertain on it: these rows score how well each
+    uncertainty signal separates the held-out class from the known ones
+    (AUROC), and how often it raises the alarm at a 5% false-alarm rate.</p>
+    <div id="r2Table"></div>
+  </div>
+
+  <div class="panel" style="margin-top:14px">
+    <h3>THE HONEST SETTING: t0 = 20 s, W = 60 s, REALISTIC SENSORS (W60 STUDY)</h3>
+    <p class="dim small">Twenty seconds in, most accidents still look like
+    normal operation, so every model lands near the same low score. These rows
+    were recomputed from the recorded per-window prediction files themselves,
+    and this page's window lookup above uses those same files.</p>
+    <div id="w60Table"></div>
+  </div>
+
+  <div class="note blue" style="margin-top:14px">
+    <b>WHERE THESE NUMBERS COME FROM.</b> Every number on this page is read at
+    build time from the study's own result files by
+    tools/generate_study_data.py, which also
+    recomputes the per-model scores from the recorded prediction files and
+    checks them against the study's tables before writing anything. Nothing
+    here is typed in by hand.
+  </div>
+
+</div>
+<footer id="ftr"></footer>
+<script src="js/common.js"></script>
+<script src="js/results.js"></script>
+</body>
+</html>
