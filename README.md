@@ -8,7 +8,7 @@ answer is ever recorded.
 
 ## Pages
 
-The site was simplified to three pages, one per idea, in this order:
+The site has five pages, one per idea, in this order:
 
 - `plant.html`: The Plant. A real time 3D model of the pressurized water
   reactor (Three.js, vendored in `js/vendor/`, scene in `js/plant3d.js`)
@@ -34,6 +34,26 @@ The site was simplified to three pages, one per idea, in this order:
   in six steps, measured edge benchmarks, the backup model design, and
   the honest caveats. (This page folds in the former Analysis page,
   `analysis.html`, retired in the simplification.)
+- `results.html`: Results. The full trained-model record, merged in from
+  the former standalone Results Explorer on 2026-11-12: the main results
+  grid (filterable by window start, window length and sensor set), the E5
+  window-length study, the Transformer arm, a per-window prediction lookup
+  over the recorded prediction files, extensions X1/X2, the robustness (R1)
+  and unknown-accident detection (R2) studies, the official Task E file
+  scores and the W60 honest-setting study, with the prediction CSVs in
+  `preds/` for download.
+- `llm.html`: LLM Study. The complete language-model prompt-engineering
+  study, merged in from the former standalone Zero-Shot LLM Explorer on
+  2026-11-12: all 22 arms (prompt versions v1 to v4, the literature
+  methods, the controls and probes, the Nov 10-11 prompt-engineering
+  extensions, and the API models) with accuracy and macro F1 on both
+  protocols, per-arm method cards, the verbatim v1 to v4 prompt texts, the
+  integrity caveats, and the UEA public-data benchmark. Its data
+  (`data/llm_study.json`, like `data/study_results.json` and
+  `data/explorer_preds.json`) is built by
+  `tools/generate_study_data.py` from the study's result files on disk;
+  the same script rebuilds `data/llm_benchmark.json` for ml.html from the
+  Nov 8, 2026 revised benchmark file.
 
 ## Data integrity rule
 
