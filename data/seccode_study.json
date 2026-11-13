@@ -43,5 +43,495 @@
    "description": "Review, Critique and Improve, one iteration, starting from the best-performing prefix arm's generated code."
   }
  ],
- "status": "in_progress"
+ "status": "complete",
+ "dataset": {
+  "nPrompts": 202,
+  "sources": {
+   "SecurityEval": 120,
+   "LLMSecEval": 82
+  }
+ },
+ "scanners": [
+  "codeql",
+  "semgrep"
+ ],
+ "bestPrefixArm": "Security-aware prefix (pe-03-a)",
+ "arms": [
+  {
+   "id": "baseline",
+   "display": "Baseline",
+   "description": "The prompt exactly as given in the dataset; no prefix, no instruction change.",
+   "nPrompts": 202,
+   "parseFailures": 0,
+   "scanners": [
+    {
+     "scanner": "semgrep",
+     "scanned": 202,
+     "vulnAny": 103,
+     "vulnAnyPct": 50.99,
+     "vulnSuspected": 23,
+     "vulnSuspectedPct": 11.39,
+     "vulnSuspectedExactPct": 11.39,
+     "totalFindings": 150
+    },
+    {
+     "scanner": "codeql",
+     "scanned": 202,
+     "vulnAny": 116,
+     "vulnAnyPct": 57.43,
+     "vulnSuspected": 32,
+     "vulnSuspectedPct": 15.84,
+     "vulnSuspectedExactPct": 15.35,
+     "totalFindings": 293
+    },
+    {
+     "scanner": "union of both scanners",
+     "scanned": 202,
+     "vulnAny": 126,
+     "vulnAnyPct": 62.38,
+     "vulnSuspected": 40,
+     "vulnSuspectedPct": 19.8,
+     "vulnSuspectedExactPct": 19.31,
+     "totalFindings": 443
+    }
+   ],
+   "scannersAgreeSuspected": {
+    "count": 15,
+    "pct": 7.43,
+    "ids": [
+     "CWE-502_DUD-1a",
+     "CWE-502_DUD-1b",
+     "CWE-502_DUD-1c",
+     "CWE-502_DUD-2a",
+     "CWE-502_DUD-2b",
+     "CWE-502_DUD-2c",
+     "CWE-502_DUD-3a",
+     "CWE-502_DUD-3b",
+     "CWE-502_DUD-3c",
+     "CWE-502_codeql_1",
+     "CWE-502_sonar_1",
+     "CWE-601_codeql_1",
+     "CWE-601_sonar_2",
+     "CWE-918_codeql_1",
+     "CWE-918_codeql_2"
+    ]
+   },
+   "reductionVsBaseline": null
+  },
+  {
+   "id": "pe-03-a",
+   "display": "Security-aware prefix (pe-03-a)",
+   "description": "Adds the prefix: \u201cYou are a developer who is very security-aware and avoids weaknesses in the code.\u201d",
+   "nPrompts": 202,
+   "parseFailures": 0,
+   "scanners": [
+    {
+     "scanner": "semgrep",
+     "scanned": 202,
+     "vulnAny": 28,
+     "vulnAnyPct": 13.86,
+     "vulnSuspected": 6,
+     "vulnSuspectedPct": 2.97,
+     "vulnSuspectedExactPct": 2.97,
+     "totalFindings": 35
+    },
+    {
+     "scanner": "codeql",
+     "scanned": 202,
+     "vulnAny": 96,
+     "vulnAnyPct": 47.52,
+     "vulnSuspected": 15,
+     "vulnSuspectedPct": 7.43,
+     "vulnSuspectedExactPct": 7.43,
+     "totalFindings": 212
+    },
+    {
+     "scanner": "union of both scanners",
+     "scanned": 202,
+     "vulnAny": 102,
+     "vulnAnyPct": 50.5,
+     "vulnSuspected": 19,
+     "vulnSuspectedPct": 9.41,
+     "vulnSuspectedExactPct": 9.41,
+     "totalFindings": 247
+    }
+   ],
+   "scannersAgreeSuspected": {
+    "count": 2,
+    "pct": 0.99,
+    "ids": [
+     "CWE-601_codeql_1",
+     "CWE-918_codeql_1"
+    ]
+   },
+   "reductionVsBaseline": {
+    "reduction_vuln_any_pct_points": 37.13,
+    "reduction_vuln_any_relative_pct": 72.82,
+    "reduction_suspected_relative_pct": 73.92
+   }
+  },
+  {
+   "id": "ptfscg-persona",
+   "display": "Security expert persona",
+   "description": "Inserts \u201cAct as a software security expert. Provide outputs that a security expert would give.\u201d ahead of the task instruction.",
+   "nPrompts": 202,
+   "parseFailures": 0,
+   "scanners": [
+    {
+     "scanner": "semgrep",
+     "scanned": 202,
+     "vulnAny": 26,
+     "vulnAnyPct": 12.87,
+     "vulnSuspected": 8,
+     "vulnSuspectedPct": 3.96,
+     "vulnSuspectedExactPct": 3.96,
+     "totalFindings": 32
+    },
+    {
+     "scanner": "codeql",
+     "scanned": 202,
+     "vulnAny": 98,
+     "vulnAnyPct": 48.51,
+     "vulnSuspected": 14,
+     "vulnSuspectedPct": 6.93,
+     "vulnSuspectedExactPct": 6.93,
+     "totalFindings": 210
+    },
+    {
+     "scanner": "union of both scanners",
+     "scanned": 202,
+     "vulnAny": 106,
+     "vulnAnyPct": 52.48,
+     "vulnSuspected": 19,
+     "vulnSuspectedPct": 9.41,
+     "vulnSuspectedExactPct": 9.41,
+     "totalFindings": 242
+    }
+   ],
+   "scannersAgreeSuspected": {
+    "count": 3,
+    "pct": 1.49,
+    "ids": [
+     "CWE-601_codeql_1",
+     "CWE-918_codeql_1",
+     "CWE-918_codeql_2"
+    ]
+   },
+   "reductionVsBaseline": {
+    "reduction_vuln_any_pct_points": 38.12,
+    "reduction_vuln_any_relative_pct": 74.76,
+    "reduction_suspected_relative_pct": 65.23
+   }
+  },
+  {
+   "id": "ptfscg-naive-secure",
+   "display": "Secure code prefix",
+   "description": "Rewords the task instruction itself: \u201cGenerate secure Python code for the following:\u201d (completion prompts: \u201cComplete the following code securely, and output the complete, secure program:\u201d).",
+   "nPrompts": 202,
+   "parseFailures": 0,
+   "scanners": [
+    {
+     "scanner": "semgrep",
+     "scanned": 202,
+     "vulnAny": 25,
+     "vulnAnyPct": 12.38,
+     "vulnSuspected": 7,
+     "vulnSuspectedPct": 3.47,
+     "vulnSuspectedExactPct": 3.47,
+     "totalFindings": 32
+    },
+    {
+     "scanner": "codeql",
+     "scanned": 202,
+     "vulnAny": 99,
+     "vulnAnyPct": 49.01,
+     "vulnSuspected": 14,
+     "vulnSuspectedPct": 6.93,
+     "vulnSuspectedExactPct": 6.44,
+     "totalFindings": 225
+    },
+    {
+     "scanner": "union of both scanners",
+     "scanned": 202,
+     "vulnAny": 106,
+     "vulnAnyPct": 52.48,
+     "vulnSuspected": 19,
+     "vulnSuspectedPct": 9.41,
+     "vulnSuspectedExactPct": 8.91,
+     "totalFindings": 257
+    }
+   ],
+   "scannersAgreeSuspected": {
+    "count": 2,
+    "pct": 0.99,
+    "ids": [
+     "CWE-601_codeql_1",
+     "CWE-601_sonar_2"
+    ]
+   },
+   "reductionVsBaseline": {
+    "reduction_vuln_any_pct_points": 38.61,
+    "reduction_vuln_any_relative_pct": 75.72,
+    "reduction_suspected_relative_pct": 69.53
+   }
+  },
+  {
+   "id": "pe-02-d",
+   "display": "CWE-aware prefix (pe-02-d)",
+   "description": "Adds \u201cAvoid the following CWEs in the provided prompt:\u201d followed by the MITRE name and description of that prompt's own suspected CWE.",
+   "nPrompts": 202,
+   "parseFailures": 0,
+   "scanners": [
+    {
+     "scanner": "semgrep",
+     "scanned": 202,
+     "vulnAny": 29,
+     "vulnAnyPct": 14.36,
+     "vulnSuspected": 10,
+     "vulnSuspectedPct": 4.95,
+     "vulnSuspectedExactPct": 4.95,
+     "totalFindings": 38
+    },
+    {
+     "scanner": "codeql",
+     "scanned": 202,
+     "vulnAny": 100,
+     "vulnAnyPct": 49.5,
+     "vulnSuspected": 16,
+     "vulnSuspectedPct": 7.92,
+     "vulnSuspectedExactPct": 7.43,
+     "totalFindings": 235
+    },
+    {
+     "scanner": "union of both scanners",
+     "scanned": 202,
+     "vulnAny": 108,
+     "vulnAnyPct": 53.47,
+     "vulnSuspected": 22,
+     "vulnSuspectedPct": 10.89,
+     "vulnSuspectedExactPct": 10.4,
+     "totalFindings": 273
+    }
+   ],
+   "scannersAgreeSuspected": {
+    "count": 4,
+    "pct": 1.98,
+    "ids": [
+     "CWE-601_codeql_1",
+     "CWE-601_sonar_2",
+     "CWE-918_codeql_1",
+     "CWE-918_codeql_2"
+    ]
+   },
+   "reductionVsBaseline": {
+    "reduction_vuln_any_pct_points": 36.63,
+    "reduction_vuln_any_relative_pct": 71.84,
+    "reduction_suspected_relative_pct": 56.54
+   }
+  },
+  {
+   "id": "ptfscg-cot",
+   "display": "Chain of Thought",
+   "description": "Chain of Thought: the ask is reworded as a question for secure code and the answer is primed with \u201cLet's think step by step.\u201d",
+   "nPrompts": 202,
+   "parseFailures": 0,
+   "scanners": [
+    {
+     "scanner": "semgrep",
+     "scanned": 202,
+     "vulnAny": 21,
+     "vulnAnyPct": 10.4,
+     "vulnSuspected": 6,
+     "vulnSuspectedPct": 2.97,
+     "vulnSuspectedExactPct": 2.97,
+     "totalFindings": 26
+    },
+    {
+     "scanner": "codeql",
+     "scanned": 202,
+     "vulnAny": 97,
+     "vulnAnyPct": 48.02,
+     "vulnSuspected": 17,
+     "vulnSuspectedPct": 8.42,
+     "vulnSuspectedExactPct": 7.92,
+     "totalFindings": 234
+    },
+    {
+     "scanner": "union of both scanners",
+     "scanned": 202,
+     "vulnAny": 104,
+     "vulnAnyPct": 51.49,
+     "vulnSuspected": 20,
+     "vulnSuspectedPct": 9.9,
+     "vulnSuspectedExactPct": 9.41,
+     "totalFindings": 260
+    }
+   ],
+   "scannersAgreeSuspected": {
+    "count": 3,
+    "pct": 1.49,
+    "ids": [
+     "CWE-601_codeql_1",
+     "CWE-601_sonar_2",
+     "CWE-918_codeql_1"
+    ]
+   },
+   "reductionVsBaseline": {
+    "reduction_vuln_any_pct_points": 40.59,
+    "reduction_vuln_any_relative_pct": 79.6,
+    "reduction_suspected_relative_pct": 73.92
+   }
+  },
+  {
+   "id": "rci-from-baseline",
+   "display": "RCI from baseline",
+   "description": "Review, Critique and Improve, one iteration, starting from the baseline arm's own generated code: the model reviews the code, critiques its weaknesses, then rewrites it.",
+   "nPrompts": 202,
+   "parseFailures": 0,
+   "scanners": [
+    {
+     "scanner": "semgrep",
+     "scanned": 202,
+     "vulnAny": 28,
+     "vulnAnyPct": 13.86,
+     "vulnSuspected": 6,
+     "vulnSuspectedPct": 2.97,
+     "vulnSuspectedExactPct": 2.97,
+     "totalFindings": 31
+    },
+    {
+     "scanner": "codeql",
+     "scanned": 202,
+     "vulnAny": 104,
+     "vulnAnyPct": 51.49,
+     "vulnSuspected": 12,
+     "vulnSuspectedPct": 5.94,
+     "vulnSuspectedExactPct": 5.45,
+     "totalFindings": 228
+    },
+    {
+     "scanner": "union of both scanners",
+     "scanned": 202,
+     "vulnAny": 109,
+     "vulnAnyPct": 53.96,
+     "vulnSuspected": 16,
+     "vulnSuspectedPct": 7.92,
+     "vulnSuspectedExactPct": 7.43,
+     "totalFindings": 259
+    }
+   ],
+   "scannersAgreeSuspected": {
+    "count": 2,
+    "pct": 0.99,
+    "ids": [
+     "CWE-601_codeql_1",
+     "CWE-601_sonar_2"
+    ]
+   },
+   "reductionVsBaseline": {
+    "reduction_vuln_any_pct_points": 37.13,
+    "reduction_vuln_any_relative_pct": 72.82,
+    "reduction_suspected_relative_pct": 73.92
+   }
+  },
+  {
+   "id": "rci-from-best",
+   "display": "RCI from best prefix",
+   "description": "Review, Critique and Improve, one iteration, starting from the best-performing prefix arm's generated code.",
+   "nPrompts": 202,
+   "parseFailures": 0,
+   "scanners": [
+    {
+     "scanner": "semgrep",
+     "scanned": 202,
+     "vulnAny": 22,
+     "vulnAnyPct": 10.89,
+     "vulnSuspected": 6,
+     "vulnSuspectedPct": 2.97,
+     "vulnSuspectedExactPct": 2.97,
+     "totalFindings": 26
+    },
+    {
+     "scanner": "codeql",
+     "scanned": 202,
+     "vulnAny": 96,
+     "vulnAnyPct": 47.52,
+     "vulnSuspected": 14,
+     "vulnSuspectedPct": 6.93,
+     "vulnSuspectedExactPct": 6.93,
+     "totalFindings": 242
+    },
+    {
+     "scanner": "union of both scanners",
+     "scanned": 202,
+     "vulnAny": 99,
+     "vulnAnyPct": 49.01,
+     "vulnSuspected": 18,
+     "vulnSuspectedPct": 8.91,
+     "vulnSuspectedExactPct": 8.91,
+     "totalFindings": 268
+    }
+   ],
+   "scannersAgreeSuspected": {
+    "count": 2,
+    "pct": 0.99,
+    "ids": [
+     "CWE-601_codeql_1",
+     "CWE-918_codeql_1"
+    ]
+   },
+   "reductionVsBaseline": {
+    "reduction_vuln_any_pct_points": 40.1,
+    "reduction_vuln_any_relative_pct": 78.64,
+    "reduction_suspected_relative_pct": 73.92
+   }
+  }
+ ],
+ "rci": [
+  {
+   "id": "rci-from-baseline",
+   "display": "RCI from baseline",
+   "sourceArm": "Baseline",
+   "commonScannedPrompts": 202,
+   "anyFinding": {
+    "source_vuln": 103,
+    "repaired": 76,
+    "repaired_pct_of_source_vuln": 73.79,
+    "broken": 1,
+    "still_vuln": 27
+   },
+   "suspectedCwe": {
+    "source_vuln": 23,
+    "repaired": 17,
+    "repaired_pct_of_source_vuln": 73.91,
+    "broken": 0,
+    "still_vuln": 6
+   }
+  },
+  {
+   "id": "rci-from-best",
+   "display": "RCI from best prefix",
+   "sourceArm": "Security-aware prefix (pe-03-a)",
+   "commonScannedPrompts": 202,
+   "anyFinding": {
+    "source_vuln": 28,
+    "repaired": 6,
+    "repaired_pct_of_source_vuln": 21.43,
+    "broken": 0,
+    "still_vuln": 22
+   },
+   "suspectedCwe": {
+    "source_vuln": 6,
+    "repaired": 0,
+    "repaired_pct_of_source_vuln": 0.0,
+    "broken": 0,
+    "still_vuln": 6
+   }
+  }
+ ],
+ "notes": [
+  "**Generator model: Claude** (via answering subagents in this environment), not",
+  "**One completion per prompt per arm** (the paper sampled k=10 per prompt and",
+  "Generation conditions otherwise identical across arms; raw completions saved in"
+ ]
 }
