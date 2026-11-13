@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NPPAD Digital Twin: Secure Code Prompt Benchmark</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar" id="hdr"></header>
+<div class="wrap">
+
+  <div class="panel" style="margin-top:14px">
+    <h2>THE SECURE CODE PROMPT BENCHMARK</h2>
+    <p>A second, separate prompt-engineering study, kept alongside the NPPAD
+    prompt study on the previous page. This one asks a different question:
+    when a language model writes Python code, can the <i>prompt</i> — not the
+    model — make the code it writes more secure? It replicates the benchmark
+    of Bruni, Gabrielli, Ghafari and Kropp, “Benchmarking Prompt Engineering
+    Techniques for Secure Code Generation with GPT Models” (arXiv:2502.06039,
+    2025).</p>
+    <p class="dim small">This benchmark is a separate prompt engineering
+    study (secure code generation) included alongside the NPPAD prompt
+    study. It is not an NPPAD dataset result: nothing on this page comes
+    from the nuclear plant data.</p>
+  </div>
+
+  <div class="panel" style="margin-top:14px">
+    <h3>THE TASK AND THE PROMPT SET</h3>
+    <p class="dim small">The benchmark's combined prompt set has 202
+    security-sensitive Python coding prompts, drawn from two peer-reviewed
+    datasets — LLMSecEval (Python prompts) and SecurityEval — with prompts
+    whose suspected weakness is one MITRE lists as “can never be” filtered
+    out. Every prompt is tagged with a suspected CWE, the class of weakness
+    the code is most at risk of containing. The model writes a complete
+    program for each prompt, and static scanners — Semgrep and CodeQL —
+    then read the generated code and flag weaknesses. Two rates are
+    reported per technique: the share of generated programs with at least
+    one scanner finding, and the share whose findings include the prompt's
+    own suspected CWE. A generated file that is not valid Python counts as
+    a parse failure and is reported, not scanned.</p>
+  </div>
+
+  <div class="panel" style="margin-top:14px">
+    <h3>THE TECHNIQUES UNDER TEST</h3>
+    <p class="dim small">Eight arms generate code for every prompt. Seven
+    change only the prompt; the eighth feeds generated code back to the
+    model for a review pass.</p>
+    <div id="techniqueList"></div>
+  </div>
+
+  <div class="panel" style="margin-top:14px">
+    <h3>PUBLISHED RESULTS (BRUNI ET AL. 2025, GPT MODELS)</h3>
+    <p class="dim small">These are the paper's own numbers, measured on
+    GPT-3.5-turbo, GPT-4o and GPT-4o-mini. They are reference values from
+    the publication, not results produced here:</p>
+    <p>On GPT-4o and GPT-4o-mini, a security-focused prompt prefix reduced
+    the occurrence of security vulnerabilities by <b>up to 56%</b>
+    (Bruni et al. 2025).</p>
+    <p>Across the models tested, iterative prompting — the model reviewing,
+    critiquing and improving its own generated code — detected and repaired
+    between <b>41.9% and 68.7%</b> of the vulnerabilities in previously
+    generated code (Bruni et al. 2025).</p>
+    <p class="dim small">The paper also combines its most effective
+    techniques into a “prompt agent” showing how they can be applied in a
+    real development workflow.</p>
+  </div>
+
+  <div class="panel" style="margin-top:14px">
+    <h3>OUR REPLICATION (CLAUDE AS GENERATOR)</h3>
+    <p class="dim small">The same benchmark run here, with one stated
+    difference: the paper generated its code with GPT models, and this
+    replication generates with Claude. Same prompt set, same technique
+    arms, same scanner-based scoring.</p>
+    <div id="replBody"></div>
+  </div>
+
+  <div class="note blue" style="margin-top:14px">
+    <b>WHERE THESE NUMBERS COME FROM.</b> The published-results panel above
+    quotes Bruni et al. (2025) and says so wherever its numbers appear. The
+    replication panel is read at build time from the replication run's own
+    results file by tools/generate_seccode_data.py, exactly like the other
+    pages of this twin: the run's scoring script computes every value from
+    its scanner outputs, and nothing here is typed in by hand. Until that
+    run is complete, the replication panel shows no numbers at all.
+  </div>
+
+</div>
+<footer id="ftr"></footer>
+<script src="js/common.js"></script>
+<script src="js/seccode.js"></script>
+</body>
+</html>
