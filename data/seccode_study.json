@@ -1,0 +1,47 @@
+{
+ "generatedBy": "tools/generate_seccode_data.py from ~/workspace/prompt_bench_seccode/results/results.json (computed by that run's scripts/score.py from its scanner outputs)",
+ "generator": "Claude",
+ "plannedArms": [
+  {
+   "id": "baseline",
+   "display": "Baseline",
+   "description": "The prompt exactly as given in the dataset; no prefix, no instruction change."
+  },
+  {
+   "id": "pe-03-a",
+   "display": "Security-aware prefix (pe-03-a)",
+   "description": "Adds the prefix: \u201cYou are a developer who is very security-aware and avoids weaknesses in the code.\u201d"
+  },
+  {
+   "id": "ptfscg-persona",
+   "display": "Security expert persona",
+   "description": "Inserts \u201cAct as a software security expert. Provide outputs that a security expert would give.\u201d ahead of the task instruction."
+  },
+  {
+   "id": "ptfscg-naive-secure",
+   "display": "Secure code prefix",
+   "description": "Rewords the task instruction itself: \u201cGenerate secure Python code for the following:\u201d (completion prompts: \u201cComplete the following code securely, and output the complete, secure program:\u201d)."
+  },
+  {
+   "id": "pe-02-d",
+   "display": "CWE-aware prefix (pe-02-d)",
+   "description": "Adds \u201cAvoid the following CWEs in the provided prompt:\u201d followed by the MITRE name and description of that prompt's own suspected CWE."
+  },
+  {
+   "id": "ptfscg-cot",
+   "display": "Chain of Thought",
+   "description": "Chain of Thought: the ask is reworded as a question for secure code and the answer is primed with \u201cLet's think step by step.\u201d"
+  },
+  {
+   "id": "rci-from-baseline",
+   "display": "RCI from baseline",
+   "description": "Review, Critique and Improve, one iteration, starting from the baseline arm's own generated code: the model reviews the code, critiques its weaknesses, then rewrites it."
+  },
+  {
+   "id": "rci-from-best",
+   "display": "RCI from best prefix",
+   "description": "Review, Critique and Improve, one iteration, starting from the best-performing prefix arm's generated code."
+  }
+ ],
+ "status": "in_progress"
+}
