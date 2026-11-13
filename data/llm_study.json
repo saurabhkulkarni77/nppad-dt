@@ -529,7 +529,7 @@
    "flags": [
     "Caveat, recorded honestly: both designing agents were instructed to return program text without using tools, but their recorded tool calls show browsing of label-free workspace files (prep_data.py and prompt text files; prompt files contain no labels) against that instruction. The first agent additionally ran scratch experiments in /tmp on data it extracted itself using prep_data.py's public deterministic split rule, which can in principle identify test-rule runs, so design-level blindness (e.g. freedom of the fixed hyperparameters from any indirect test-split influence) cannot be certified. No recorded call opened windows_manifest.json (the only file mapping benchmark window ids to labels), the test CSV handed to the program contained no labels, all feedback to the agents contained only execution status and the program's own train-split CV output, and the executed final program's only inputs were the two prepared CSVs with all model selection done by train-split CV inside the program."
    ],
-   "oneliner": "The LLM plays data scientist: it designs a classical ML pipeline (which model, which settings), and that pipeline is trained on the real training data."
+   "oneliner": "The LLM plays data scientist: it designs a classical ML pipeline (which model, which settings), and that pipeline is trained on the real training data. It came up with Gaussian naive Bayes."
   },
   {
    "id": "automl_v2",
@@ -620,7 +620,7 @@
    "flags": [
     "v2 was designed against v1's recorded caveat. The whole search ran inside one program whose only inputs were the two prepared CSVs; all model selection used train-split CV computed inside the program; no answer files, manifests or prior per-window results were opened during design or execution; the study scorer touched test labels only after the predictions file was frozen. The train/test CSVs are md5-identical to v1's, so the comparison is exactly head-to-head."
    ],
-   "oneliner": "AutoML with a stricter search: screen 10 model families first, then tune the winner, choosing only on training data."
+   "oneliner": "AutoML with a stricter search: screen 10 model families first, then tune the winner, choosing only on training data. It also came up with Gaussian naive Bayes, and its predictions matched v1 exactly."
   },
   {
    "id": "agent",

@@ -13,6 +13,10 @@ function block(b) {
   if (!b) return `<td class="num">—</td><td class="num">—</td><td class="num">—</td>`;
   return `${num(b.accuracy)}${num(b.macroF1)}${num(b.parseFailures, 0)}`;
 }
+function blockEarly(b) {
+  if (!b) return `<td class="num">—</td><td class="num">—</td>`;
+  return `${num(b.accuracy)}${num(b.macroF1)}`;
+}
 function kv(obj, skip = []) {
   return Object.entries(obj)
     .filter(([k, v]) => !skip.includes(k) && v !== null && typeof v !== "object")
@@ -104,16 +108,13 @@ async function init() {
   let lastGroup = null, rows = "";
   for (const a of D.arms) {
     if (a.group !== lastGroup) {
-      rows += `<tr><td colspan="8" class="dim" style="letter-spacing:1.5px">${esc(a.group.toUpperCase())}</td></tr>`;
+      rows += `<tr><td colspan="6" class="dim" style="letter-spacing:1.5px">${esc(a.group.toUpperCase())}</td></tr>`;
       lastGroup = a.group;
     }
-    const status = a.status === "run" ? "scored"
-      : a.status === "incomplete" ? "INCOMPLETE" : "NOT RUN";
-    rows += `<tr><td>${esc(a.name)}${a.oneliner ? `<div class="dim small" style="letter-spacing:0;margin-top:2px">${esc(a.oneliner)}</div>` : ""}</td>${block(a.t0_100)}${block(a.t0_20)}` +
-      `<td class="${a.status === "run" ? "" : "bad"}">${status}</td></tr>`;
+    rows += `<tr><td>${esc(a.name)}${a.oneliner ? `<div class="dim small" style="letter-spacing:0;margin-top:2px">${esc(a.oneliner)}</div>` : ""}</td>${block(a.t0_100)}${blockEarly(a.t0_20)}</tr>`;
   }
   document.getElementById("masterTable").innerHTML = tel(
-    ["ARM", "ONSET ACC", "ONSET F1", "ONSET PARSE FAILURES", "EARLY ACC", "EARLY F1", "EARLY PARSE FAILURES", "STATUS"],
+    ["ARM", "ONSET ACC", "ONSET F1", "ONSET PARSE FAILURES", "EARLY ACC", "EARLY F1"],
     rows);
 
   document.getElementById("refTable").innerHTML = tel(
