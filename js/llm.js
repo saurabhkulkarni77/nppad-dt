@@ -115,7 +115,7 @@ async function init() {
     }
     const status = a.status === "run" ? "scored"
       : a.status === "incomplete" ? "INCOMPLETE" : "NOT RUN";
-    rows += `<tr><td>${esc(a.name)}</td>${block(a.t0_100)}${block(a.t0_20)}` +
+    rows += `<tr><td>${esc(a.name)}${a.oneliner ? `<div class="dim small" style="letter-spacing:0;margin-top:2px">${esc(a.oneliner)}</div>` : ""}</td>${block(a.t0_100)}${block(a.t0_20)}` +
       `<td class="${a.status === "run" ? "" : "bad"}">${status}</td></tr>`;
   }
   document.getElementById("masterTable").innerHTML = tel(
