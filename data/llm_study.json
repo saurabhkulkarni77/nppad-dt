@@ -718,42 +718,6 @@
    },
    "flags": [],
    "oneliner": "The model writes a small Python program to do the math on the numbers, runs it, and answers from the program's output."
-  },
-  {
-   "id": "gemini",
-   "name": "Gemini 3 Flash — INCOMPLETE (57 of 96 windows)",
-   "group": "API models",
-   "status": "incomplete",
-   "description": "Not completed: 57 of the 96 windows have genuine answers from gemini-3-flash-preview (all 48 onset aligned windows at t0 = 100 s, and 9 of 48 at t0 = 20 s), after the Nov 3 and Nov 4 runs stopped when the free tier daily quota returned HTTP 429. No Gemini score is claimed from a partial sample. The remaining 39 windows complete under the same protocol when the daily quota resets.",
-   "t0_100": {
-    "n": 48,
-    "accuracy": 0.2708333333333333,
-    "macroF1": 0.18095238095238098,
-    "parseFailures": 5
-   },
-   "t0_20": null,
-   "extras": {
-    "answeredTotal": 96,
-    "answeredOnset": 48,
-    "answeredEarly": 48,
-    "stopReason": "stopped after 3 consecutive windows failed entirely with 429 (daily quota exhausted)"
-   },
-   "flags": [
-    "INCOMPLETE: only 57 of 96 windows were answered before the free-tier API quota ran out. The onset protocol (48/48) is complete and scored from the answer file; the early protocol has only 9 of 48 answers, so no early score is claimed."
-   ],
-   "oneliner": "The same v1 test answered by Google's Gemini 3 Flash. Its run stopped early on a usage quota, so only the onset half is complete."
-  },
-  {
-   "id": "chatgpt",
-   "name": "ChatGPT (gpt-5.2) — not run",
-   "group": "API models",
-   "status": "not_run",
-   "description": "Not run: the key authenticates, but the OpenAI account has no API credits remaining. Every chat completion call returned HTTP 429 (no credits), so no ChatGPT answers could be collected.",
-   "t0_100": null,
-   "t0_20": null,
-   "extras": {},
-   "flags": [],
-   "oneliner": "The same v1 test was planned for ChatGPT (gpt-5.2) but never ran: the account had no API credits left."
   }
  ],
  "trainedReferences": [
@@ -914,10 +878,6 @@
   {
    "title": "Agentic PAL — reconstruction caveat",
    "text": "the run went through two earlier coordinator handoffs; the coordinators' working state in /tmp/agent_work (execution logs, FINAL confirmations, continuation files) was lost before the run was scored, so final answers were reconstructed by finish_agent_arm.py executing, once and unedited, the highest surviving program version per window in agent_programs/ (v1 for 86 windows, v2 for 10 windows: P100_W13-W16, P100_W31-W36) under the arm's own answer rule. Surviving artifacts support the version and answer-change stats; the per-window retrieval-usage stat is not recoverable and is reported as null rather than estimated. Scoring: strict single code, invalid/missing = parse failure = wrong, accuracy + macro F1 per protocol vs windows_manifest.json, same as all other arms."
-  },
-  {
-   "title": "Gemini — incomplete run",
-   "text": "Not completed: 57 of the 96 windows have genuine answers from gemini-3-flash-preview (all 48 onset aligned windows at t0 = 100 s, and 9 of 48 at t0 = 20 s), after the Nov 3 and Nov 4 runs stopped when the free tier daily quota returned HTTP 429. No Gemini score is claimed from a partial sample. The remaining 39 windows complete under the same protocol when the daily quota resets."
   },
   {
    "title": "ReasonTSC — correction claim did not reproduce",

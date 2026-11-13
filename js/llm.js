@@ -88,12 +88,6 @@ function extrasHTML(a) {
     h += `<p class="dim small">Programs extracted: ${x.programsExtracted}; executed: ${x.programsExecuted}; ` +
       `ran cleanly: ${x.cleanExecutions}.</p>`;
   }
-  if (a.id === "gemini") {
-    h += `<p class="dim small">Answered ${e.answeredTotal} of 96 windows before stopping ` +
-      `(onset ${e.answeredOnset} of 48, early ${e.answeredEarly} of 48). Stop reason recorded ` +
-      `by the run: ${esc(e.stopReason || "quota")}. The onset scores in the table were recomputed ` +
-      `at build time from the answer file; no early score is claimed.</p>`;
-  }
   return h;
 }
 
