@@ -15,6 +15,7 @@ function header(active) {
     ["ml.html", "WHAT WE LEARNED", "ml"],
     ["results.html", "RESULTS", "results"],
     ["llm.html", "LLM STUDY", "llm"],
+    ["seccode.html", "SECURE CODE", "seccode"],
   ];
   const nav = pages.map(([href, label, key]) =>
     `<a href="${href}" class="${key === active ? "on" : ""}">${label}</a>`).join("");
@@ -38,9 +39,11 @@ function header(active) {
 function footer() {
   document.getElementById("ftr").innerHTML = `
   NPPAD DIGITAL TWIN. A working copy of the NPPAD nuclear accident study
-  (Saurabh Sanjay Kulkarni). The story in five pages: look at the plant, try the
+  (Saurabh Sanjay Kulkarni). The story in six pages: look at the plant, try the
   AI yourself, read what the study learned, then dig into the full trained-model
-  results and the complete language-model prompt study. Every number on these pages is
+  results and the complete language-model prompt study. A sixth page adds a
+  separate prompt benchmark on secure code generation, included alongside the
+  NPPAD study. Every number on these pages is
   computed from the study's own result files by the scripts in tools/. Nothing is
   typed in by hand. The AI model (MultiRocket+HYDRA) is small enough to run on a
   computer at the plant itself, so it gives its answer on the spot.`;
