@@ -184,7 +184,7 @@
    "name": "FETA-style DTW few-shot",
    "group": "Literature methods (Claude)",
    "status": "run",
-   "description": "Blinded subagent calls. Prompt = v1 prompt plus the 3 labeled windows retrieved per test window by dependent multivariate DTW over all 12 channels (per-channel z-normalization with exemplar-pool statistics). Exemplar pool: 144 windows from TRAIN-split runs only (12 per class, seed 777), disjoint from the 48 test-split benchmark runs by the split rule. Exemplars serialized identically to the test window. Strict single-code parsing.",
+   "description": "FETA = training-Free timE series classificaTion with LLM Agents (Sui et al., arXiv:2510.05950); this arm follows its DTW exemplar retrieval approach. Blinded subagent calls. Prompt = v1 prompt plus the 3 labeled windows retrieved per test window by dependent multivariate DTW over all 12 channels (per-channel z-normalization with exemplar-pool statistics). Exemplar pool: 144 windows from TRAIN-split runs only (12 per class, seed 777), disjoint from the 48 test-split benchmark runs by the split rule. Exemplars serialized identically to the test window. Strict single-code parsing.",
    "t0_100": {
     "n": 48,
     "accuracy": 0.7708333333333334,
@@ -199,7 +199,7 @@
    },
    "extras": {},
    "flags": [],
-   "oneliner": "Before answering, the model is shown 3 real past windows whose curves match this window's shape (found by DTW), each with its correct answer."
+   "oneliner": "FETA stands for training Free timE series classificaTion with LLM Agents. Before answering, the model is shown 3 real past windows whose curves match this window's shape (found by DTW), each with its correct answer."
   },
   {
    "id": "stats",
