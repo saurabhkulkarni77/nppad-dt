@@ -8,7 +8,7 @@ answer is ever recorded.
 
 ## Pages
 
-The site has five pages, one per idea, in this order:
+The site has six pages, one per idea, in this order:
 
 - `plant.html`: The Plant. A real time 3D model of the pressurized water
   reactor (Three.js, vendored in `js/vendor/`, scene in `js/plant3d.js`)
@@ -54,6 +54,17 @@ The site has five pages, one per idea, in this order:
   `tools/generate_study_data.py` from the study's result files on disk;
   the same script rebuilds `data/llm_benchmark.json` for ml.html from the
   Nov 8, 2026 revised benchmark file.
+- `early.html`: Early Accuracy. The Nov 16, 2026 early-window
+  investigation: Experiment 1 (six augmentation techniques balancing the
+  training set to 528 windows per class — no early gain; the same recipe
+  helps the onset CNN), the signal diagnostics, and Experiment 2 (twelve
+  information-side arms, all tied) with its counting proof: the t0 = 20
+  window takes only 4 distinct values across all 1,211 runs, so the
+  Bayes ceiling (13/48 frozen, 67/244 full test) is exactly what the
+  baseline already scores. Its data (`data/early_study.json`) is built
+  by `tools/generate_early_data.py` from the two experiments'
+  `results.json` files; the generator asserts the tie and the ceiling
+  counts against those files before writing.
 
 ## Data integrity rule
 

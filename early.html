@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NPPAD Digital Twin: Early Accuracy</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar" id="hdr"></header>
+<div class="wrap">
+
+  <div class="panel" style="margin-top:14px">
+    <h2>THE EARLY-ACCURACY INVESTIGATION</h2>
+    <p id="taskLine"></p>
+    <p class="dim small" id="protocolLine"></p>
+  </div>
+
+  <div class="panel" style="margin-top:14px">
+    <h3>THE EARLY PROBLEM: A WINDOW BEFORE THE ACCIDENT STARTS</h3>
+    <p id="problemText"></p>
+    <div id="problemStats"></div>
+    <p class="dim small">So the early window does not contain twelve
+    accidents taking shape. It contains a handful of identical starting
+    plateaus, shared across accidents that have not begun yet. Everything
+    below follows from that one fact.</p>
+  </div>
+
+  <div class="panel" style="margin-top:14px">
+    <h3>EXPERIMENT 1: CAN AUGMENTATION FIX IT?</h3>
+    <p class="dim small">The first idea was a data idea: maybe the early
+    score is low because the training set is small and slightly uneven.
+    So the training windows — and only the training windows — were grown
+    with six augmentation techniques, until every class had exactly the
+    same count. Each technique below is named exactly as recorded in the
+    experiment file; the plain-words line says what it does.</p>
+    <div class="pipe" id="techPipe" style="margin:10px 0"></div>
+    <p class="dim small" id="augCounts"></p>
+    <div id="augTable"></div>
+    <p class="dim small" style="margin-top:10px">Read the table plainly:
+    balancing changed nothing, and the full augmentation changed nothing
+    either — the headline scores are identical, not merely close. The
+    augmented MiniRocket did change some of its guesses (it swapped which
+    of two look-alike classes it named), but the total never moved.</p>
+    <h4 style="margin-top:14px">THE SAME RECIPE AT ONSET (t0 = 100), AS A SANITY CHECK</h4>
+    <p class="dim small">To show the machinery itself works, the same
+    augmentation was also run at onset, where the accident is already
+    visible in the window. There it helps the CNN clearly and is roughly
+    neutral for MiniRocket — augmentation works when there is signal to
+    work with.</p>
+    <div id="onsetTable"></div>
+  </div>
+
+  <div class="panel" style="margin-top:14px">
+    <h3>THE DIAGNOSIS: THE SIGNAL IS NOT THERE YET</h3>
+    <p class="dim small">Four simple measurements on the windows
+    themselves, early against onset. Each row says in plain words what
+    the measurement means.</p>
+    <div id="diagTable"></div>
+    <p class="dim small" style="margin-top:10px">In short: at t0 = 20 the
+    classes have barely separated, so there is almost no class signal in
+    the window for any method to amplify. The early ceiling is an
+    information problem, not a data-volume or class-balance problem.</p>
+  </div>
+
+  <div class="panel" style="margin-top:14px">
+    <h3>EXPERIMENT 2: TWELVE MORE WAYS TO SQUEEZE THE WINDOW</h3>
+    <p class="dim small">The second experiment attacked from the
+    information side: different features, different channel sets, a
+    two-stage classifier, augmentation again, and one deliberate cheat.
+    The plain-words line under each arm says what it does. Three arms
+    marked as variants step outside the study's channel set on purpose —
+    they are flagged, not hidden.</p>
+    <div id="boostTable"></div>
+    <p class="dim small" style="margin-top:10px">Every single arm lands
+    on exactly the same scores. The next panel shows why that is not a
+    modelling failure: it is arithmetic.</p>
+  </div>
+
+  <div class="panel" style="margin-top:14px">
+    <h3>ARM BY ARM: WHAT EACH ONE ACTUALLY DID</h3>
+    <p class="dim small">Open an arm to read its recipe, exactly as
+    recorded in the experiment file.</p>
+    <div id="armDetails"></div>
+  </div>
+
+  <div class="panel" style="margin-top:14px">
+    <h3>THE PROOF: COUNTING THE DISTINCT WINDOWS</h3>
+    <p class="dim small">Counting the distinct early windows across
+    every run gives four values in total. Here is who shares each one:</p>
+    <div id="censusTable"></div>
+    <div id="ceilingStats" style="margin-top:12px"></div>
+    <p class="dim small" style="margin-top:10px">A deterministic
+    classifier can give only one answer per distinct window, so the best
+    anyone can score is the largest class inside each window, added up.
+    That ceiling is exactly what the baseline already scores — the
+    trained models had quietly learned the ceiling mapping, and the
+    lookup-table cheat reaches it by construction. Per class, only LOCA
+    is truly identified early (its plateau is unique); the other scores
+    below are the majority picks inside the shared windows, and eight
+    classes necessarily score zero.</p>
+    <div id="perClassTable" style="margin-top:10px"></div>
+  </div>
+
+  <div class="panel" style="margin-top:14px">
+    <h3>WHAT THIS MEANS</h3>
+    <div id="meaningList"></div>
+  </div>
+
+  <div class="note blue" style="margin-top:14px">
+    <b>WHERE THESE NUMBERS COME FROM.</b> Every number on this page is
+    read at build time from the two experiments' result files
+    (nppad_early_aug/results.json and nppad_early_boost/results.json,
+    written by the executed notebooks) by tools/generate_early_data.py,
+    which also checks the tie and the ceiling counts against the files
+    before writing the page data. Nothing here is typed in by hand.
+  </div>
+
+</div>
+<footer id="ftr"></footer>
+<script src="js/common.js"></script>
+<script src="js/early.js"></script>
+</body>
+</html>
