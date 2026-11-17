@@ -28,7 +28,9 @@
     way of asking a language model to read 60 seconds of reactor sensor
     data, given as plain text, and name which of the 12 accidents is
     happening, with no training on this plant. The plain words line under
-    each method name says what that method does.</p>
+    each method name says what that method does. Most methods also carry a
+    see the exact prompt toggle: open it to read the exact prompt text the
+    study sent for that method.</p>
     <div id="masterTable"></div>
   </div>
 
@@ -46,7 +48,8 @@
     <h3>ARM BY ARM: WHAT EACH ONE ACTUALLY DID</h3>
     <p class="dim small">Open an arm to read its method, exactly as recorded
     in the study files, plus its extra measurements and any honesty flag it
-    carries.</p>
+    carries. The exact prompt sits inside most cards too, under the same
+    see the exact prompt toggle.</p>
     <div id="armDetails"></div>
   </div>
 
@@ -82,8 +85,9 @@
     <b>WHERE THESE NUMBERS COME FROM.</b> Every number on this page is read at
     build time from the study's result files by
     tools/generate_study_data.py, and the plug in agreement counts were
-    recomputed from the prompt and answer files. Nothing here is typed in
-    by hand.
+    recomputed from the prompt and answer files. The exact prompt texts are
+    copied from the study prompt files by tools/generate_llm_prompts.py.
+    Nothing here is typed in by hand.
   </div>
 
 </div>

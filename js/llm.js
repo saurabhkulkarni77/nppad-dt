@@ -95,8 +95,22 @@ function extrasHTML(a) {
   return h;
 }
 
+let PROMPTS = {};
+function promptBlockHTML(a) {
+  const P = PROMPTS[a.id];
+  if (!P) return "";
+  const steps = P.steps.map(s =>
+    (s.label ? `<div class="dim small" style="margin-top:8px">${esc(s.label)}</div>` : "") +
+    `<pre style="font-family:var(--mono);font-size:11px;white-space:pre-wrap;overflow:auto;max-height:420px">${esc(s.text)}</pre>`
+  ).join("");
+  return `<details style="margin:8px 0"><summary class="small">See the exact prompt</summary>` +
+    (P.note ? `<p class="dim small">${esc(P.note)}</p>` : "") + steps + `</details>`;
+}
+
 async function init() {
   const D = await loadJSON("data/llm_study.json");
+  const PJ = await loadJSON("data/llm_prompts.json").catch(() => null);
+  PROMPTS = (PJ && PJ.arms) || {};
   document.getElementById("taskLine").textContent = D.task;
   document.getElementById("protocolLine").textContent =
     `${D.protocols.t0_100}. ${D.protocols.t0_20}. ${D.sample.windowsPerProtocol} windows per protocol ` +
@@ -111,7 +125,7 @@ async function init() {
       rows += `<tr><td colspan="6" class="dim" style="letter-spacing:1.5px">${esc(a.group.toUpperCase())}</td></tr>`;
       lastGroup = a.group;
     }
-    rows += `<tr><td>${esc(a.name)}${a.oneliner ? `<div class="dim small" style="letter-spacing:0;margin-top:2px">${esc(a.oneliner)}</div>` : ""}</td>${block(a.t0_100)}${blockEarly(a.t0_20)}</tr>`;
+    rows += `<tr><td>${esc(a.name)}${a.oneliner ? `<div class="dim small" style="letter-spacing:0;margin-top:2px">${esc(a.oneliner)}</div>` : ""}${promptBlockHTML(a)}</td>${block(a.t0_100)}${blockEarly(a.t0_20)}</tr>`;
   }
   document.getElementById("masterTable").innerHTML = tel(
     ["ARM", "ONSET ACC", "ONSET F1", "ONSET PARSE FAILURES", "EARLY ACC", "EARLY F1"],
@@ -129,7 +143,7 @@ async function init() {
     return `<details style="margin:8px 0"><summary><b>${esc(a.name)}</b> ` +
       `<span class="dim small">(${esc(a.group)} — ${head})</span></summary>` +
       `<p class="dim small" style="white-space:pre-wrap">${esc(a.description)}</p>` +
-      flags + extrasHTML(a) + `</details>`;
+      flags + extrasHTML(a) + promptBlockHTML(a) + `</details>`;
   }).join("");
 
   document.getElementById("promptNote").textContent = D.promptConditionsNote || "";
