@@ -156,7 +156,7 @@ function drawRamps(a) {
 function drawUnknown(a) {
   const sig = a.unknown.signals;
   const rf = sig.filter((s) => s.signal.startsWith("RF entropy"));
-  const cnn = sig.find((s) => s.signal.startsWith("CNN MC-dropout") && s.W === 600);
+  const cnn = sig.find((s) => s.signal.startsWith("CNN MC dropout") && s.W === 600);
   const rows = rf.map((s) =>
     `<tr><td class="num">${s.W}</td><td class="num">${fmt(s.auroc, 3)}</td>
      <td class="num">${fmt(s.detectionRate, 2)}</td>

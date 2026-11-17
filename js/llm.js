@@ -29,8 +29,8 @@ function extrasHTML(a) {
   if (a.id === "plugin" && e.argmaxAgreement) {
     const g = e.argmaxAgreement;
     h += `<p class="dim small">Counted at build time from the prompt files (which state the ` +
-      `plug-in's top prediction) and the arm's answer files: the final answer matched the ` +
-      `plug-in's own top prediction on ${g.t0_100.agree} of ${g.t0_100.windows} onset windows ` +
+      `top prediction of the plug in) and the arm's answer files: the final answer matched ` +
+      `that top prediction on ${g.t0_100.agree} of ${g.t0_100.windows} onset windows ` +
       `and ${g.t0_20.agree} of ${g.t0_20.windows} early windows.</p>`;
   }
   if (a.id === "reasontsc_full" && e.pluginAnalysis) {
@@ -56,15 +56,15 @@ function extrasHTML(a) {
   if (a.id === "automl" && e.trainCV) {
     const tried = Object.entries(e.trainCV.algorithmsTried).sort((x, y) => y[1] - x[1]);
     h += `<p class="dim small">${esc(e.trainCV.protocol)}</p>` +
-      `<p class="dim small">Selected on train cross-validation: <b>${esc(e.trainCV.selected)}</b></p>` +
+      `<p class="dim small">Selected on train cross validation: <b>${esc(e.trainCV.selected)}</b></p>` +
       tel(["ALGORITHM TRIED (TRAIN CV)", "CV MACRO F1"],
         tried.map(([k, v]) => `<tr><td>${esc(k)}</td>${num(v)}</tr>`).join(""));
     if (e.methodNote) h += `<p class="dim small">${esc(e.methodNote)}</p>`;
   }
   if (a.id === "automl_v2") {
     h += `<p class="dim small">Stage 1 screened ${e.stage1Candidates} candidate pipelines on train ` +
-      `cross-validation; the best five:</p>` +
-      tel(["STAGE-1 CANDIDATE", "CV MACRO F1"],
+      `cross validation; the best five:</p>` +
+      tel(["STAGE 1 CANDIDATE", "CV MACRO F1"],
         e.stage1Top.map(t => `<tr><td>${esc(t.family)}</td>${num(t.cvMacroF1)}</tr>`).join(""));
     const c = e.comparisonV1vsV2;
     if (c) h += `<p class="dim small">v1 selected ${esc(c.v1.selected)} (train CV macro F1 ` +

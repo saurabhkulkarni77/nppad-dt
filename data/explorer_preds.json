@@ -1,6 +1,6 @@
 {
- "generatedBy": "tools/generate_study_data.py, recomputed from NPPAD_Results_Explorer/preds/*.csv (cross-checked against the w60Study rows of data.json)",
- "setting": "Task E setting: transient onset t0 = 20 s, window W = 60 s, full held-out test split",
+ "generatedBy": "tools/generate_study_data.py, recomputed from NPPAD_Results_Explorer/preds/*.csv (cross checked against the w60Study rows of data.json)",
+ "setting": "Task E setting: transient onset t0 = 20 s, window W = 60 s, full held out test split",
  "classes": [
   "LOCA",
   "LOCAC",

@@ -18,7 +18,7 @@
  "nRawChannels": 96,
  "windowSteps": 6,
  "problem": {
-  "explanation": "Every run is at steady state until ~TIME 100, when the transient initiates; the t0=20 window (TIME 20-70) therefore contains only the shared pre-initiation plateau, which takes just 4 distinct values across all 1211 runs, channels and precision levels.",
+  "explanation": "Every run is at steady state until ~TIME 100, when the transient initiates; the t0=20 window (TIME 20-70) therefore contains only the shared pre initiation plateau, which takes just 4 distinct values across all 1211 runs, channels and precision levels.",
   "distinctWindows": 4,
   "distinctWindowsFloat64": 4,
   "distinctWindowsAllChannels": 4,
@@ -27,7 +27,7 @@
  "aug": {
   "techniques": [
    {
-    "name": "onset-anchored jitter",
+    "name": "onset anchored jitter",
     "oneliner": "Tiny random wiggles added to the trace, starting from zero at the first step, so the window's starting point never moves."
    },
    {
@@ -43,11 +43,11 @@
     "oneliner": "The window is smoothly sped up or slowed down, with the same warp on every channel so all sensors stay in step."
    },
    {
-    "name": "same-class mixup",
-    "oneliner": "Two windows of the same accident are blended together into one in-between example."
+    "name": "same class mixup",
+    "oneliner": "Two windows of the same accident are blended together into one in between example."
    },
    {
-    "name": "DTW-aligned pairwise averaging",
+    "name": "DTW aligned pairwise averaging",
     "oneliner": "Two windows of the same accident are first lined up in time, then averaged point by point."
    }
   ],
@@ -187,19 +187,19 @@
    "t0_100": 0.9370812773704529
   },
   {
-   "label": "Between-class / within-class variance ratio",
+   "label": "Between class / within class variance ratio",
    "oneliner": "How far apart the accident classes sit, compared with how much runs of the same accident vary. Bigger means the classes are easier to tell apart.",
    "t0_20": 1.5146767502800627,
    "t0_100": 4.089704551085797
   },
   {
    "label": "Mean |z(last step) \u2212 z(first step)|",
-   "oneliner": "On average, how far the last reading has moved from the first, in standard-deviation units.",
+   "oneliner": "On average, how far the last reading has moved from the first, in standard deviation units.",
    "t0_20": 0.36885765194892883,
    "t0_100": 0.8454937934875488
   },
   {
-   "label": "Nearest-centroid accuracy (full test)",
+   "label": "Nearest centroid accuracy (full test)",
    "oneliner": "The simplest possible classifier \u2014 guess the class whose average window is closest \u2014 scored on the full test split.",
    "t0_20": 0.26639344262295084,
    "t0_100": 0.5916666666666667
@@ -229,7 +229,7 @@
     "oneliner": "Each window is first shifted by the run's own starting level, so only the change from normal is left. The idea: the change, not the level, should carry the news.",
     "kind": "original protocol",
     "variant": false,
-    "recipe": "window minus run's own pre-t0 baseline mean (raw space), then study preprocessing, MiniRocket+Ridge",
+    "recipe": "window minus run's own baseline mean from before t0 (raw space), then study preprocessing, MiniRocket+Ridge",
     "frozen48": {
      "acc": 0.2708333333333333,
      "macroF1": 0.1893162393162393
@@ -241,7 +241,7 @@
    },
    {
     "id": "A1b_anchor_12ch",
-    "name": "A1b \u00b7 First-step anchor",
+    "name": "A1b \u00b7 First step anchor",
     "oneliner": "Like the deviation arm, but each window is shifted by its own first reading instead of the run's starting average.",
     "kind": "original protocol",
     "variant": false,
@@ -261,7 +261,7 @@
     "oneliner": "Both versions side by side \u2014 the raw window and its deviation copy, 24 channels in all \u2014 so the model can use whichever helps.",
     "kind": "original protocol",
     "variant": false,
-    "recipe": "24 channels: original window ++ baseline-deviation window, study preprocessing, MiniRocket+Ridge",
+    "recipe": "24 channels: original window ++ baseline deviation window, study preprocessing, MiniRocket+Ridge",
     "frozen48": {
      "acc": 0.2708333333333333,
      "macroF1": 0.1893162393162393
@@ -274,10 +274,10 @@
    {
     "id": "A2a_shape_histgb",
     "name": "A2a \u00b7 Shape features + gradient boosting",
-    "oneliner": "Drops the raw traces and keeps 120 simple shape numbers per window (means, spreads, slopes, ranges), read by a gradient-boosting model instead of MiniRocket.",
+    "oneliner": "Drops the raw traces and keeps 120 simple shape numbers per window (means, spreads, slopes, ranges), read by a gradient boosting model instead of MiniRocket.",
     "kind": "original protocol",
     "variant": false,
-    "recipe": "120 shape features (per-channel mean/std/min/max/range/last-first/slope/diff stats of scaled windows), StandardScaler, HistGradientBoosting",
+    "recipe": "120 shape features (per channel mean/std/min/max/range/last first/slope/diff stats of scaled windows), StandardScaler, HistGradientBoosting",
     "frozen48": {
      "acc": 0.2708333333333333,
      "macroF1": 0.1893162393162393
@@ -290,10 +290,10 @@
    {
     "id": "A2b_raw_plus_diff_24ch",
     "name": "A2b \u00b7 Raw + differences (24 channels)",
-    "oneliner": "The raw window plus its step-to-step changes as extra channels, so any movement stands out.",
+    "oneliner": "The raw window plus its step to step changes as extra channels, so any movement stands out.",
     "kind": "original protocol",
     "variant": false,
-    "recipe": "24 channels: original window ++ first-difference window, study preprocessing, MiniRocket+Ridge",
+    "recipe": "24 channels: original window ++ first difference window, study preprocessing, MiniRocket+Ridge",
     "frozen48": {
      "acc": 0.2708333333333333,
      "macroF1": 0.1893162393162393
@@ -307,7 +307,7 @@
     "id": "A3_expanded_all_channels",
     "name": "A3 \u00b7 All 96 channels",
     "oneliner": "Every sensor channel the simulator records, not just the usual 12 \u2014 the extra loop, everything. More information, in theory.",
-    "kind": "EXPANDED-CHANNEL VARIANT",
+    "kind": "EXPANDED CHANNEL VARIANT",
     "variant": true,
     "recipe": "all 96 raw channels (incl. loop-B), study preprocessing, MiniRocket+Ridge",
     "frozen48": {
@@ -323,7 +323,7 @@
     "id": "A3b_expanded_deviation",
     "name": "A3b \u00b7 All 96 channels as deviation",
     "oneliner": "All 96 channels, each one shifted by the run's own starting level.",
-    "kind": "EXPANDED-CHANNEL VARIANT",
+    "kind": "EXPANDED CHANNEL VARIANT",
     "variant": true,
     "recipe": "all 96 raw channels as deviation from run baseline, study preprocessing, MiniRocket+Ridge",
     "frozen48": {
@@ -339,7 +339,7 @@
     "id": "A3c_expanded_raw_plus_dev",
     "name": "A3c \u00b7 All 96 raw + deviation (192 channels)",
     "oneliner": "The full 96 channels twice over \u2014 raw and deviation copies, 192 channels in all. The biggest input tried.",
-    "kind": "EXPANDED-CHANNEL VARIANT",
+    "kind": "EXPANDED CHANNEL VARIANT",
     "variant": true,
     "recipe": "192 channels: expanded window ++ its baseline deviation, study preprocessing, MiniRocket+Ridge",
     "frozen48": {
@@ -354,10 +354,10 @@
    {
     "id": "A4_hierarchical_12ch",
     "name": "A4 \u00b7 Hierarchical (group first, then class)",
-    "oneliner": "Two steps: first guess which small group of accidents it could be, then pick inside the group. The groups came from the baseline's own confusions on held-out runs.",
+    "oneliner": "Two steps: first guess which small group of accidents it could be, then pick inside the group. The groups came from the baseline's own confusions on held out runs.",
     "kind": "original protocol",
     "variant": false,
-    "recipe": "stage 1 MiniRocket+Ridge group classifier (groups from val-split confusion of A0, >=3 mutual confusions), stage 2 within-group MiniRocket+Ridge",
+    "recipe": "stage 1 MiniRocket+Ridge group classifier (groups from val split confusion of A0, >=3 mutual confusions), stage 2 within group MiniRocket+Ridge",
     "frozen48": {
      "acc": 0.2708333333333333,
      "macroF1": 0.1893162393162393
@@ -410,7 +410,7 @@
     "oneliner": "No model at all: it memorises the training windows and answers with the majority label of the identical window. A deliberate cheat that proves the point \u2014 it scores the same as every real model.",
     "kind": "original protocol",
     "variant": false,
-    "recipe": "exact-duplicate lookup: memorise each distinct train window's majority label (fallback: global majority). A constructive proof that a trivial memoriser matches every sophisticated model.",
+    "recipe": "exact duplicate lookup: memorise each distinct train window's majority label (fallback: global majority). A constructive proof that a trivial memoriser matches every sophisticated model.",
     "frozen48": {
      "acc": 0.2708333333333333,
      "macroF1": 0.1893162393162393

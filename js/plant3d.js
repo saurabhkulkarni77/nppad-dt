@@ -222,7 +222,7 @@ window.Plant3D = (() => {
     const pumpBase = new T.Mesh(new T.BoxGeometry(1.1, 0.22, 1.1), steelDark);
     pumpBase.position.set(-4.3, 0.29, 2.7); pumpBase.receiveShadow = true; scene.add(pumpBase);
 
-    /* primary loop piping with flow pulses (semi-transparent so the
+    /* primary loop piping with flow pulses (semi transparent so the
        pulses inside can be seen) */
     pipe([[-3.85, 3.35, -0.3], [-3.0, 3.5, 0.5], [-2.2, 3.25, 1.3], [-1.78, 2.95, 1.6]], 0.27, pipeMat, "prim", 4, 0x54e0ff);
     pipe([[-1.72, 1.0, 2.2], [-2.8, 0.85, 2.5], [-3.85, 0.78, 2.62]], 0.27, pipeMat, "prim", 3, 0x54e0ff);

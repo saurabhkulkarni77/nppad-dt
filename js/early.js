@@ -29,7 +29,7 @@ async function init() {
     `Same protocol as the rest of the study: ${D.classes.length} accident classes, ` +
     `${D.windowSteps} samples per window (60 s at 10 s spacing), the ${D.nChannels} study channels, ` +
     `seed ${D.seed}. Every method is scored twice: on the same frozen 48 windows the whole study ` +
-    `uses, and on the full held-out test split (244 windows).`;
+    `uses, and on the full held out test split (244 windows).`;
 
   // ---- the problem -------------------------------------------------------
   document.getElementById("problemText").textContent = P.explanation;
@@ -52,7 +52,7 @@ async function init() {
   document.getElementById("augCounts").textContent =
     `Before: ${int(ac.beforeTotal)} training windows, ${ac.beforeMin}–${ac.beforeMax} per class — the ` +
     `imbalance was mild. After: exactly ${ac.targetPerClass} per class, ${int(ac.augmentedTotal)} in ` +
-    `total (×${ac.augFactor}), originals always included. A balanced-only set (${int(ac.balancedOnlyTotal)} ` +
+    `total (×${ac.augFactor}), originals always included. A balanced only set (${int(ac.balancedOnlyTotal)} ` +
     `windows, topped up with plain copies) separates the effect of balancing from the effect of ` +
     `augmentation itself.`;
   document.getElementById("augTable").innerHTML = tel(
@@ -74,7 +74,7 @@ async function init() {
   document.getElementById("boostTable").innerHTML = tel(
     ["ARM", "FROZEN 48 ACC", "FROZEN 48 F1", "FULL TEST ACC", "FULL TEST F1"],
     D.boost.arms.map(a => `<tr><td><b>${esc(a.name)}</b>` +
-      (a.variant ? ` <span class="tag amber">EXPANDED-CHANNEL VARIANT</span>` : "") +
+      (a.variant ? ` <span class="tag amber">EXPANDED CHANNEL VARIANT</span>` : "") +
       `${oneLiner(a.oneliner)}</td>` +
       `${num(a.frozen48.acc)}${num(a.frozen48.macroF1)}${num(a.fulltest.acc)}${num(a.fulltest.macroF1)}</tr>`).join(""));
 
@@ -105,28 +105,28 @@ async function init() {
     statBox("WHAT THE BASELINE SCORES", `${fmt(D.boost.arms[0].frozen48.acc, 4)} / ${fmt(D.boost.arms[0].fulltest.acc, 4)}`) +
     `</div>`;
   document.getElementById("perClassTable").innerHTML = tel(
-    ["CLASS", "BEST ARM, FULL-TEST F1"],
+    ["CLASS", "BEST ARM, FULL TEST F1"],
     D.boost.bestPerClassF1Fulltest.map(r => `<tr><td>${esc(r.class)}</td>${num(r.f1)}</tr>`).join(""));
 
   // ---- what this means ------------------------------------------------------
   const meaning = [
     ["Call “early” relative to the accident, not the clock.",
-     "t0 = 20 measures 30–80 seconds before anything happens. An honest early-detection " +
+     "t0 = 20 measures 30–80 seconds before anything happens. An honest early detection " +
      "protocol anchors windows to initiation (about TIME 100) with small positive offsets — " +
      "t0 = 100, 110, 120 — trading a few seconds of delay for windows that contain the " +
      "transient's first seconds."],
     ["Print the ceiling next to the early score.",
-     "Any pre-initiation score should be shown beside its Bayes ceiling, so the t0 = 20 " +
+     "Any pre initiation score should be shown beside its Bayes ceiling, so the t0 = 20 " +
      "column reads as “at ceiling” rather than “every method fails”. On this page's " +
      "protocol the baseline is already at that ceiling."],
     ["The scope of the proof, stated plainly.",
-     "This ceiling is proven for the trained-model benchmark protocol — the frozen 48 " +
-     "windows and the full test split used here. The language-model study on the LLM page " +
+     "This ceiling is proven for the trained model benchmark protocol — the frozen 48 " +
+     "windows and the full test split used here. The language model study on the LLM page " +
      "used its own window draw, so this exact cap is not claimed for those arms."],
     ["One caveat about the simulator.",
      "The shared plateau is a property of this dataset's simulator output. Real plant " +
-     "data would carry sensor noise, so no two windows would be bit-identical — but the " +
-     "pre-initiation signal would still be absent, and the practical conclusion is the " +
+     "data would carry sensor noise, so no two windows would be bit identical — but the " +
+     "pre initiation signal would still be absent, and the practical conclusion is the " +
      "same. Both experiments ran the study's single fixed seed; the ceiling itself is a " +
      "counting argument, so no seed choice can move it."],
   ];

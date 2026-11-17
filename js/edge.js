@@ -2,7 +2,7 @@
 /*
  * NPPAD-Edge, browser port.
  *
- * A faithful JavaScript re-implementation of the pure NumPy edge
+ * A faithful JavaScript re implementation of the pure NumPy edge
  * runtime in the NPPAD-Edge project (nppad_edge/features.py +
  * bundle.py PrimaryModel), driven by the same exported parameters
  * (data/model.bin, layout in data/model.json):

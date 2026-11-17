@@ -1,5 +1,5 @@
 {
- "generatedBy": "tools/generate_study_data.py from the Nov 8, 2026 revised benchmark results file (prompt v1 benchmark; one local-model arm removed 2026-11-08 at the author's order)",
+ "generatedBy": "tools/generate_study_data.py from the Nov 8, 2026 revised benchmark results file (prompt v1 benchmark; one local model arm removed 2026-11-08 at the author's order)",
  "method": {
   "seed": 2026,
   "windowsPerProtocol": 48,

@@ -40,8 +40,8 @@ function footer() {
   document.getElementById("ftr").innerHTML = `
   NPPAD DIGITAL TWIN. A working copy of the NPPAD nuclear accident study
   (Saurabh Sanjay Kulkarni). The story in six pages: look at the plant, try the
-  AI yourself, read what the study learned, then dig into the full trained-model
-  results, the complete language-model prompt study and the early-accuracy
+  AI yourself, read what the study learned, then dig into the full trained model
+  results, the complete language model prompt study and the early accuracy
   investigation. Every number on these pages is
   computed from the study's own result files by the scripts in tools/. Nothing is
   typed in by hand. The AI model (MultiRocket+HYDRA) is small enough to run on a

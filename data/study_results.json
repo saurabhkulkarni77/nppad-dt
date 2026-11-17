@@ -45,7 +45,7 @@
    "MiniRocket"
   ],
   "generatedFrom": [
-   "HW2_Combined_Results_All_Models.csv (148 rows, regenerated from run7, the Oct 29, 2026 full re-run of the current lineup)",
+   "HW2_Combined_Results_All_Models.csv (148 rows, regenerated from run7, the Oct 29, 2026 full re run of the current lineup)",
    "run7 executed notebook NPPAD_Homework2_SelfContained_Colab_Minimal_2026-10-29_0925CT_Executed.ipynb (E5, R1, R2 and X1/X2 outputs)",
    "pred_E_W60_test.csv (official submission file: all 8 models stacked, 1,952 rows; MD5 db7c0172345673f61470a9664aa9a1cc)"
   ]
@@ -2192,7 +2192,7 @@
    "meanEntropyHeld": 0.1185
   },
   {
-   "signal": "CNN MC-dropout entropy (all variables)",
+   "signal": "CNN MC dropout entropy (all variables)",
    "W": 120,
    "knownF1": 0.8637,
    "threshold": 0.7532,
@@ -2203,7 +2203,7 @@
    "meanEntropyHeld": 0.5401
   },
   {
-   "signal": "CNN MC-dropout entropy (all variables)",
+   "signal": "CNN MC dropout entropy (all variables)",
    "W": 300,
    "knownF1": 0.8577,
    "threshold": 1.409,
@@ -2214,7 +2214,7 @@
    "meanEntropyHeld": 0.169
   },
   {
-   "signal": "CNN MC-dropout entropy (all variables)",
+   "signal": "CNN MC dropout entropy (all variables)",
    "W": 600,
    "knownF1": 0.8826,
    "threshold": 1.334,
@@ -2360,13 +2360,13 @@
     "test": 244,
     "val": 242
    },
-   "training": "class-weighted CE, Adam lr 1e-3, batch 64, max 100 epochs, patience 12, early stop on val macro-F1, best weights restored (study e5_train_torch recipe)",
+   "training": "class weighted CE, Adam lr 1e-3, batch 64, max 100 epochs, patience 12, early stop on val macro F1, best weights restored (study e5_train_torch recipe)",
    "seeds": [
     2026,
     2027,
     2028
    ],
-   "test_scoring": "argmax of seed-mean probabilities (study E5 convention); macro-F1 over 12 labels, zero_division=0"
+   "test_scoring": "argmax of seed mean probabilities (study E5 convention); macro F1 over 12 labels, zero_division=0"
   },
   "architecture": {
    "input": "window (6 steps x 88 channels)",

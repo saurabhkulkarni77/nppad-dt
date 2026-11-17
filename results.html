@@ -12,9 +12,9 @@
 
   <div class="panel" style="margin-top:14px">
     <h2>RESULTS: EVERY TRAINED MODEL, EVERY SETTING</h2>
-    <p>This page is the study's full trained-model record: the eight core models
+    <p>This page is the study's full trained model record: the eight core models
     (LogReg, LogReg+, Random Forest, CNN, GRU, MultiRocket+HYDRA, Rocket and
-    MiniRocket), scored on the same held-out test windows under many settings,
+    MiniRocket), scored on the same held out test windows under many settings,
     plus the Transformer arm added later. Filter the main grid by when the
     window starts, how long it is, and which sensors the model may see. Below
     the grid you can look up what each model predicted for one exact test
@@ -35,9 +35,9 @@
     <canvas class="chart" id="gridChart" width="760" height="200" style="margin-top:12px"></canvas>
     <div id="gridTable" style="margin-top:10px"></div>
     <p class="dim small">Macro F1 is the headline score: the average of the
-    per-accident scores, so a model cannot look good by only spotting the easy
+    per accident scores, so a model cannot look good by only spotting the easy
     accidents. Validation F1 was measured on the separate validation split and
-    was used to pick settings; the test columns are the held-out final word.</p>
+    was used to pick settings; the test columns are the held out final word.</p>
   </div>
 
   <div class="grid g2" style="margin-top:14px">
@@ -54,7 +54,7 @@
       <div id="transTable"></div>
       <p class="dim small">Trained under the exact study protocol (same split,
       same summary features) with three seeds; the numbers shown are the seed
-      means of the probability-averaged scores. Its per-accident F1 scores are
+      means of the probability averaged scores. Its per accident F1 scores are
       in the detail line under the table.</p>
       <p class="dim small" id="transPerClass"></p>
     </div>
@@ -99,8 +99,8 @@
     <h3>SPOTTING AN ACCIDENT TYPE NEVER SEEN BEFORE (R2)</h3>
     <p class="dim small">One accident class is held out completely. A good
     detector should get uncertain on it: these rows score how well each
-    uncertainty signal separates the held-out class from the known ones
-    (AUROC), and how often it raises the alarm at a 5% false-alarm rate.</p>
+    uncertainty signal separates the held out class from the known ones
+    (AUROC), and how often it raises the alarm at a 5% false alarm rate.</p>
     <div id="r2Table"></div>
   </div>
 
@@ -108,7 +108,7 @@
     <h3>THE HONEST SETTING: t0 = 20 s, W = 60 s, REALISTIC SENSORS (W60 STUDY)</h3>
     <p class="dim small">Twenty seconds in, most accidents still look like
     normal operation, so every model lands near the same low score. These rows
-    were recomputed from the recorded per-window prediction files themselves,
+    were recomputed from the recorded per window prediction files themselves,
     and this page's window lookup above uses those same files.</p>
     <div id="w60Table"></div>
   </div>
@@ -117,7 +117,7 @@
     <b>WHERE THESE NUMBERS COME FROM.</b> Every number on this page is read at
     build time from the study's own result files by
     tools/generate_study_data.py, which also
-    recomputes the per-model scores from the recorded prediction files and
+    recomputes the per model scores from the recorded prediction files and
     checks them against the study's tables before writing anything. Nothing
     here is typed in by hand.
   </div>

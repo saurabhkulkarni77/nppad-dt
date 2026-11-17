@@ -87,7 +87,7 @@ async function init() {
   const tr = SR.transformer, a = tr.architecture;
   document.getElementById("transArch").textContent =
     `${tr.model}. Input: ${a.input}; projection ${a.in_proj}; ${a.num_layers} encoder layers, ` +
-    `model width ${a.d_model}, ${a.nhead} attention heads, feed-forward ${a.dim_feedforward}, ` +
+    `model width ${a.d_model}, ${a.nhead} attention heads, feed forward ${a.dim_feedforward}, ` +
     `${Number(a.n_parameters).toLocaleString("en-US")} parameters. Split inside the arm: ` +
     `${tr.per_t0["100"].n_train} train / ${tr.per_t0["100"].n_val} validation / ` +
     `${tr.per_t0["100"].n_test} test at onset.`;
@@ -96,7 +96,7 @@ async function init() {
     ["100", "20"].map(k => `<tr><td>t0 = ${k} s</td>${num(tr.per_t0[k].test_accuracy_seedmean_proba)}` +
       `${num(tr.per_t0[k].test_macro_F1_seedmean_proba)}</tr>`).join(""));
   document.getElementById("transPerClass").textContent =
-    "Per-accident F1 at onset (t0 = 100 s): " +
+    "Per accident F1 at onset (t0 = 100 s): " +
     Object.entries(tr.per_t0["100"].per_class_F1).map(([c, v]) => `${c} ${fmt(v, 3)}`).join(" · ");
 
   document.getElementById("lookupNote").textContent =
@@ -129,7 +129,7 @@ async function init() {
     `becomes 80%). The table scores the drop; the small matrix under it shows each model's ` +
     `actual call on ${SR.r1Scenarios.length} swapped scenarios.`;
   document.getElementById("r1Table").innerHTML = tel(
-    ["SETTING", "MODEL", "W (S)", "TEST F1", "SWAPPED-SEVERITY F1", "DROP"],
+    ["SETTING", "MODEL", "W (S)", "TEST F1", "SWAPPED SEVERITY F1", "DROP"],
     SR.r1.map(r => `<tr><td>${r.setting}</td><td>${r.model}</td>${num(r.W, 0)}${num(r.testF1)}` +
       `${num(r.rampF1)}${num(r.degradation)}</tr>`).join("")) +
     tel(["SCENARIO", "TRUE CLASS", ...scenModels.map(m => m.toUpperCase())],
@@ -138,7 +138,7 @@ async function init() {
         `</tr>`).join(""));
 
   document.getElementById("r2Table").innerHTML = tel(
-    ["UNCERTAINTY SIGNAL", "W (S)", "F1 ON KNOWN CLASSES", "AUROC", "DETECTION AT 5% FALSE ALARMS", "FALSE-ALARM RATE"],
+    ["UNCERTAINTY SIGNAL", "W (S)", "F1 ON KNOWN CLASSES", "AUROC", "DETECTION AT 5% FALSE ALARMS", "FALSE ALARM RATE"],
     SR.r2.map(r => `<tr><td>${r.signal}</td>${num(r.W, 0)}${num(r.knownF1)}${num(r.AUROC)}` +
       `${num(r.detection)}${num(r.FPR)}</tr>`).join(""));
 

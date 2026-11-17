@@ -11,7 +11,7 @@
 <div class="wrap">
 
   <div class="panel" style="margin-top:14px">
-    <h2>THE LANGUAGE-MODEL PROMPT STUDY</h2>
+    <h2>THE LANGUAGE MODEL PROMPT STUDY</h2>
     <p id="taskLine"></p>
     <p class="dim small" id="protocolLine"></p>
   </div>
@@ -21,13 +21,13 @@
     <p class="dim small">Accuracy and macro F1 on the same frozen windows for
     every arm of the study. A parse failure means the model did not answer
     with exactly one valid class code; it counts as a wrong answer. Two arms
-    near the top carry an asterisk of honesty: the plug-in rows score high
+    near the top carry an asterisk of honesty: the plug in rows score high
     because a trained model did the work inside them, which their detail
     cards spell out.</p>
     <p class="small"><b>In one line:</b> every method below is a different
     way of asking a language model to read 60 seconds of reactor sensor
     data, given as plain text, and name which of the 12 accidents is
-    happening, with no training on this plant. The plain-words line under
+    happening, with no training on this plant. The plain words line under
     each method name says what that method does.</p>
     <div id="masterTable"></div>
   </div>
@@ -35,7 +35,7 @@
   <div class="panel" style="margin-top:14px">
     <h3>WHAT THE TRAINED MODELS SCORE (FOR COMPARISON)</h3>
     <p class="dim small">The eight trained study models, run on the full
-    held-out test split (a larger set than the 48-window language-model
+    held out test split (a larger set than the 48 window language model
     sample, so compare loosely). At the early protocol every approach, trained
     or prompted, lands near the same ceiling: twenty seconds in, ten of the
     twelve accidents still look almost identical.</p>
@@ -55,8 +55,8 @@
     <p class="dim small">The exact prompt text sent for the first onset window
     (P100_W01), read from the study's prompt files. The later versions were
     built from the v1 data block: v2 explains every channel and accident in
-    plain language, v3 adds step-by-step chain-of-thought, and v4 adds a
-    tree-of-thoughts comparison of the three most plausible classes.</p>
+    plain language, v3 adds step by step chain of thought, and v4 adds a
+    tree of thoughts comparison of the three most plausible classes.</p>
     <p class="dim small" id="promptNote"></p>
     <div id="promptBlocks"></div>
   </div>
@@ -70,7 +70,7 @@
     <h3>THE SAME PROMPT ARMS ON PUBLIC DATA (UEA BENCHMARK)</h3>
     <p class="dim small">To check the prompt methods were not just tuned to
     this one plant dataset, the main arms were also run on five public UEA
-    multivariate time-series datasets, 40 cases each, same seed. Mean macro
+    multivariate time series datasets, 40 cases each, same seed. Mean macro
     F1 across the five datasets:</p>
     <div id="ueaAgg"></div>
     <div id="ueaPerDataset" style="margin-top:12px"></div>
@@ -81,7 +81,7 @@
   <div class="note blue" style="margin-top:14px">
     <b>WHERE THESE NUMBERS COME FROM.</b> Every number on this page is read at
     build time from the study's result files by
-    tools/generate_study_data.py, and the plug-in agreement counts were
+    tools/generate_study_data.py, and the plug in agreement counts were
     recomputed from the prompt and answer files. Nothing here is typed in
     by hand.
   </div>

@@ -1015,7 +1015,7 @@
     "fpr": 0.03636
    },
    {
-    "signal": "CNN MC-dropout entropy (all variables)",
+    "signal": "CNN MC dropout entropy (all variables)",
     "W": 120,
     "auroc": 0.837,
     "detectionRate": 0.25,
@@ -1029,7 +1029,7 @@
     "fpr": 0.06364
    },
    {
-    "signal": "CNN MC-dropout entropy (all variables)",
+    "signal": "CNN MC dropout entropy (all variables)",
     "W": 300,
     "auroc": 0.5384,
     "detectionRate": 0.05,
@@ -1043,7 +1043,7 @@
     "fpr": 0.03182
    },
    {
-    "signal": "CNN MC-dropout entropy (all variables)",
+    "signal": "CNN MC dropout entropy (all variables)",
     "W": 600,
     "auroc": 0.2098,
     "detectionRate": 0.05,
