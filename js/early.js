@@ -134,3 +134,43 @@ async function init() {
     `<h4>${esc(h)}</h4><p class="dim small">${esc(t)}</p>`).join("");
 }
 init();
+
+// ---- entire run classification (2026-11-23 study) -------------------------
+async function initEntireRun() {
+  let E;
+  try { E = await loadJSON("data/entire_run_study.json"); } catch (e) { return; }
+  const P = E.protocol, R = E.references;
+  const best = E.results[0];
+  document.getElementById("entireRunStats").innerHTML =
+    `<div class="hud" style="margin:10px 0">` +
+    statBox("RUNS IN THE STUDY", `${int(P.nRuns)}`) +
+    statBox("HELD OUT TEST RUNS", `${int(P.nTest)}`) +
+    statBox("BEST ENTIRE RUN ACCURACY", `${fmt(best.accuracy, 4)}`) +
+    statBox("BEST ENTIRE RUN MACRO F1", `${fmt(best.macroF1, 4)}`) +
+    statBox("EARLY CEILING AT t0 = 20", `${fmt(R.earlyCeilingAcc, 4)} ACC / ${fmt(R.earlyCeilingF1, 4)} F1`) +
+    statBox("ONSET REFERENCE MACRO F1", `${fmt(R.onsetMacroF1, 3)}`) +
+    `</div>`;
+  document.getElementById("entireRunTable").innerHTML = tel(
+    ["MODEL", "TEST ACCURACY, PER RUN", "TEST MACRO F1, PER RUN"],
+    E.results.map(r => `<tr><td><b>${esc(r.model)}</b></td>${num(r.accuracy, 4)}${num(r.macroF1, 4)}</tr>`).join(""));
+  const notes = E.results.filter(r => r.note);
+  if (notes.length) {
+    document.getElementById("entireRunTable").innerHTML += notes.map(r =>
+      `<p class="dim small">Compute note, ${esc(r.model)}: ${esc(r.note)}</p>`).join("");
+  }
+  const fr = E.fractionModels;
+  const rowsF = [0.25, 0.5, 0.75, 1].map(f => {
+    const cells = fr.map(m => {
+      const p = E.fractionCurve[m].find(q => Math.abs(q.fraction - f) < 1e-9);
+      return `${num(p.accuracy, 4)}${num(p.macroF1, 4)}`;
+    }).join("");
+    return `<tr><td><b>${Math.round(f * 100)}%</b></td>${cells}</tr>`;
+  }).join("");
+  document.getElementById("fractionTable").innerHTML = tel(
+    ["OBSERVED FRACTION OF EACH RUN", ...fr.flatMap(m => [`${m} ACC`, `${m} F1`])],
+    rowsF);
+  document.getElementById("entireRunPerClass").innerHTML = tel(
+    ["CLASS", `${esc(E.bestModel)} F1, ENTIRE RUN`],
+    E.bestPerClassF1.map(r => `<tr><td>${esc(r.class)}</td>${num(r.f1, 4)}</tr>`).join(""));
+}
+initEntireRun();
