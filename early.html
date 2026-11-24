@@ -171,6 +171,42 @@
     </div>
   </div>
 
+  <div class="panel" style="margin-top:14px">
+    <h3>THE NEXT STEP: CLASSIFY THE ENTIRE RUN</h3>
+    <p class="dim small">The two experiments above keep the study window
+    and ask what can be squeezed from it. This study changes the question
+    instead. Rather than naming the accident from one fixed window, each
+    trained model now reads a run from its first sample to its last and
+    names the accident once per run. The split, the channels and the
+    preprocessing are the study's own; only the window changes, from
+    60 seconds at a fixed start time to the entire run. The language
+    model arms keep the timestamp protocol, because an entire run does
+    not fit their context; this study covers the trained models.</p>
+    <div id="entireRunStats"></div>
+    <div id="entireRunTable"></div>
+    <p class="dim small" style="margin-top:10px">Read plainly: with the
+    whole run in view, the label the early window lacks is present,
+    because the transient has had time to express itself. This is run
+    identification after the fact, not an early warning method, and it
+    does not rescue the t0 = 20 question. What speaks to timing is the
+    curve below: the two best models, scored again after seeing only the
+    first quarter, half and three quarters of each run.</p>
+    <img src="entire_run_fraction.png" alt="Accuracy and macro F1 against the observed fraction of each run" style="width:100%;display:block;border:1px solid #ccc;margin-top:10px">
+    <div id="fractionTable" style="margin-top:10px"></div>
+    <p class="dim small" style="margin-top:10px">The contrast in one
+    line: the early window at t0 = 20 caps every method at the ceiling
+    shown above, while the entire run lets the best trained model score
+    near the onset reference. The gap between the two is the price of
+    asking before the accident has started.</p>
+    <h4 style="margin-top:14px">PER CLASS, BEST MODEL</h4>
+    <div id="entireRunPerClass"></div>
+    <p class="dim small" style="margin-top:10px">WHERE THESE NUMBERS COME
+    FROM. Every number in this panel is read at build time from the
+    entire run study result file (nppad_entire_run/results.json, written
+    by the executed study script) by tools/generate_entire_run_data.py.
+    Nothing here is typed in by hand.</p>
+  </div>
+
 </div>
 <footer id="ftr"></footer>
 <script src="js/common.js"></script>
