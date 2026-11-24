@@ -1,0 +1,184 @@
+{
+ "protocol": {
+  "nRuns": 1211,
+  "nTrain": 725,
+  "nVal": 242,
+  "nTest": 244,
+  "nChannels": 88,
+  "classes": [
+   "LOCA",
+   "LOCAC",
+   "SLBIC",
+   "SLBOC",
+   "SGATR",
+   "SGBTR",
+   "RW",
+   "RI",
+   "FLB",
+   "MD",
+   "LR",
+   "LLB"
+  ],
+  "runLengthSteps": {
+   "min": 11,
+   "median": 435.0,
+   "max": 638
+  }
+ },
+ "results": [
+  {
+   "model": "Rocket",
+   "accuracy": 0.9754,
+   "macroF1": 0.9753,
+   "note": null
+  },
+  {
+   "model": "MultiRocket+HYDRA",
+   "accuracy": 0.9754,
+   "macroF1": 0.9752,
+   "note": null
+  },
+  {
+   "model": "Random Forest",
+   "accuracy": 0.9713,
+   "macroF1": 0.9712,
+   "note": null
+  },
+  {
+   "model": "MiniRocket",
+   "accuracy": 0.9631,
+   "macroF1": 0.9625,
+   "note": null
+  },
+  {
+   "model": "LogReg+",
+   "accuracy": 0.9303,
+   "macroF1": 0.9304,
+   "note": null
+  },
+  {
+   "model": "CNN",
+   "accuracy": 0.9098,
+   "macroF1": 0.9097,
+   "note": "Trained on the full run at half temporal resolution (pairwise mean pooling of the scaled series, effective 20 second sampling, longest run 319 steps) with the study harness capped at 48 epochs and patience 10 (seeds 2026, 2027, 2028). A timed probe measured roughly 17 to 45 seconds per epoch at half resolution on this machine, and full resolution training did not finish one model in over 40 minutes, so this documented fallback was used; every other model in the table uses full resolution."
+  },
+  {
+   "model": "LogReg",
+   "accuracy": 0.9016,
+   "macroF1": 0.902,
+   "note": null
+  },
+  {
+   "model": "GRU",
+   "accuracy": 0.8689,
+   "macroF1": 0.8657,
+   "note": "Trained on the full run at half temporal resolution (pairwise mean pooling of the scaled series, effective 20 second sampling, longest run 319 steps), primary study seed 2026 only, with a 24 epoch cap and patience 6. A timed probe measured about 167 to 193 seconds per epoch for this model on this machine even at half resolution, so the full three seed, 100 epoch harness was not feasible; this documented fallback was used instead. Every other model in the table uses full resolution and the full recipe."
+  }
+ ],
+ "bestModel": "Rocket",
+ "bestPerClassF1": [
+  {
+   "class": "LOCA",
+   "f1": 0.9744
+  },
+  {
+   "class": "LOCAC",
+   "f1": 0.9268
+  },
+  {
+   "class": "SLBIC",
+   "f1": 0.95
+  },
+  {
+   "class": "SLBOC",
+   "f1": 1.0
+  },
+  {
+   "class": "SGATR",
+   "f1": 1.0
+  },
+  {
+   "class": "SGBTR",
+   "f1": 1.0
+  },
+  {
+   "class": "RW",
+   "f1": 0.9744
+  },
+  {
+   "class": "RI",
+   "f1": 0.9756
+  },
+  {
+   "class": "FLB",
+   "f1": 0.95
+  },
+  {
+   "class": "MD",
+   "f1": 0.9524
+  },
+  {
+   "class": "LR",
+   "f1": 1.0
+  },
+  {
+   "class": "LLB",
+   "f1": 1.0
+  }
+ ],
+ "fractionModels": [
+  "Rocket",
+  "MultiRocket+HYDRA"
+ ],
+ "fractionCurve": {
+  "Rocket": [
+   {
+    "fraction": 0.25,
+    "accuracy": 0.9795,
+    "macroF1": 0.9795
+   },
+   {
+    "fraction": 0.5,
+    "accuracy": 0.9713,
+    "macroF1": 0.9711
+   },
+   {
+    "fraction": 0.75,
+    "accuracy": 0.9713,
+    "macroF1": 0.9711
+   },
+   {
+    "fraction": 1.0,
+    "accuracy": 0.9754,
+    "macroF1": 0.9753
+   }
+  ],
+  "MultiRocket+HYDRA": [
+   {
+    "fraction": 0.25,
+    "accuracy": 0.9836,
+    "macroF1": 0.9837
+   },
+   {
+    "fraction": 0.5,
+    "accuracy": 0.9713,
+    "macroF1": 0.9713
+   },
+   {
+    "fraction": 0.75,
+    "accuracy": 0.9795,
+    "macroF1": 0.9794
+   },
+   {
+    "fraction": 1.0,
+    "accuracy": 0.9754,
+    "macroF1": 0.9752
+   }
+  ]
+ },
+ "references": {
+  "onsetMacroF1": 0.984,
+  "earlyCeilingAcc": 0.2708,
+  "earlyCeilingF1": 0.1893
+ }
+}
